@@ -1,0 +1,61 @@
+/*
+ * Copyright (c) 2003, Sergey Zorin. All rights reserved.
+ *
+ * This software is distributable under the BSD license. See the terms
+ * of the BSD license in the LICENSE file provided with this software.
+ *
+ */
+
+#include <windows.h>
+
+#include "trunc_ext.rh"
+
+#define xstr(x) str(x)
+#define str(x) #x
+
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+
+VS_VERSION_INFO VERSIONINFO
+  FILEVERSION 1,0,0,17
+  PRODUCTVERSION 1,0,0,17
+  FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+  FILEFLAGS VS_FF_DEBUG
+#else
+  FILEFLAGS 0L
+#endif
+  FILEOS VOS_NT_WINDOWS32
+  FILETYPE VFT_DLL
+  FILESUBTYPE VFT_UNKNOWN
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "040904b0"
+        {
+            VALUE "Comments", ""
+            VALUE "CompanyName", ""
+            VALUE "FileDescription", "trunc shell extension"
+            VALUE "FileVersion", "Release 1.0"
+            VALUE "InternalName", "trunc shell extension"
+            VALUE "LegalCopyright", "Copyright © 2003, 2004 Sergey Zorin"
+            VALUE "LegalTrademarks", ""
+            VALUE "OriginalFilename", "trunc_ext.dll"
+            VALUE "PrivateBuild", ""
+            VALUE "ProductName", "Truncate Context Menu Extension"
+            VALUE "ProductVersion", "Release 1.0"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x409, 1200
+    }
+}
+
+STRINGTABLE
+{
+  TRUNC_STR "truncate"
+  
+  TRUNC_HINT "Truncate selected files"
+  
+  ERROR_STR "Error"
+}
