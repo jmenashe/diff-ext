@@ -17,6 +17,7 @@ WinMain(HINSTANCE __not_used_1__, HINSTANCE __not_used_2__, LPSTR __not_used_3__
   }
   
   Sleep(1000);
+  
   ret = (int)ShellExecute(NULL, NULL, "explorer.exe", NULL, NULL, SW_SHOW);
   if(ret <= 32) {
     LPTSTR message;
@@ -27,5 +28,6 @@ WinMain(HINSTANCE __not_used_1__, HINSTANCE __not_used_2__, LPSTR __not_used_3__
 
     LocalFree(message);
   }
+  
   return 0;
 }
