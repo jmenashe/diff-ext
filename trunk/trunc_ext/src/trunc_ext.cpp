@@ -261,7 +261,7 @@ TRUNC_EXT::truncate() {
         HANDLE file = CreateFile(tmp, GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, 0, TRUNCATE_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
         
         if(file == INVALID_HANDLE_VALUE) {
-          sprintf(message, "Couldnot truncate '%s'; error: %d", tmp, GetLastError());
+          sprintf(message, "Could not truncate '%s'", tmp);
           MessageBox(0, message, TEXT("WARNING"), MB_OK);
         }
         

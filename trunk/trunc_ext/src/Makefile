@@ -35,7 +35,7 @@ DLL  := $(BUILD)/trunc_ext.dll
 
 LANG_RU := $(BUILD)/$(PROJ)1049.dll
 
-LANG := $(LANG_RU)
+LANG := #$(LANG_RU)
 
 .PHONY: all all-before all-after clean clean-custom
 
