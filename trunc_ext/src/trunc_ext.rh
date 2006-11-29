@@ -1,6 +1,0 @@
-#define TRUNC_STR 1001
-
-#define TRUNC_HINT 2001
-
-#define ERROR_STR 3002
-
