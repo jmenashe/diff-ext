@@ -72,7 +72,7 @@ BEGIN
     "Button", 
     BS_GROUPBOX, 
     7, 7, 247, 123
-  CONTROL "比較コウNDンド:", 
+  CONTROL "比較コマンド:", 
     104, 
     "Static", 
     WS_GROUP, 
@@ -87,7 +87,7 @@ BEGIN
     "Button", 
     WS_TABSTOP, 
     197, 29, 50, 14
-  CONTROL "3-way比較コウNDンド:", 
+  CONTROL "3-way比較コマンド:", 
     4002, 
     "Static", 
     WS_GROUP, 
