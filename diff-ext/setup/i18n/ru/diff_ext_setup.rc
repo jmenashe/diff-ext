@@ -24,8 +24,8 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 #endif
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION 1,9,0,216
-PRODUCTVERSION 1,9,0,216
+FILEVERSION 1,9,1,216
+PRODUCTVERSION 1,9,1,216
 FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
 FILEFLAGS VS_FF_DEBUG
@@ -43,14 +43,14 @@ BEGIN
             VALUE "Comments", ""
             VALUE "CompanyName", ""
             VALUE "FileDescription", "diff shell extension setup"
-            VALUE "FileVersion", "1.9.0"
+            VALUE "FileVersion", "1.9.1"
             VALUE "InternalName", "diff shell extension setup"
             VALUE "LegalCopyright", "Copyright © 2003-2006 Сергей Зорин"
             VALUE "LegalTrademarks", ""
             VALUE "OriginalFilename", "diff_ext_setup1049.dll"
             VALUE "PrivateBuild", ""
             VALUE "ProductName", "Diff Context Menu Extension"
-            VALUE "ProductVersion", "1.9.0"
+            VALUE "ProductVersion", "1.9.1"
         END
     END
     BLOCK "VarFileInfo"
