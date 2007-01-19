@@ -17,6 +17,9 @@ typedef struct _DIFF_EXT_CLASS {
 static GType provider_types[1];
 static GType diff_ext_type;
 
+static GString* left = g_string_new("");
+static GString* right = g_string_new("");
+
 void
 file_log(const gchar *log_domain, GLogLevelFlags log_level, const gchar *message, gpointer user_data) {
   FILE* f = fopen("/tmp/diff-ext.log", "a");
@@ -28,30 +31,14 @@ static void
 select_left(NautilusMenuItem *item, gpointer user_data) {
   GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT (item), "diff-ext::left"));
   
-  GtkWidget* dialog = gtk_message_dialog_new(NULL,
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_INFO,
-                                  GTK_BUTTONS_CLOSE,
-                                  "Left side: '%s'", gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))));
-
-  /* Destroy the dialog when the user responds to it (e.g. clicks a button) */
-  g_signal_connect_swapped(dialog, "response", G_CALLBACK(gtk_widget_destroy), dialog);
-  gtk_widget_show(dialog);
+  g_string_assign(left, gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))));
 }
 
 static void
 select_right(NautilusMenuItem *item, gpointer user_data) {
   GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "diff-ext::right"));
   
-  GtkWidget* dialog = gtk_message_dialog_new(NULL,
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_INFO,
-                                  GTK_BUTTONS_CLOSE,
-                                  "Right side: '%s'", gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))));
-
-  /* Destroy the dialog when the user responds to it (e.g. clicks a button) */
-  g_signal_connect_swapped(dialog, "response", G_CALLBACK(gtk_widget_destroy), dialog);
-  gtk_widget_show(dialog);
+  g_string_assign(right, gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))));
 }
 
 static void
@@ -59,39 +46,14 @@ compare(NautilusMenuItem *item, gpointer user_data) {
   gchar* argv[4];
   char cwd[PATH_MAX+1];
   GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "diff-ext::compare"));
-  GError error;
-  GError* e = &error;
-  gint status;
-  gboolean ret;
   getcwd(cwd, PATH_MAX);
   argv[0] = "/home/serg/proj/kdiff3/src/kdiff3";
-  argv[1] = 0; //gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data)));
-  argv[2] = 0; //gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(g_list_next(files)->data)));
-  argv[3] = 0;
+  argv[1] = "/home/serg/proj/kdiff3/src/kdiff3";
+  argv[2] = gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data)));
+  argv[3] = gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(g_list_next(files)->data)));
+  argv[4] = 0;
   
-  GtkWidget* dialog = gtk_message_dialog_new(NULL,
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_INFO,
-                                  GTK_BUTTONS_CLOSE,
-                                  "Compare: '%s' '%s' and '%s'", 
-                                  argv[0],
-                                  argv[1],
-                                  argv[2]);
-
-  /* Destroy the dialog when the user responds to it (e.g. clicks a button) */
-  g_signal_connect_swapped(dialog, "response", G_CALLBACK(gtk_widget_destroy), dialog);
-  gtk_widget_show(dialog);
-  ret = g_spawn_sync(0, argv, 0, G_SPAWN_FILE_AND_ARGV_ZERO | G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL, 0, 0, 0, 0, &status, &e);
-  dialog = gtk_message_dialog_new(NULL,
-                                  GTK_DIALOG_DESTROY_WITH_PARENT,
-                                  GTK_MESSAGE_INFO,
-                                  GTK_BUTTONS_CLOSE,
-                                  "Compare is done: status: %d, code: %d; message '%s'", status, error.code, error.message);
-//  execl("/home/serg/proj/kdiff3/src/kdiff3", "/home/serg/proj/kdiff3/src/kdiff3",
-//    gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))),
-//    gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(g_list_next(files)->data))),
-//    0
-//  );
+  g_spawn_async(0, argv, 0, G_SPAWN_FILE_AND_ARGV_ZERO | G_SPAWN_SEARCH_PATH, 0, 0, 0, 0);
 }
 
 static GList* 
@@ -119,6 +81,9 @@ get_file_items(NautilusMenuProvider *provider, GtkWidget *window, GList *files) 
       g_signal_connect(right, "activate", G_CALLBACK(select_right), provider);
       g_object_set_data_full(G_OBJECT(right), "diff-ext::right", nautilus_file_info_list_copy(files), (GDestroyNotify)nautilus_file_info_list_free);
       items = g_list_append(items, right);
+
+      if() {
+      }
     } 
 
     if(n == 2) {    
