@@ -1,10 +1,10 @@
+#include <string.h>
 #include <gtk/gtk.h>
 #include <glib-object.h>
 #include <glib/gi18n-lib.h>
 #include <libgnomevfs/gnome-vfs-utils.h>
 #include <libnautilus-extension/nautilus-info-provider.h>
 #include <libnautilus-extension/nautilus-menu-provider.h>
-
 
 typedef struct _DIFF_EXT {
   GObject object;
@@ -17,38 +17,36 @@ typedef struct _DIFF_EXT_CLASS {
 static GType provider_types[1];
 static GType diff_ext_type;
 
-static GString* left = g_string_new("");
-static GString* right = g_string_new("");
+static GString* saved = 0;
 
-void
-file_log(const gchar *log_domain, GLogLevelFlags log_level, const gchar *message, gpointer user_data) {
-  FILE* f = fopen("/tmp/diff-ext.log", "a");
-  fprintf(f, "Domain: %s; message: %s", log_domain, message);
-  fclose(f);
+static void
+compare_later(NautilusMenuItem *item, gpointer user_data) {
+  GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "diff-ext::save"));
+  
+  g_string_assign(saved, gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))));
 }
 
 static void
-select_left(NautilusMenuItem *item, gpointer user_data) {
-  GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT (item), "diff-ext::left"));
-  
-  g_string_assign(left, gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))));
-}
+compare_to(NautilusMenuItem *item, gpointer user_data) {
+  gchar* argv[4];
+  GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "diff-ext::compare_to"));
 
-static void
-select_right(NautilusMenuItem *item, gpointer user_data) {
-  GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "diff-ext::right"));
+  argv[0] = "kdiff3";
+  argv[1] = "kdiff3";
+  argv[2] = gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data)));
+  argv[3] = saved->str;
+  argv[4] = 0;
   
-  g_string_assign(right, gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))));
+  g_spawn_async(0, argv, 0, G_SPAWN_FILE_AND_ARGV_ZERO | G_SPAWN_SEARCH_PATH, 0, 0, 0, 0);
 }
 
 static void
 compare(NautilusMenuItem *item, gpointer user_data) {
   gchar* argv[4];
-  char cwd[PATH_MAX+1];
   GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "diff-ext::compare"));
-  getcwd(cwd, PATH_MAX);
-  argv[0] = "/home/serg/proj/kdiff3/src/kdiff3";
-  argv[1] = "/home/serg/proj/kdiff3/src/kdiff3";
+
+  argv[0] = "kdiff3";
+  argv[1] = "kdiff3";
   argv[2] = gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data)));
   argv[3] = gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(g_list_next(files)->data)));
   argv[4] = 0;
@@ -67,22 +65,28 @@ get_file_items(NautilusMenuProvider *provider, GtkWidget *window, GList *files) 
     GList* scan;
     guint n = g_list_length(files);
     
-    g_log(G_LOG_DOMAIN, G_LOG_LEVEL_MESSAGE, "get_file_items: files selected: %d\n", n);
-    for(scan = files; scan; scan = scan->next) {
-      g_log(G_LOG_DOMAIN, G_LOG_LEVEL_MESSAGE, "get_file_items: file: %s\n", gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(scan->data))));
-    }
-    
     if(n == 1) {
-      NautilusMenuItem* left = nautilus_menu_item_new("diff-ext::left", _("Select left side"), _("Select left side for comparison"), NULL /* icon name */);
-      g_signal_connect(left, "activate", G_CALLBACK(select_left), provider);
-      g_object_set_data_full(G_OBJECT(left), "diff-ext::left", nautilus_file_info_list_copy(files), (GDestroyNotify)nautilus_file_info_list_free);
-      items = g_list_append(items, left);
-      NautilusMenuItem* right = nautilus_menu_item_new("diff-ext::right", _("Select right side"), _("Select right side for comparison"), NULL /* icon name */);
-      g_signal_connect(right, "activate", G_CALLBACK(select_right), provider);
-      g_object_set_data_full(G_OBJECT(right), "diff-ext::right", nautilus_file_info_list_copy(files), (GDestroyNotify)nautilus_file_info_list_free);
-      items = g_list_append(items, right);
+      NautilusMenuItem* save = nautilus_menu_item_new("diff-ext::save", _("Compare later"), _("Select file for comparison"), NULL /* icon name */);
+      g_signal_connect(save, "activate", G_CALLBACK(compare_later), provider);
+      g_object_set_data_full(G_OBJECT(save), "diff-ext::save", nautilus_file_info_list_copy(files), (GDestroyNotify)nautilus_file_info_list_free);
+      items = g_list_append(items, save);
 
-      if() {
+      if(strcmp("", saved->str) != 0) {
+        GString* caption = g_string_new(_("Compare to '"));
+        GString* hint = g_string_new(_("Compare '"));
+        
+        caption = g_string_append(caption, saved->str);
+        caption = g_string_append_c(caption, '\'');
+        
+        hint = g_string_append(hint, gnome_vfs_get_local_path_from_uri(nautilus_file_info_get_uri((NautilusFileInfo*)(files->data))));
+        hint = g_string_append(hint, _("' and '"));
+        hint = g_string_append(hint, saved->str);
+        hint = g_string_append_c(hint, '\'');
+        
+        NautilusMenuItem* compare_to_item = nautilus_menu_item_new("diff-ext::compare_to", caption->str, hint->str, NULL /* icon name */);
+        g_signal_connect(compare_to_item, "activate", G_CALLBACK(compare_to), provider);
+        g_object_set_data_full(G_OBJECT(compare_to_item), "diff-ext::compare_to", nautilus_file_info_list_copy(files), (GDestroyNotify)nautilus_file_info_list_free);
+        items = g_list_append(items, compare_to_item);
       }
     } 
 
@@ -168,10 +172,7 @@ nautilus_module_initialize(GTypeModule *module) {
   bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
   bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
   
-  g_log_set_handler ("GLib-GObject", G_LOG_LEVEL_MASK | G_LOG_FLAG_FATAL | G_LOG_FLAG_RECURSION, file_log, NULL);
-  g_log_set_handler ("GLib", G_LOG_LEVEL_MASK | G_LOG_FLAG_FATAL | G_LOG_FLAG_RECURSION, file_log, NULL);
-  g_log_set_handler ("", G_LOG_LEVEL_MASK | G_LOG_FLAG_FATAL | G_LOG_FLAG_RECURSION, file_log, NULL);
-  g_log_set_handler (G_LOG_DOMAIN, G_LOG_LEVEL_MASK | G_LOG_FLAG_FATAL | G_LOG_FLAG_RECURSION, file_log, NULL);
+  saved = g_string_new(_(""));
 }
 
 void 
@@ -187,4 +188,3 @@ nautilus_module_list_types(const GType **types, int *count) {
   *types = provider_types;
   *count = G_N_ELEMENTS(provider_types);
 }
-
