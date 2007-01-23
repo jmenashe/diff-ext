@@ -64,13 +64,13 @@ DIST_SOURCES = $(setup_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/serg/diff-ext/setup/missing --run aclocal-1.9
+ACLOCAL = ${SHELL} /home/serg/proj/diff-ext/setup/missing --run aclocal-1.9
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /home/serg/diff-ext/setup/missing --run tar
-AUTOCONF = ${SHELL} /home/serg/diff-ext/setup/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/serg/diff-ext/setup/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/serg/diff-ext/setup/missing --run automake-1.9
+AMTAR = ${SHELL} /home/serg/proj/diff-ext/setup/missing --run tar
+AUTOCONF = ${SHELL} /home/serg/proj/diff-ext/setup/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/serg/proj/diff-ext/setup/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/serg/proj/diff-ext/setup/missing --run automake-1.9
 AWK = gawk
 CATALOGS = 
 CATOBJEXT = .gmo
@@ -104,14 +104,14 @@ LTLIBOBJS =
 MAINT = #
 MAINTAINER_MODE_FALSE = 
 MAINTAINER_MODE_TRUE = #
-MAKEINFO = ${SHELL} /home/serg/diff-ext/setup/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/serg/proj/diff-ext/setup/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
 OBJEXT = o
 PACKAGE = setup
 PACKAGE_BUGREPORT = 
-PACKAGE_CFLAGS = -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gconf/2 -I/usr/include/orbit-2.0  
-PACKAGE_LIBS = -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgconf-2 -lORBit-2 -lm -lgmodule-2.0 -ldl -lgthread-2.0 -lglib-2.0  
+PACKAGE_CFLAGS = @PACKAGE_CFLAGS@
+PACKAGE_LIBS = @PACKAGE_LIBS@
 PACKAGE_NAME = 
 PACKAGE_STRING = 
 PACKAGE_TARNAME = 
@@ -145,7 +145,7 @@ exec_prefix = ${prefix}
 host_alias = 
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /home/serg/diff-ext/setup/install-sh
+install_sh = /home/serg/proj/diff-ext/setup/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var
@@ -161,7 +161,7 @@ target_alias =
 INCLUDES = \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
-	-DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gconf/2 -I/usr/include/orbit-2.0  
+	@PACKAGE_CFLAGS@
 
 setup_SOURCES = \
 	main.c \
@@ -169,7 +169,7 @@ setup_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h
 
-setup_LDADD = -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgconf-2 -lORBit-2 -lm -lgmodule-2.0 -ldl -lgthread-2.0 -lglib-2.0   $(INTLLIBS)
+setup_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 all: all-am
 
 .SUFFIXES:
