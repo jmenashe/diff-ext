@@ -1,7 +1,7 @@
 # Process this file with automake to produce Makefile.in
 
 INCLUDES = \
-  -DDIFF_EXT_DATA_DIR=\""$(datadir)"\" \
+  -DDIFF_EXT_DATA_DIR=\""$(pkgdatadir)"\" \
   -DDIFF_EXT_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
   @DIFF_EXT_CFLAGS@
 

@@ -41,5 +41,19 @@
 	  </long>
 	</locale>
       </schema>
+      
+      <schema>
+        <key>/schemas/apps/diff-ext/icons</key>
+	<applyto>/apps/diff-ext/icons</applyto>
+	<owner>diff-ext</owner>
+	<type>string</type>
+	<default>diff-ext</default>
+	<locale name="C">
+	  <short>icon theme</short>
+	  <long>
+	    icon theme
+	  </long>
+	</locale>
+      </schema>
   </schemalist>
 </gconfschemafile>
