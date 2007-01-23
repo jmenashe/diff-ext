@@ -30,6 +30,8 @@ AC_CONFIG_FILES([
 Makefile
 po/Makefile.in
 src/Makefile
+icons/Makefile
+icons/diff-ext/Makefile
 ])
 
 AC_OUTPUT
