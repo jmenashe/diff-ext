@@ -1,4 +1,4 @@
-dnl Process this file with autoconf to produce a configure script.
+# Process this file with autoconf to produce a configure script.
 
 AC_INIT(configure.in)
 AM_INIT_AUTOMAKE(setup, 0.1)
@@ -11,9 +11,9 @@ AM_PROG_CC_STDC
 AC_HEADER_STDC
 
 pkg_modules="gtk+-2.0 >= 2.0.0 gconf-2.0 >= 2.14.0"
-PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
-AC_SUBST(PACKAGE_CFLAGS)
-AC_SUBST(PACKAGE_LIBS)
+PKG_CHECK_MODULES(SETUP, [$pkg_modules])
+AC_SUBST(SETUP_CFLAGS)
+AC_SUBST(SETUP_LIBS)
 
 GETTEXT_PACKAGE=setup
 AC_SUBST(GETTEXT_PACKAGE)

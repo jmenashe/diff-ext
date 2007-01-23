@@ -3,7 +3,7 @@
 INCLUDES = \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
-	@PACKAGE_CFLAGS@
+	@SETUP_CFLAGS@
 
 bin_PROGRAMS = setup
 
@@ -13,5 +13,5 @@ setup_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h
 
-setup_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
+setup_LDADD = @SETUP_LIBS@ $(INTLLIBS)
 
