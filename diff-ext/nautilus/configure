@@ -21071,7 +21071,7 @@ echo "${ECHO_T}$LINGUAS" >&6
 diff_extlocaledir='${prefix}/${DATADIRNAME}/locale'
 
 
-                                                                                ac_config_files="$ac_config_files Makefile po/Makefile.in diff-ext/Makefile diff-ext/src/Makefile diff-ext/icons/Makefile diff-ext/icons/diff-ext/Makefile setup/Makefile setup/src/Makefile"
+                                                                                          ac_config_files="$ac_config_files Makefile po/Makefile.in diff-ext/Makefile diff-ext/src/Makefile diff-ext/icons/Makefile diff-ext/icons/diff-ext/Makefile setup/Makefile setup/src/Makefile data/Makefile"
 
 
 cat >confcache <<\_ACEOF
@@ -21662,6 +21662,7 @@ do
   "diff-ext/icons/diff-ext/Makefile" ) CONFIG_FILES="$CONFIG_FILES diff-ext/icons/diff-ext/Makefile" ;;
   "setup/Makefile" ) CONFIG_FILES="$CONFIG_FILES setup/Makefile" ;;
   "setup/src/Makefile" ) CONFIG_FILES="$CONFIG_FILES setup/src/Makefile" ;;
+  "data/Makefile" ) CONFIG_FILES="$CONFIG_FILES data/Makefile" ;;
   "depfiles" ) CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
   "intltool" ) CONFIG_COMMANDS="$CONFIG_COMMANDS intltool" ;;
   "default-1" ) CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
