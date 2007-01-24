@@ -1,17 +1,17 @@
 ## Process this file with automake to produce Makefile.in
 
 INCLUDES = \
-	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
-	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+	-DSETUP_DATA_DIR=\""$(datadir)"\" \
+	-DSETUP_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	@SETUP_CFLAGS@
 
-bin_PROGRAMS = setup
+bin_PROGRAMS = diff-ext-setup
 
-setup_SOURCES = \
+diff_ext_setup_SOURCES = \
 	main.c \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h
 
-setup_LDADD = @SETUP_LIBS@ $(INTLLIBS)
+diff_ext_setup_LDADD = @SETUP_LIBS@ $(INTLLIBS)
 
