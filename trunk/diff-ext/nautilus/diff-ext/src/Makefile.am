@@ -7,10 +7,10 @@ INCLUDES = \
 
 AM_CFLAGS =-Wall -g
 
-lib_LTLIBRARIES = libdiff-ext.la
-
 libdiff_ext_la_SOURCES = main.c
 
-libdiff_ext_la_LDFLAGS = 
+lib_LTLIBRARIES = libdiff-ext.la
+
+libdiff_ext_la_LDFLAGS = -module -avoid-version
 
 libdiff_ext_la_LIBADD = @DIFF_EXT_LIBS@

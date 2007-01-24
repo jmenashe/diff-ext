@@ -340,7 +340,7 @@ nautilus_module_initialize(GTypeModule *module) {
   bindtextdomain(GETTEXT_PACKAGE, DIFF_EXT_LOCALE_DIR);
   bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
   
-  saved = g_string_new(_(""));
+  saved = g_string_new("");
 }
 
 void 

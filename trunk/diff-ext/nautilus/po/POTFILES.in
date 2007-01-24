@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+
+# Source files
+diff-ext/src/main.c
+setup/src/main.c
+setup/src/interface.c
+setup/src/callbacks.c
+setup/src/support.c
