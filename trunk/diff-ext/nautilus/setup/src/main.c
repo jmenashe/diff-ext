@@ -57,6 +57,15 @@ main (int argc, char *argv[])
     g_string_assign(m.diff3_tool, gconf_client_get_string(gconf_client, "/apps/diff-ext/diff3", NULL));
     m.enable_diff3 = gconf_client_get_bool(gconf_client, "/apps/diff-ext/enable-diff3", NULL);
   g_object_unref(G_OBJECT(gconf_client));
+  
+  if(!g_path_is_absolute(m.diff_tool->str)) {
+    g_string_assign(m.diff_tool, g_find_program_in_path(m.diff_tool->str));
+  }
+  
+  if(!g_path_is_absolute(m.diff3_tool->str)) {
+    g_string_assign(m.diff3_tool, g_find_program_in_path(m.diff3_tool->str));
+  }
+  
   model = &m;
   /*
    * The following code was added by Glade to create one of each component
