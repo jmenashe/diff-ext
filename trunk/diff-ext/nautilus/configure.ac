@@ -45,6 +45,7 @@ diff-ext/icons/Makefile
 diff-ext/icons/diff-ext/Makefile
 setup/Makefile
 setup/src/Makefile
+data/Makefile
 ])
 
 AC_OUTPUT

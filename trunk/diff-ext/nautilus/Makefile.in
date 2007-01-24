@@ -240,7 +240,7 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-SUBDIRS = diff-ext setup
+SUBDIRS = diff-ext setup data
 
 # no ${docdir} for autoconf 2.59, so replace it with ${datadir}/doc/diff-ext
 diff_extdocdir = ${datadir}/doc/diff-ext
