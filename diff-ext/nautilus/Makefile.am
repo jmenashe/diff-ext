@@ -14,9 +14,3 @@ diff_extdoc_DATA = \
   TODO
 
 EXTRA_DIST = $(diff_extdoc_DATA)
-
-schemadir   = @GCONF_SCHEMA_FILE_DIR@
-schema_DATA = diff-ext.schemas
-
-install-data-local:
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)

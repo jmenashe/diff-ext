@@ -67,11 +67,9 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
-am__installdirs = "$(DESTDIR)$(diff_extdocdir)" \
-	"$(DESTDIR)$(schemadir)"
+am__installdirs = "$(DESTDIR)$(diff_extdocdir)"
 diff_extdocDATA_INSTALL = $(INSTALL_DATA)
-schemaDATA_INSTALL = $(INSTALL_DATA)
-DATA = $(diff_extdoc_DATA) $(schema_DATA)
+DATA = $(diff_extdoc_DATA)
 ETAGS = etags
 CTAGS = ctags
 DIST_SUBDIRS = $(SUBDIRS)
@@ -254,8 +252,6 @@ diff_extdoc_DATA = \
   TODO
 
 EXTRA_DIST = $(diff_extdoc_DATA)
-schemadir = @GCONF_SCHEMA_FILE_DIR@
-schema_DATA = diff-ext.schemas
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -336,23 +332,6 @@ uninstall-diff_extdocDATA:
 	  f=$(am__strip_dir) \
 	  echo " rm -f '$(DESTDIR)$(diff_extdocdir)/$$f'"; \
 	  rm -f "$(DESTDIR)$(diff_extdocdir)/$$f"; \
-	done
-install-schemaDATA: $(schema_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(schemadir)" || $(mkdir_p) "$(DESTDIR)$(schemadir)"
-	@list='$(schema_DATA)'; for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  f=$(am__strip_dir) \
-	  echo " $(schemaDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(schemadir)/$$f'"; \
-	  $(schemaDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(schemadir)/$$f"; \
-	done
-
-uninstall-schemaDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(schema_DATA)'; for p in $$list; do \
-	  f=$(am__strip_dir) \
-	  echo " rm -f '$(DESTDIR)$(schemadir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(schemadir)/$$f"; \
 	done
 
 # This directory's subdirectories are mostly independent; you can cd
@@ -634,7 +613,7 @@ check: check-recursive
 all-am: Makefile $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(diff_extdocdir)" "$(DESTDIR)$(schemadir)"; do \
+	for dir in "$(DESTDIR)$(diff_extdocdir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-recursive
@@ -681,8 +660,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-data-local install-diff_extdocDATA \
-	install-schemaDATA
+install-data-am: install-diff_extdocDATA
 
 install-exec-am:
 
@@ -710,8 +688,7 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-diff_extdocDATA uninstall-info-am \
-	uninstall-schemaDATA
+uninstall-am: uninstall-diff_extdocDATA uninstall-info-am
 
 uninstall-info: uninstall-info-recursive
 
@@ -723,19 +700,15 @@ uninstall-info: uninstall-info-recursive
 	distclean-recursive distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
 	install install-am install-data install-data-am \
-	install-data-local install-diff_extdocDATA install-exec \
-	install-exec-am install-info install-info-am install-man \
-	install-schemaDATA install-strip installcheck installcheck-am \
-	installdirs installdirs-am maintainer-clean \
-	maintainer-clean-generic maintainer-clean-recursive \
-	mostlyclean mostlyclean-generic mostlyclean-libtool \
-	mostlyclean-recursive pdf pdf-am ps ps-am tags tags-recursive \
-	uninstall uninstall-am uninstall-diff_extdocDATA \
-	uninstall-info-am uninstall-schemaDATA
+	install-diff_extdocDATA install-exec install-exec-am \
+	install-info install-info-am install-man install-strip \
+	installcheck installcheck-am installdirs installdirs-am \
+	maintainer-clean maintainer-clean-generic \
+	maintainer-clean-recursive mostlyclean mostlyclean-generic \
+	mostlyclean-libtool mostlyclean-recursive pdf pdf-am ps ps-am \
+	tags tags-recursive uninstall uninstall-am \
+	uninstall-diff_extdocDATA uninstall-info-am
 
-
-install-data-local:
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

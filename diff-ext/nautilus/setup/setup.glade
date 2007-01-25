@@ -250,15 +250,41 @@
 
 <widget class="GtkAboutDialog" id="about">
   <property name="visible">True</property>
-  <property name="destroy_with_parent">False</property>
+  <property name="destroy_with_parent">True</property>
   <property name="name" translatable="yes">diff-ext setup</property>
-  <property name="copyright" translatable="yes">©2007 Sergey Zorin</property>
+  <property name="copyright" translatable="yes">(c) 2007 Sergey Zorin</property>
   <property name="comments" translatable="yes"></property>
+  <property name="license" translatable="yes">Copyright (c) 2007, Sergey Zorin
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+   1. Redistributions  of  source  code   must  retain  the  above
+      copyright notice,  this list of conditions and the following
+      disclaimer.
+   2. Redistributions in binary  form  must  reproduce  the  above
+      copyright notice,  this list of conditions and the following
+      disclaimer  in  the  documentation  and/or  other  materials
+      provided with the distribution.
+
+THIS SOFTWARE  IS  PROVIDED  BY  THE  COPYRIGHT  HOLDERS  AND  CONTRIBUTORS
+&quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED  WARRANTIES, INCLUDING,  BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE  ARE  DISCLAIMED.  IN  NO  EVENT  SHALL  THE  COPYRIGHT   OWNER  OR
+CONTRIBUTORS  BE  LIABLE  FOR  ANY DIRECT,  INDIRECT, INCIDENTAL,  SPECIAL,
+EXEMPLARY,  OR  CONSEQUENTIAL  DAMAGES  (INCLUDING,  BUT  NOT  LIMITED  TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION)  HOWEVER CAUSED AND ON ANY THEORY  OF  LIABILITY,
+WHETHER IN CONTRACT,  STRICT LIABILITY,  OR  TORT  (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING  IN  ANY WAY OUT OF THE USE  OF THIS  SOFTWARE,  EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</property>
   <property name="wrap_license">False</property>
   <property name="website">http://diff-ext.sourceforge.net</property>
-  <property name="website_label" translatable="yes"></property>
+  <property name="website_label" translatable="yes">diff-ext</property>
   <property name="authors">Sergey Zorin &lt;szorin@comcast.net&gt;</property>
-  <property name="translator_credits" translatable="yes" comments="TRANSLATORS: Replace this string with your names, one name per line.">translator-credits</property>
+  <property name="translator_credits" translatable="yes" comments="TRANSLATORS: Replace this string with your names, one name per line.">Sergey Zorin &lt;szorin@comcast.net&gt;</property>
   <property name="logo">de.png</property>
 </widget>
 
