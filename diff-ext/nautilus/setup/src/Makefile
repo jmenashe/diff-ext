@@ -225,15 +225,19 @@ sharedstatedir = ${prefix}/com
 sysconfdir = ${prefix}/etc
 target_alias = 
 INCLUDES = \
-	-DSETUP_DATA_DIR=\""$(datadir)"\" \
-	-DSETUP_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
-	-DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gconf/2 -I/usr/include/orbit-2.0  
+  -DSETUP_DATA_DIR=\""$(datadir)"\" \
+  -DSETUP_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+  -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/gconf/2 -I/usr/include/orbit-2.0  
 
 diff_ext_setup_SOURCES = \
-	main.c \
-	support.c support.h \
-	interface.c interface.h \
-	callbacks.c callbacks.h
+  main.c \
+  model.h \
+  support.c \
+  support.h \
+  interface.c \
+  interface.h \
+  callbacks.c \
+  callbacks.h
 
 diff_ext_setup_LDADD = -pthread -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgconf-2 -lORBit-2 -lm -lgmodule-2.0 -ldl -lgthread-2.0 -lglib-2.0   $(INTLLIBS)
 all: all-am
