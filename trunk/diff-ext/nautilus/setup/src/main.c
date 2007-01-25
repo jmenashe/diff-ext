@@ -44,6 +44,7 @@ main (int argc, char *argv[])
   gconf_init(argc, argv, 0);
 
   add_pixmap_directory (SETUP_DATA_DIR "/" PACKAGE_NAME "/pixmaps");
+  add_pixmap_directory (SETUP_DATA_DIR "/" PACKAGE_NAME);
 
   m.diff_tool = g_string_new("");
   m.diff3_tool = g_string_new("");

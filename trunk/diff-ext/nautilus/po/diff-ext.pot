@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: ../diff-ext/src/main.c:343
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-01-24 12:50-0500\n"
+"POT-Creation-Date: 2007-01-24 19:57-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,17 +88,46 @@ msgstr ""
 msgid "Enable/disable 3-way compare"
 msgstr ""
 
-#. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../setup/src/interface.c:224
-msgid "translator-credits"
-msgstr ""
-
-#: ../setup/src/interface.c:230
+#: ../setup/src/interface.c:231
 msgid "diff-ext setup"
 msgstr ""
 
-#: ../setup/src/interface.c:231
-msgid "(C)2007 Sergey Zorin"
+#: ../setup/src/interface.c:232
+msgid "(c) 2007 Sergey Zorin"
+msgstr ""
+
+#: ../setup/src/interface.c:233
+msgid ""
+"Copyright (c) 2007, Sergey Zorin\n"
+"All rights reserved.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions\n"
+"are met:\n"
+"   1. Redistributions  of  source  code   must  retain  the  above\n"
+"      copyright notice,  this list of conditions and the following\n"
+"      disclaimer.\n"
+"   2. Redistributions in binary  form  must  reproduce  the  above\n"
+"      copyright notice,  this list of conditions and the following\n"
+"      disclaimer  in  the  documentation  and/or  other  materials\n"
+"      provided with the distribution.\n"
+"\n"
+"THIS SOFTWARE  IS  PROVIDED  BY  THE  COPYRIGHT  HOLDERS  AND  CONTRIBUTORS\n"
+"\"AS IS\" AND ANY EXPRESS OR IMPLIED  WARRANTIES, INCLUDING,  BUT NOT "
+"LIMITED\n"
+"TO, THE IMPLIED WARRANTIES  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
+"PURPOSE  ARE  DISCLAIMED.  IN  NO  EVENT  SHALL  THE  COPYRIGHT   OWNER  OR\n"
+"CONTRIBUTORS  BE  LIABLE  FOR  ANY DIRECT,  INDIRECT, INCIDENTAL,  SPECIAL,\n"
+"EXEMPLARY,  OR  CONSEQUENTIAL  DAMAGES  (INCLUDING,  BUT  NOT  LIMITED  TO,\n"
+"PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;\n"
+"OR BUSINESS INTERRUPTION)  HOWEVER CAUSED AND ON ANY THEORY  OF  LIABILITY,\n"
+"WHETHER IN CONTRACT,  STRICT LIABILITY,  OR  TORT  (INCLUDING NEGLIGENCE OR\n"
+"OTHERWISE) ARISING  IN  ANY WAY OUT OF THE USE  OF THIS  SOFTWARE,  EVEN IF\n"
+"ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+
+#: ../setup/src/interface.c:235
+msgid "diff-ext"
 msgstr ""
 
 #: ../setup/src/support.c:90 ../setup/src/support.c:114
