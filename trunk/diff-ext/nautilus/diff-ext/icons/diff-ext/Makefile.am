@@ -9,4 +9,4 @@ icons_DATA = \
   diff_later.png \
   diff_with.png
 
-EXTRA_DIST = $(libdiff_extdoc_DATA)
+EXTRA_DIST = $(icons_DATA)

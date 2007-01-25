@@ -9,3 +9,11 @@ schemasdir	 = $(GCONF_SCHEMA_FILE_DIR)
 schemas_in_files = diff-ext.schemas.in
 schemas_DATA 	 = $(schemas_in_files:.schemas.in=.schemas)
 @INTLTOOL_SCHEMAS_RULE@
+
+EXTRA_DIST = \
+  $(desktop_in_files) \
+  $(schemas_in_files)
+
+CLEANFILES = \
+  $(desktop_DATA) \
+  $(schemas_DATA)
