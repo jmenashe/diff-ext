@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: diff-ext 0.1\n"
+"Project-Id-Version: diff-ext 0.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-01-24 19:57-0500\n"
 "PO-Revision-Date: 2007-01-27 16:49-0500\n"
@@ -20,7 +20,7 @@ msgstr "Сравнить позже"
 #: ../diff-ext/src/main.c:179
 #: ../diff-ext/src/main.c:181
 msgid "Select file for comparison"
-msgstr "Запомнить фай для последующего сравнения."
+msgstr "Запомнить файл для последующего сравнения"
 
 #: ../diff-ext/src/main.c:192
 #, c-format
@@ -40,7 +40,7 @@ msgstr "Сравнить"
 #: ../diff-ext/src/main.c:213
 #: ../diff-ext/src/main.c:215
 msgid "Compare selected files"
-msgstr "Сравнить выбранные файлы."
+msgstr "Сравнить выбранные файлы"
 
 #: ../diff-ext/src/main.c:227
 #, c-format
@@ -50,7 +50,7 @@ msgstr "3-х стороннее сравнение с '%s'"
 #: ../diff-ext/src/main.c:228
 #, c-format
 msgid "3-way compare '%s', '%s' and '%s'"
-msgstr "3-х стороннее сравнение '%s', '%s' и '%s'."
+msgstr "3-х стороннее сравнение '%s', '%s' и '%s'"
 
 #: ../diff-ext/src/main.c:253
 #: ../diff-ext/src/main.c:255
@@ -60,7 +60,7 @@ msgstr "3-х стороннее сравнение"
 #: ../diff-ext/src/main.c:253
 #: ../diff-ext/src/main.c:255
 msgid "3-way compare selected files"
-msgstr "3-х стороннее сравнение выбранных файлов."
+msgstr "3-х стороннее сравнение выбранных файлов"
 
 #: ../setup/src/interface.c:58
 msgid "Diff-ext Setup"

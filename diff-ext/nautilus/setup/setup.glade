@@ -284,7 +284,9 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <property name="website">http://diff-ext.sourceforge.net</property>
   <property name="website_label" translatable="yes">diff-ext</property>
   <property name="authors">Sergey Zorin &lt;szorin@comcast.net&gt;</property>
-  <property name="translator_credits" translatable="yes" comments="TRANSLATORS: Replace this string with your names, one name per line.">Sergey Zorin &lt;szorin@comcast.net&gt;</property>
+  <property name="translator_credits" translatable="yes" comments="TRANSLATORS: Replace this string with your names, one name per line.">Sergey Zorin &lt;szorin@comcast.net&gt;
+Mathias Weinert
+HAYASHI Kentaro</property>
   <property name="logo">de.png</property>
 </widget>
 
