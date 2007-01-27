@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: diff-ext 0.1\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2007-01-27 16:21-0500\n"
+"Last-Translator: Sergey Zorin <szorin@comcast.net>\n"
+"Language-Team: Mathias Weinert\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../diff-ext/src/main.c:179
+#: ../diff-ext/src/main.c:181
+msgid "Compare later"
+msgstr "Später vergleichen"
+
+#: ../diff-ext/src/main.c:179
+#: ../diff-ext/src/main.c:181
+msgid "Select file for comparison"
+msgstr "Speichere ausgewählte Datei(en) für späteren Vergleich"
+
+#: ../diff-ext/src/main.c:192
+#, c-format
+msgid "Compare to '%s'"
+msgstr "Vergleichen mit '%s'"
+
+#: ../diff-ext/src/main.c:193
+#, c-format
+msgid "Compare '%s' and '%s'"
+msgstr "Vergleichen '%s' mit '%s'"
+
+#: ../diff-ext/src/main.c:213
+#: ../diff-ext/src/main.c:215
+msgid "Compare"
+msgstr "Vergleichen"
+
+#: ../diff-ext/src/main.c:213
+#: ../diff-ext/src/main.c:215
+msgid "Compare selected files"
+msgstr "Vergleiche ausgewählte Dateien"
+
+#: ../diff-ext/src/main.c:227
+#, c-format
+msgid "3-way compare to '%s'"
+msgstr "3-fach-Vergleich mit '%s'"
+
+#: ../diff-ext/src/main.c:228
+#, c-format
+msgid "3-way compare '%s', '%s' and '%s'"
+msgstr "3-fach-Vergleich '%s', '%s' und '%s'"
+
+#: ../diff-ext/src/main.c:253
+#: ../diff-ext/src/main.c:255
+msgid "3-way compare"
+msgstr "3-fach-Vergleich"
+
+#: ../diff-ext/src/main.c:253
+#: ../diff-ext/src/main.c:255
+msgid "3-way compare selected files"
+msgstr "3-fach-Vergleich der ausgewählten Dateien"
+
+#: ../setup/src/interface.c:58
+msgid "Diff-ext Setup"
+msgstr ""
+
+#: ../setup/src/interface.c:78
+msgid "Compare command:"
+msgstr "Kommando für Vergleich:"
+
+#: ../setup/src/interface.c:86
+msgid "Select file comparison tool"
+msgstr ""
+
+#: ../setup/src/interface.c:91
+msgid "3-way compare command:"
+msgstr "Kommando für 3-fach-Vergleich:"
+
+#: ../setup/src/interface.c:99
+msgid "Select 3-way comparison tool"
+msgstr ""
+
+#: ../setup/src/interface.c:109
+msgid "_3-way compare"
+msgstr "3-fach-Vergleich"
+
+#: ../setup/src/interface.c:113
+msgid "Enable/disable 3-way compare"
+msgstr ""
+
+#: ../setup/src/interface.c:231
+msgid "diff-ext setup"
+msgstr ""
+
+#: ../setup/src/interface.c:232
+msgid "(c) 2007 Sergey Zorin"
+msgstr "(c) 2007 Sergey Zorin. Alle Rechte vorbehalten."
+
+#: ../setup/src/interface.c:233
+msgid ""
+"Copyright (c) 2007, Sergey Zorin\n"
+"All rights reserved.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions\n"
+"are met:\n"
+"   1. Redistributions  of  source  code   must  retain  the  above\n"
+"      copyright notice,  this list of conditions and the following\n"
+"      disclaimer.\n"
+"   2. Redistributions in binary  form  must  reproduce  the  above\n"
+"      copyright notice,  this list of conditions and the following\n"
+"      disclaimer  in  the  documentation  and/or  other  materials\n"
+"      provided with the distribution.\n"
+"\n"
+"THIS SOFTWARE  IS  PROVIDED  BY  THE  COPYRIGHT  HOLDERS  AND  CONTRIBUTORS\n"
+"\"AS IS\" AND ANY EXPRESS OR IMPLIED  WARRANTIES, INCLUDING,  BUT NOT LIMITED\n"
+"TO, THE IMPLIED WARRANTIES  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
+"PURPOSE  ARE  DISCLAIMED.  IN  NO  EVENT  SHALL  THE  COPYRIGHT   OWNER  OR\n"
+"CONTRIBUTORS  BE  LIABLE  FOR  ANY DIRECT,  INDIRECT, INCIDENTAL,  SPECIAL,\n"
+"EXEMPLARY,  OR  CONSEQUENTIAL  DAMAGES  (INCLUDING,  BUT  NOT  LIMITED  TO,\n"
+"PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;\n"
+"OR BUSINESS INTERRUPTION)  HOWEVER CAUSED AND ON ANY THEORY  OF  LIABILITY,\n"
+"WHETHER IN CONTRACT,  STRICT LIABILITY,  OR  TORT  (INCLUDING NEGLIGENCE OR\n"
+"OTHERWISE) ARISING  IN  ANY WAY OUT OF THE USE  OF THIS  SOFTWARE,  EVEN IF\n"
+"ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+
+#: ../setup/src/interface.c:235
+msgid "diff-ext"
+msgstr ""
+
+#: ../setup/src/support.c:90
+#: ../setup/src/support.c:114
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr ""
+
