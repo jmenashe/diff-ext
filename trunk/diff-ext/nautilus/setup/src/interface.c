@@ -221,7 +221,7 @@ create_about (void)
     NULL
   };
   /* TRANSLATORS: Replace this string with your names, one name per line. */
-  gchar *translators = "Sergey Zorin <szorin@comcast.net>";
+  gchar *translators = "Sergey Zorin <szorin@comcast.net>\nMathias Weinert\nHAYASHI Kentaro";
   GdkPixbuf *about_logo_pixbuf;
 
   about = gtk_about_dialog_new ();
