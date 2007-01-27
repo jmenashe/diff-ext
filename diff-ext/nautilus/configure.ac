@@ -13,6 +13,8 @@ AC_PROG_LIBTOOL
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
 AM_GCONF_SOURCE_2
 
+AC_CHECK_FUNCS(nautilus_menu_new)
+
 PKG_CHECK_MODULES(DIFF_EXT, [libnautilus-extension >= 2.14.0])
 AC_SUBST(DIFF_EXT_CFLAGS)
 AC_SUBST(DIFF_EXT_LIBS)
@@ -30,7 +32,7 @@ GETTEXT_PACKAGE=diff-ext
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [Package name for gettext])
 
-ALL_LINGUAS="ru"
+ALL_LINGUAS="ru de ja ua"
 AM_GLIB_GNU_GETTEXT
 
 diff_extlocaledir='${prefix}/${DATADIRNAME}/locale'

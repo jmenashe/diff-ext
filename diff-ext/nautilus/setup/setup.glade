@@ -252,7 +252,7 @@
   <property name="visible">True</property>
   <property name="destroy_with_parent">True</property>
   <property name="name" translatable="yes">diff-ext setup</property>
-  <property name="copyright" translatable="yes">(c) 2007 Sergey Zorin</property>
+  <property name="copyright" translatable="yes">(c) 2007 Sergey Zorin. All rights reserved.</property>
   <property name="comments" translatable="yes"></property>
   <property name="license" translatable="yes">Copyright (c) 2007, Sergey Zorin
 All rights reserved.
