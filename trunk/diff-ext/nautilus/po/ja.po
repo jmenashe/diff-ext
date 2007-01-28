@@ -20,7 +20,7 @@ msgstr "あとで比較"
 #: ../diff-ext/src/main.c:179
 #: ../diff-ext/src/main.c:181
 msgid "Select file for comparison"
-msgstr "あとで比較するために選択されたファイルを保存"
+msgstr "比較のためにファイルを選択"
 
 #: ../diff-ext/src/main.c:192
 #, c-format
@@ -30,7 +30,7 @@ msgstr "'%s' と比較"
 #: ../diff-ext/src/main.c:193
 #, c-format
 msgid "Compare '%s' and '%s'"
-msgstr ""
+msgstr "'%s' と '%s' を比較"
 
 #: ../diff-ext/src/main.c:213
 #: ../diff-ext/src/main.c:215
@@ -50,7 +50,7 @@ msgstr "'%s' と3-way比較"
 #: ../diff-ext/src/main.c:228
 #, c-format
 msgid "3-way compare '%s', '%s' and '%s'"
-msgstr ""
+msgstr "'%s', '%s' と '%s' を 3-way比較"
 
 #: ../diff-ext/src/main.c:253
 #: ../diff-ext/src/main.c:255
@@ -72,7 +72,7 @@ msgstr "比較コマンド:"
 
 #: ../setup/src/interface.c:86
 msgid "Select file comparison tool"
-msgstr ""
+msgstr "ファイル比較ツールを選択"
 
 #: ../setup/src/interface.c:91
 msgid "3-way compare command:"
@@ -80,7 +80,7 @@ msgstr "3-way比較コマンド:"
 
 #: ../setup/src/interface.c:99
 msgid "Select 3-way comparison tool"
-msgstr ""
+msgstr "3-way比較ツールを選択"
 
 #: ../setup/src/interface.c:109
 msgid "_3-way compare"
@@ -88,11 +88,11 @@ msgstr "3-way比較"
 
 #: ../setup/src/interface.c:113
 msgid "Enable/disable 3-way compare"
-msgstr ""
+msgstr "有効/無効 3-way比較"
 
 #: ../setup/src/interface.c:231
 msgid "diff-ext setup"
-msgstr ""
+msgstr "diff-ext 設定"
 
 #: ../setup/src/interface.c:232
 msgid "(c) 2007 Sergey Zorin"
@@ -135,5 +135,5 @@ msgstr ""
 #: ../setup/src/support.c:114
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "pixmapファイルが見つかりません: %s"
 
