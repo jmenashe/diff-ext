@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003-2006, Sergey Zorin. All rights reserved.
+ * Copyright (c) 2003-2007, Sergey Zorin. All rights reserved.
  *
  * This software is distributable under the BSD license. See the terms
  * of the BSD license in the LICENSE file provided with this software.
@@ -27,7 +27,7 @@ BEGIN
     CTEXT "Keine Versionsinformation verfügbar.", 
       ID_VERSION, 
       30, 22, 162, 8
-    CTEXT "© 2003-2006 Sergey Zorin. Alle Rechte vorbehalten.", 
+    CTEXT "© 2003-2007 Sergey Zorin. Alle Rechte vorbehalten.", 
       202, 
       7, 37, 200, 8
 END
