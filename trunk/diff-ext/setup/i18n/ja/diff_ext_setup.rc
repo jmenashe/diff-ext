@@ -110,7 +110,7 @@ BEGIN
     "Button", 
     BS_AUTOCHECKBOX|WS_TABSTOP, 
     16, 96, 48, 10
-  CONTROL "Keep file in the list after comparison",
+  CONTROL "比較終了後にもファイルをリストに記憶したままにする",
     ID_PERSISTENT_SELECTION,
     "Button",
     BS_AUTOCHECKBOX|WS_TABSTOP,
