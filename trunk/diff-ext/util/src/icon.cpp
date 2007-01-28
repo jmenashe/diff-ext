@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2006-2007, Sergey Zorin. All rights reserved.
+ *
+ * This software is distributable under the BSD license. See the terms
+ * of the BSD license in the LICENSE file provided with this software.
+ *
+ */
 #include <util/icon.h>
 
 class ICON_REF_COUNTER {

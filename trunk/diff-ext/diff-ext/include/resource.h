@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2003-2007, Sergey Zorin. All rights reserved.
+ *
+ * This software is distributable under the BSD license. See the terms
+ * of the BSD license in the LICENSE file provided with this software.
+ *
+ */
 #define DIFF_STR 1001
 #define DIFF3_STR 1002
 #define DIFF_WITH_STR 1003
