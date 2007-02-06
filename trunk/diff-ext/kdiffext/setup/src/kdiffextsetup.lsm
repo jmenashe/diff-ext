@@ -1,0 +1,16 @@
+Begin3
+Title:          kdiffextsetup -- Some description
+Version:        0.1
+Entered-date:   
+Description:    
+Keywords:       KDE Qt
+Author:         Sergey Zorin <szorin@comcast.net>
+Maintained-by:  Sergey Zorin <szorin@comcast.net>
+Home-page:      
+Alternate-site: 
+Primary-site:   ftp://ftp.kde.org/pub/kde/unstable/apps/utils
+                xxxxxx  kdiffextsetup-0.1.tar.gz
+                xxx     kdiffextsetup-0.1.lsm
+Platform:       Linux. Needs KDE
+Copying-policy: BSD
+End
