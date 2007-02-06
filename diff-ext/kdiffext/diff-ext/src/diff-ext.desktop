@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=diff-ext
+Comment=
+Icon=de
+ServiceTypes=KonqPopupMenu/Plugin,all/all
+X-KDE-Library=konq_diffext
