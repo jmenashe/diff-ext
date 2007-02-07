@@ -1,5 +1,12 @@
 SUBDIRS = $(TOPSUBDIRS)
 
+messages: 
+	$(EXTRACTRC) `find . -name \*.ui -o -name \*.rc` > rc.cpp
+	LIST=`find . -name \*.h -o -name \*.cpp`; \
+	if test -n "$$LIST"; then \
+	  $(XGETTEXT) -o $(podir)/kdiffext.pot $$LIST; \
+	fi
+
 $(top_srcdir)/configure.in: configure.in.in $(top_srcdir)/subdirs
 	cd $(top_srcdir) && $(MAKE) -f admin/Makefile.common configure.in ;
 
