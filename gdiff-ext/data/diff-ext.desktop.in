@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Encoding=UTF-8
+_Name=gdiff-ext configuration
+_Comment=Configure gdiff-ext nautilus extension
+Exec=diff-ext-setup
+Icon=de
+Categories=Application;FileManager;DesktopSettings;Settings;AdvancedSettings;
