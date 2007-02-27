@@ -5,9 +5,9 @@ INCLUDES = \
   -DSETUP_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
   @SETUP_CFLAGS@
 
-bin_PROGRAMS = diff-ext-setup
+bin_PROGRAMS = gdiffextsetup
 
-diff_ext_setup_SOURCES = \
+gdiffextsetup_SOURCES = \
   main.c \
   model.h \
   support.c \
@@ -17,5 +17,5 @@ diff_ext_setup_SOURCES = \
   callbacks.c \
   callbacks.h
 
-diff_ext_setup_LDADD = @SETUP_LIBS@ $(INTLLIBS)
+gdiffextsetup_LDADD = @SETUP_LIBS@ $(INTLLIBS)
 
