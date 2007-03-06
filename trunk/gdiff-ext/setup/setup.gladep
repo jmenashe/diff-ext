@@ -1,10 +1,4 @@
 <?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
-<!--
-  Copyright (c) 2007, Sergey Zorin. All rights reserved.
- 
-  This software is distributable under the BSD license. See the terms
-  of the BSD license in the COPYING file provided with this software.
- -->
 <!DOCTYPE glade-project SYSTEM "http://glade.gnome.org/glade-project-2.0.dtd">
 
 <glade-project>
@@ -12,4 +6,6 @@
   <program_name>setup</program_name>
   <gnome_support>FALSE</gnome_support>
   <use_widget_names>TRUE</use_widget_names>
+  <output_build_files>FALSE</output_build_files>
+  <backup_source_files>FALSE</backup_source_files>
 </glade-project>
