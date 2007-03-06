@@ -1,0 +1,503 @@
+<?xml version='1.0'?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD Simplified DocBook XML V1.1//EN" "http://www.oasis-open.org/docbook/xml/simple/1.1/sdocbook.dtd">
+<article>
+
+  <title>Getting Started with gdiff-ext</title>
+
+  <articleinfo>
+
+    <title>Getting Started with gdiff-ext</title>
+
+    <author><firstname>Sergey</firstname><surname>Zorin</surname></author>
+
+    <date>24 February 2007</date>
+    <copyright><year>2007</year><holder>Sergey 
+    Zorin</holder></copyright>
+  </articleinfo>
+
+  <section id="about">
+
+    <title>About gdiff-ext</title>
+
+    <section id="what_is">
+
+      <title>What gdiff-ext <emphasis>is</emphasis></title>
+
+      <para>gdiff-ext is context menu extension for Gnome&apos;s 
+      Nautilus file manager. gdiff-ext extends Nautilus context menu 
+      with commands to compare or merge selected file(s) and to 
+      remember selected file for the future compare or merge 
+      operations.</para>
+
+    </section>
+
+    <section id="what_is_not">
+
+      <title>What gdiff-ext <emphasis>is not</emphasis></title>
+
+      <para>gdiff-ext <emphasis>is not</emphasis> a file comparison or 
+      merge tool. You will have to tell gdiff-ext what tool to use for 
+      file comparison or merge operaitions.</para>
+
+    </section>
+
+  </section>
+
+  <section id="compile_install">
+
+    <title>Compilation and Installation of gdiff-ext</title>
+
+    <section id="getting">
+
+      <title>Getting gdiff-ext</title>
+
+      <para>gdiff-ext is distributed in source code form and freely 
+      available from <ulink url="http://diff-ext.sourceforge.net">
+      diff-ext</ulink> website. You can download the latest source-code 
+      release in .gz or .bz2 package.</para>
+
+      <para>You can also get the latest gdiff-ext source code from the 
+      Subversion repository at 
+      <ulink url="http://diff-ext.svn.sourceforge.net/viewvc/diff-ext/trunk/gdiff-ext/">
+      http://diff-ext.svn.sourceforge.net/viewvc/diff-ext/trunk/gdiff-ext/</ulink>.</para>
+
+    </section>
+
+    <section id="installing">
+
+      <title>Installing gdiff-ext</title>
+
+      <orderedlist>
+
+        <listitem>
+
+          <para><command>cd</command> to the directory containing the 
+          package&apos;s source code and type <command>
+          ./configure</command> to configure gdiff-ext for your system. 
+          If you&apos;re using <command>csh</command> on an old version 
+          of System V, you might need to type <command>sh 
+          ./configure</command> instead to prevent <command>
+          csh</command> from trying to execute <command>
+          configure</command> itself.</para>
+
+          <para>Running <command>configure</command> takes awhile. 
+          While running, it prints some messages telling which features 
+          it is checking for.</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>Type <command>make</command> to compile the 
+          package.</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>Type <command>make install</command> to install the 
+          programs and any data files and documentation.</para>
+
+          <note>
+
+            <para>You may need to do this step as 
+            <emphasis>root</emphasis> user.</para>
+
+          </note>
+
+        </listitem>
+
+        <listitem>
+
+          <para>Restart Nautilus to make it aware of new 
+          extension.</para>
+
+        </listitem>
+
+      </orderedlist>
+
+    </section>
+
+  </section>
+
+  <section id="configurng">
+
+    <title>Configuring gdiff-ext</title>
+
+    <para>Use <command>gdiffextsetup</command> to configure gdiff-ext. 
+    You can start <command>gdiffextsetup</command> from the terminal 
+    command line or from <emphasis>System-&gt;Preferences-&gt;More 
+    Preferences-&gt;gdiff-ext configuration</emphasis></para>
+
+    <figure id="f-gdiffextsetup">
+
+      <title>gdiff-ext configuration program</title>
+
+      <mediaobject><imageobject><imagedata fileref="gdiffextsetup.png"
+       format="PNG"/></imageobject></mediaobject>
+    </figure>
+
+    <para>Here you can specify program to use for 2 and 3-way file 
+    comparison. You can also enable/disable 3-way file 
+    comparison.</para>
+
+  </section>
+
+  <section id="commands">
+
+    <title>Commands</title>
+
+    <para>gdiff-ext adds new commands to the Nautilus context menu. 
+    Number of commands depends on the number of selected and remembered 
+    <footnote id="one-file"><para>Currently gdiff-ext allows to 
+    remember only one file.</para></footnote> files. The following 
+    table summarizes context menu commands availability.</para>
+
+    <table align="left" frame="none" id="commands-table">
+
+      <title>gdiff-ext context menu commands</title>
+
+      <tgroup cols="3">
+
+        <colspec colname="n"/>
+        <colspec colname="c1"/>
+        <colspec colname="c2"/>
+        <spanspec nameend="c2" namest="c1" spanname="commands"/>
+        <thead>
+
+          <row><entry morerows="1"># of files selected</entry>
+          <entry align="center"
+           spanname="commands">commands</entry></row>
+
+          <row><entry>3-way compare enabled</entry><entry>3-way compare 
+          disabled</entry></row>
+
+        </thead>
+
+        <tbody valign="top">
+
+          <row rowsep="0" valign="top"><entry align="center"
+           valign="middle">1</entry><entry><para>
+          <link linkend="compare-later">Compare 
+          later</link></para><para><link linkend="compare-to">Compare 
+          to &apos;<filename>&lt;file&gt;</filename>&apos;</link> 
+          <footnote id="compare-to-note"><para>Available only if list 
+          of rememberd files is not 
+          empty</para></footnote></para></entry><entry><para>
+          <link linkend="compare-later">Compare 
+          later</link></para><para><link linkend="compare-to">Compare 
+          to &apos;<filename>&lt;file&gt;</filename>&apos;</link> 
+          <footnoteref linkend="compare-to-note"/></para></entry></row>
+
+          <row><entry align="center"
+           valign="middle">2</entry><entry><para>
+          <link linkend="compare">Compare</link></para><para>
+          <link linkend="compare-to">3-way compare to &apos;
+          <filename>&lt;file&gt;</filename>&apos;</link>
+          <footnoteref linkend="compare-to-note"/></para></entry><entry><para>
+          <link linkend="compare">Compare</link></para></entry></row>
+
+          <row><entry align="center"
+           valign="middle">3</entry><entry><para>
+          <link linkend="compare">3-way 
+          compare</link></para></entry></row>
+
+        </tbody>
+
+      </tgroup>
+
+    </table>
+
+    <section id="compare-later">
+
+      <title>Compare later</title>
+
+      <para>You can ask gdiff-ext to remember selected file(s) 
+      <footnoteref linkend="one-file"/> with <emphasis>Compare 
+      later</emphasis> command. Selected file(s) 
+      <footnoteref linkend="one-file"/> will be placed into rememberd 
+      files list and will be available for future comparison 
+      oprations.</para>
+
+    </section>
+
+    <section id="compare">
+
+      <title>Compare, 3-way compare</title>
+
+      <para><emphasis>Compare</emphasis>, <emphasis>3-way 
+      compare</emphasis> commads invoke configured file comparison 
+      3-way comparison command respectevely. Selected files are passed 
+      to the command as arguments.</para>
+
+    </section>
+
+    <section id="compare-to">
+
+      <title>Compare to &apos;&lt;file&gt;&apos;, 3-way compare to 
+      &apos;&lt;file&gt;&apos;</title>
+
+      <para><emphasis>Compare to &apos; <filename>
+      &lt;file&gt;</filename>&apos;</emphasis>, <emphasis>3-way compare 
+      to &apos; <filename>&lt;file&gt;</filename>&apos;</emphasis> 
+      commads invoke configured file comparison 3-way comparison 
+      command respectevely. Selected file(s) and remembered file are 
+      passed to the command as arguments.</para>
+
+    </section>
+
+  </section>
+
+  <section id="using">
+
+    <title>Using gdiff-ext</title>
+
+    <para>Here are some gdiff-ext usage examples.</para>
+
+    <section id="compare-same">
+
+      <title>Comparing files from the same folder</title>
+
+      <para>To compare files located in the same folder:</para>
+
+      <orderedlist>
+
+        <listitem>
+
+          <para>select 2 files you want to compare in Nautilus 
+          window</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>bring up context menu by clicking right mouse 
+          button</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>select <emphasis>Compare</emphasis> command from the 
+          context menu</para>
+
+          <figure id="f-compare">
+
+            <title>comparing files from the same folder</title>
+
+            <mediaobject><imageobject><imagedata fileref="compare2.png"
+             format="PNG"/></imageobject></mediaobject>
+          </figure>
+
+        </listitem>
+
+      </orderedlist>
+
+      <para>gdiff-ext will launch file comparison tool you configured 
+      with <command>gdiffextsetup</command> program.</para>
+
+    </section>
+
+    <section id="3-way-same">
+
+      <title>3-way file comparison</title>
+
+      <para>To perform 3-way file comparison of files in the same 
+      folder:</para>
+
+      <orderedlist>
+
+        <listitem>
+
+          <para>select 3 files you want to compare in Nautilus 
+          window</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>bring up context menu by clicking right mouse 
+          button</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>select <emphasis>3-way compare</emphasis> command from 
+          the context menu</para>
+
+          <figure id="f-3-way-compare">
+
+            <title>3-way comparison of files from the same 
+            folder</title>
+
+            <mediaobject><imageobject><imagedata fileref="compare3.png"
+             format="PNG"/></imageobject></mediaobject>
+          </figure>
+
+        </listitem>
+
+      </orderedlist>
+
+      <para>gdiff-ext will launch 3-way file comparison tool you 
+      configured with <command>gdiffextsetup</command> program.</para>
+
+    </section>
+
+    <section id="compare-different">
+
+      <title>Comparing files from different folders</title>
+
+      <para>With gdiff-ext you can also compare files from different 
+      folders. To do so:</para>
+
+      <orderedlist>
+
+        <listitem>
+
+          <para>select first file you want to compare in Nautilus 
+          window</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>bring up context menu by clicking right mouse 
+          button</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>select <emphasis>Compare later</emphasis> command from 
+          the context menu</para>
+
+          <figure id="f-compare-later">
+
+            <title>making a file available for later comparison</title>
+
+            <mediaobject><imageobject>
+            <imagedata fileref="compare_later.png"
+             format="PNG"/></imageobject></mediaobject>
+          </figure>
+
+        </listitem>
+
+        <listitem>
+
+          <para>navigate to the folder containing the second file</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>bring up context menu by clicking right mouse 
+          button</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>select <emphasis>Compare to 
+          &apos;<filename>&lt;file&gt;</filename>&apos;</emphasis> 
+          command from the context menu</para>
+
+          <figure id="f-compare-to">
+
+            <title>comparing files from different folders</title>
+
+            <mediaobject><imageobject>
+            <imagedata fileref="compare_to.png"
+             format="PNG"/></imageobject></mediaobject>
+          </figure>
+
+        </listitem>
+
+      </orderedlist>
+
+    </section>
+
+    <section id="3-way-compare-different">
+
+      <title>3-way comparison of files from different folders</title>
+
+      <para>With gdiff-ext you can also compare files from different 
+      folders. To do so:</para>
+
+      <orderedlist>
+
+        <listitem>
+
+          <para>select first file you want to compare in Nautilus 
+          window</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>bring up context menu by clicking right mouse 
+          button</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>select <emphasis>Compare later</emphasis> command from 
+          the context menu</para>
+
+          <figure id="f-compare-later-2">
+
+            <title>making a file available for later comparison</title>
+
+            <mediaobject><imageobject>
+            <imagedata fileref="compare_later.png"
+             format="PNG"/></imageobject></mediaobject>
+          </figure>
+
+        </listitem>
+
+        <listitem>
+
+          <para>navigate to the folder containing the second file</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>select 2 files you want to participate in 3-way compare 
+          in Nautilus window</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>bring up context menu by clicking right mouse 
+          button</para>
+
+        </listitem>
+
+        <listitem>
+
+          <para>select <emphasis>3-way compare to 
+          &apos;<filename>&lt;file&gt;</filename>&apos;</emphasis> 
+          command from the context menu</para>
+
+          <figure id="f-3-way-compare-to">
+
+            <title>3-way compare of files from different folders</title>
+
+            <mediaobject><imageobject>
+            <imagedata fileref="compare3_to.png"
+             format="PNG"/></imageobject></mediaobject>
+          </figure>
+
+        </listitem>
+
+      </orderedlist>
+
+    </section>
+
+  </section>
+
+</article>
+
