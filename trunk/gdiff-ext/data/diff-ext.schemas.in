@@ -1,9 +1,9 @@
 <gconfschemafile>
     <schemalist>    
       <schema>
-        <key>/schemas/apps/diff-ext/diff</key>
-	<applyto>/apps/diff-ext/diff</applyto>
-	<owner>diff-ext</owner>
+        <key>/schemas/apps/gdiff-ext/diff</key>
+	<applyto>/apps/gdiff-ext/diff</applyto>
+	<owner>gdiff-ext</owner>
 	<type>string</type>
 	<default>kdiff3</default>
 	<locale name="C">
@@ -15,9 +15,9 @@
       </schema>
 
       <schema>
-        <key>/schemas/apps/diff-ext/diff3</key>
-	<applyto>/apps/diff-ext/diff3</applyto>
-	<owner>diff-ext</owner>
+        <key>/schemas/apps/gdiff-ext/diff3</key>
+	<applyto>/apps/gdiff-ext/diff3</applyto>
+	<owner>gdiff-ext</owner>
 	<type>string</type>
 	<default>kdiff3</default>
 	<locale name="C">
@@ -29,9 +29,9 @@
       </schema>
 
       <schema>
-        <key>/schemas/apps/diff-ext/enable-diff3</key>
-	<applyto>/apps/diff-ext/enable-diff3</applyto>
-	<owner>diff-ext</owner>
+        <key>/schemas/apps/gdiff-ext/enable-diff3</key>
+	<applyto>/apps/gdiff-ext/enable-diff3</applyto>
+	<owner>gdiff-ext</owner>
 	<type>bool</type>
 	<default>false</default>
 	<locale name="C">
@@ -43,11 +43,11 @@
       </schema>
       
       <schema>
-        <key>/schemas/apps/diff-ext/icons</key>
-	<applyto>/apps/diff-ext/icons</applyto>
-	<owner>diff-ext</owner>
+        <key>/schemas/apps/gdiff-ext/icons</key>
+	<applyto>/apps/gdiff-ext/icons</applyto>
+	<owner>gdiff-ext</owner>
 	<type>string</type>
-	<default>diff-ext</default>
+	<default>gdiff-ext</default>
 	<locale name="C">
 	  <short>icon theme</short>
 	  <long>
