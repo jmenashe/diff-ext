@@ -24,6 +24,9 @@ PKG_CHECK_MODULES(SETUP, [$pkg_modules])
 AC_SUBST(SETUP_CFLAGS)
 AC_SUBST(SETUP_LIBS)
 
+AC_CHECK_FUNC(nautilus_menu_item_set_submenu, [MENU=gdiff-ext-2.16.lo], [MENU=gdiff-ext-2.14.lo])
+AC_SUBST(MENU)
+
 _PKG_CONFIG(EXTENSION_DIR,[variable=extensiondir], [libnautilus-extension])
 AC_ARG_VAR(EXTENSION_DIR)
 libdir=$pkg_cv_EXTENSION_DIR

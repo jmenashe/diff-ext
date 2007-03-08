@@ -7,10 +7,15 @@ INCLUDES = \
 
 AM_CFLAGS =-Wall -g
 
-libdiff_ext_la_SOURCES = main.c
+libgdiff_ext_la_SOURCES = main.c
 
-lib_LTLIBRARIES = libdiff-ext.la
+lib_LTLIBRARIES = libgdiff-ext.la
 
-libdiff_ext_la_LDFLAGS = -module -avoid-version
+libgdiff_ext_la_LDFLAGS = -module -avoid-version
 
-libdiff_ext_la_LIBADD = @DIFF_EXT_LIBS@
+EXTRA_libgdiff_ext_la_SOURCES = gdiff-ext-2.14.c gdiff-ext-2.16.c 
+
+libgdiff_ext_la_LIBADD = @MENU@
+libgdiff_ext_la_DEPENDENCIES = @MENU@
+
+EXTRA_DIST = gdiff-ext.h gdiff-ext-2.14.c 
