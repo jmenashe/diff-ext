@@ -13,19 +13,17 @@ AC_PROG_LIBTOOL
 AC_PATH_PROG(GCONFTOOL, gconftool-2)
 AM_GCONF_SOURCE_2
 
-AC_CHECK_FUNCS(nautilus_menu_new)
-
-PKG_CHECK_MODULES(DIFF_EXT, [libnautilus-extension >= 2.14.0])
+PKG_CHECK_MODULES(DIFF_EXT, [libnautilus-extension >= 2.16.0],
+  [MENU=gdiff-ext-2.16.lo],
+  [PKG_CHECK_MODULES(DIFF_EXT, [libnautilus-extension >= 2.14.0],[MENU=gdiff-ext-2.14.lo], exit)])
 AC_SUBST(DIFF_EXT_CFLAGS)
 AC_SUBST(DIFF_EXT_LIBS)
+AC_SUBST(MENU)
 
 pkg_modules="gtk+-2.0 >= 2.0.0 gconf-2.0 >= 2.14.0"
 PKG_CHECK_MODULES(SETUP, [$pkg_modules])
 AC_SUBST(SETUP_CFLAGS)
 AC_SUBST(SETUP_LIBS)
-
-AC_CHECK_FUNC(nautilus_menu_item_set_submenu, [MENU=gdiff-ext-2.16.lo], [MENU=gdiff-ext-2.14.lo])
-AC_SUBST(MENU)
 
 _PKG_CONFIG(EXTENSION_DIR,[variable=extensiondir], [libnautilus-extension])
 AC_ARG_VAR(EXTENSION_DIR)
