@@ -373,8 +373,7 @@ SERVER::do_register() {
 	    
 	    ret = S_OK;
           }
-        }
-        else {
+        } else {
           ret = S_OK;
         }
       }
@@ -434,8 +433,7 @@ SERVER::do_unregister() {
           if(result == ERROR_SUCCESS) {
             ret = S_OK;
           }
-        }
-        else {
+        } else {
           ret = S_OK;
         }
       }
