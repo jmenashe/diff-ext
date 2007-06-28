@@ -13,6 +13,7 @@
 #define IDD_ABOUT	        200
 #define IDD_OPTIONS             300
 #define IDD_LOGGING             400
+#define IDD_DIFF	        500
 
 #define ID_LANGUAGE	        101L
 #define ID_DIFF_COMMAND	        102L
