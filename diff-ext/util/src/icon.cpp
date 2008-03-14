@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2007, Sergey Zorin. All rights reserved.
+ * Copyright (c) 2006-2008, Sergey Zorin. All rights reserved.
  *
  * This software is distributable under the BSD license. See the terms
  * of the BSD license in the LICENSE file provided with this software.
@@ -20,7 +20,7 @@ class ICON_REF_COUNTER {
     unsigned int _count;
 };
 
-ICON::ICON(const HICON& icon) {
+ICON::ICON(const HICON& icon) : _width(-1), _height(-1) {
   if(icon != 0) {
     _counter = new ICON_REF_COUNTER(icon);
   } else {
@@ -34,6 +34,14 @@ ICON::ICON(const ICON& icon) {
 
 ICON::~ICON() {
   release();
+}
+
+unsigned int
+ICON::width() const {
+}
+
+unsigned int
+ICON::height() const {
 }
 
 ICON::operator HICON() const {
@@ -75,15 +83,15 @@ ICON::operator=(const HICON& icon) {
 void
 ICON::acquire(ICON_REF_COUNTER* counter) {
   _counter = counter;
-  if (counter) { 
+  if(counter) { 
     counter->_count++;
   }
 }
 
 void
 ICON::release() {
-  if (_counter != 0) {
-    if (--_counter->_count == 0) {
+  if(_counter != 0) {
+    if(--_counter->_count == 0) {
       delete _counter;
     }
     

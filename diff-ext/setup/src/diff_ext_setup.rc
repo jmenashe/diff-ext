@@ -11,8 +11,8 @@ LANGUAGE LANG_ENGLISH,SUBLANG_ENGLISH_US
 MAIN_ICON MANIFEST "..\\common\\diff_ext_setup.manifest"
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION 1,9,1,522
-PRODUCTVERSION 1,9,1,522
+FILEVERSION 1,9,1,527
+PRODUCTVERSION 1,9,1,527
 FILEFLAGSMASK 0x3F
 FILEFLAGS 0x0
 FILEOS VOS_NT_WINDOWS32
@@ -26,14 +26,14 @@ BEGIN
       VALUE "Comments", "\0"
       VALUE "CompanyName", "\0"
       VALUE "FileDescription", "diff shell extension setup\0"
-      VALUE "FileVersion", "1.9.1\0"
+      VALUE "FileVersion", "1.9.1"
       VALUE "InternalName", "diff shell extension setup\0"
       VALUE "LegalCopyright", "Copyright © 2003-2007 Sergey Zorin\0"
       VALUE "LegalTrademarks", "\0"
       VALUE "OriginalFilename", "diff_ext_setup.exe\0"
       VALUE "PrivateBuild", "\0"
       VALUE "ProductName", "Diff Context Menu Extension\0"
-      VALUE "ProductVersion", "1.9.1\0"
+      VALUE "ProductVersion", "1.9.1"
     END
   END
   BLOCK "VarFileInfo"
@@ -94,7 +94,7 @@ BEGIN
   CONTROL "About", ID_ABOUT, "Button", WS_TABSTOP, 204, 158, 50, 14
   CONTROL "", 4001, "ScrollBar", 0x04000014, 250, 168, 11, 11
 END
-
+/*
 ID_MAINDIALOG_LAYOUT RCDATA
 BEGIN
   0x0067, 0x0000, 0x0003, 0x0000, 0x0006, 0x0000, 0x0066, 0x0000, 0x0003, 0x0000, 0x0006, 0x0000, 0x0069, 0x0000, 0x0006, 0x0000
@@ -102,7 +102,7 @@ BEGIN
   0x000C, 0x0000, 0x000C, 0x0000, 0x0002, 0x0000, 0x000C, 0x0000, 0x000C, 0x0000, 0x0001, 0x0000, 0x000C, 0x0000, 0x000C, 0x0000
   0x006C, 0x0000, 0x000C, 0x0000, 0x000C, 0x0000, 0x0FA1, 0x0000, 0x000C, 0x0000, 0x000C, 0x0000
 END
-
+*/
 STRINGTABLE
 BEGIN
   OPTIONS_STR, "Options"
