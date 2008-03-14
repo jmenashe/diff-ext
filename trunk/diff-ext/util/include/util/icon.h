@@ -19,6 +19,9 @@ class ICON {
     ICON(const ICON& icon);
     ~ICON();
   
+    unsigned int width() const;
+    unsigned int height() const;
+  
     operator HICON() const;
   
     ICON& operator=(const ICON& icon);
@@ -30,6 +33,8 @@ class ICON {
   
   private:
     ICON_REF_COUNTER* _counter;
+    int _width;
+    int _height;
 };
 
 #endif // __icon_h__

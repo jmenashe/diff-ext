@@ -270,10 +270,9 @@ DIFF_EXT::QueryContextMenu(HMENU menu, UINT position, UINT first_cmd, UINT /*las
     HICON icon = 0;
     
     if(_n_files > 0) {
-      MENUITEMINFO item_info;
       MENUITEMINFO separator;
 
-      ZeroMemory(&item_info, sizeof(item_info));
+      ZeroMemory(&separator, sizeof(separator));
       separator.cbSize = sizeof(MENUITEMINFO);
       separator.fMask = MIIM_TYPE;
       separator.fType = MFT_SEPARATOR;
