@@ -5,37 +5,42 @@
  * of the BSD license in the COPYING file provided with this software.
  *
  */
-#ifndef KDIFFEXT_H
-#define KDIFFEXT_H
+#ifndef __KDIFFEXT_H__
+#define __KDIFFEXT_H__
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-#include <konq_popupmenu.h>
 #include <qstring.h>
+#include <qsignalmapper.h>
+#include <konq_popupmenu.h>
 #include <kconfig.h>
+#include <kfileitem.h>
 
-class kdiffext : public KonqPopupMenuPlugin
-{
+class kdiffext : public KonqPopupMenuPlugin {
   Q_OBJECT
   public:
     kdiffext(KonqPopupMenu* popupmenu, const char* name, const QStringList &list);
     ~kdiffext();
-  
+
   public slots:
     void compare_later();
     void compare();
     void compare3();
     void compare_to(int n = 0);
     void compare3_to(int n = 0);
-    void about_to_show();
-    
-  private:
+    void clear();
+
+  protected:
+    virtual void setup_actions();
+    QString arg(KFileItem*, bool);
+    QString display(KFileItem*);
+
+  protected:
     KonqPopupMenu* _menu;
-    QPopupMenu* _compare_to;
-    KConfig* _config;
-    static QStringList _files;
+    QSignalMapper* _mapper;
+    static KFileItemList _files;
 };
 
-#endif
+#endif //__KDIFFEXT_H__
