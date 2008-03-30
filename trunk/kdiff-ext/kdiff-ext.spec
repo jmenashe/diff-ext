@@ -59,7 +59,7 @@ or "save" a file(s) for later comparison. It acts as external most recent used
 %{_datadir}/icons/hicolor/16x16/actions/diff_with.png
 %{_datadir}/icons/hicolor/16x16/apps/kdiffextsetup.png
 %{_datadir}/icons/hicolor/32x32/apps/kdiffextsetup.png
-%{_datadir}/locale/ru/LC_MESSAGES/{name}.mo
+%{_datadir}/locale/ru/LC_MESSAGES/%{name}.mo
 %{_datadir}/services/kdiff-ext.desktop
 
 %changelog

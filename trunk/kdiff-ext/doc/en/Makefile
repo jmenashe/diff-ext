@@ -219,7 +219,7 @@ SETUIDFLAGS = @SETUIDFLAGS@
 SSL_INCLUDES = @SSL_INCLUDES@
 SSL_LDFLAGS = @SSL_LDFLAGS@
 STRIP = strip
-TOPSUBDIRS =  diff-ext doc kdiff-ext-0.3.1 po settings setup
+TOPSUBDIRS =  diff-ext doc po settings setup
 UIC = /usr/lib/qt-3.3/bin/uic -L $(kde_widgetdir) -nounload
 UIC_TR = tr2i18n
 USER_INCLUDES = 
@@ -293,7 +293,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  doc/en/Makefile
-	cd $(top_srcdir) && perl admin/am_edit doc/en/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin doc/en/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 
@@ -426,6 +426,8 @@ uninstall-am: uninstall-info-am
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
 
+
+
 #>+ 2
 KDE_DIST=index.docbook 
 
@@ -478,7 +480,7 @@ distdir-nls:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  doc/en/Makefile
-	cd $(top_srcdir) && perl admin/am_edit doc/en/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin doc/en/Makefile.in
 
 
 #>+ 21
