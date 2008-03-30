@@ -1,4 +1,4 @@
-SUBDIRS = $(TOPSUBDIRS)
+SUBDIRS = settings diff-ext setup po doc
 
 messages: 
 	$(EXTRACTRC) `find . -name \*.ui -o -name \*.rc` > rc.cpp
@@ -32,7 +32,7 @@ diff_extdoc_DATA = \
   NEWS \
   TODO
 
-EXTRA_DIST = admin Makefile.cvs kdiffext.kdevelop configure.in.in
+EXTRA_DIST = admin Makefile.cvs kdiff-ext.kdevelop configure.in.in
 
 dist-hook:
 	cd $(top_distdir) && perl admin/am_edit -padmin

@@ -1,5 +1,5 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-<class>UI_Base</class>
+<class>UI_BASE</class>
 <widget class="QWidget">
     <property name="name">
         <cstring>ui_base</cstring>
@@ -8,148 +8,84 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>416</width>
-            <height>306</height>
+            <width>309</width>
+            <height>197</height>
         </rect>
     </property>
     <property name="caption">
         <string>ui_base</string>
     </property>
-    <vbox>
+    <grid>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
-        <widget class="QLayoutWidget">
+        <spacer row="1" column="1" rowspan="1" colspan="2">
             <property name="name">
-                <cstring>layout1</cstring>
+                <cstring>spacer1_2_2_2</cstring>
             </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Compare command:</string>
-                    </property>
-                </widget>
-                <widget class="KURLRequester">
-                    <property name="name">
-                        <cstring>_diff</cstring>
-                    </property>
-                    <property name="enabled">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
-        <widget class="QLayoutWidget">
-            <property name="name">
-                <cstring>layout1_2</cstring>
+            <property name="orientation">
+                <enum>Horizontal</enum>
             </property>
-            <vbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QLabel">
-                    <property name="name">
-                        <cstring>textLabel1_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>3-way compare command:</string>
-                    </property>
-                </widget>
-                <widget class="KURLRequester">
-                    <property name="name">
-                        <cstring>_diff3</cstring>
-                    </property>
-                    <property name="enabled">
-                        <bool>true</bool>
-                    </property>
-                </widget>
-            </vbox>
-        </widget>
-        <widget class="QLayoutWidget">
-            <property name="name">
-                <cstring>layout3</cstring>
+            <property name="sizeType">
+                <enum>Expanding</enum>
             </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QCheckBox">
-                    <property name="name">
-                        <cstring>_3_way_compare</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;3-way compare</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+3</string>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer1</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>40</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-            </hbox>
-        </widget>
-        <widget class="QLayoutWidget">
-            <property name="name">
-                <cstring>layout3_2</cstring>
+            <property name="sizeHint">
+                <size>
+                    <width>166</width>
+                    <height>20</height>
+                </size>
             </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="QCheckBox">
-                    <property name="name">
-                        <cstring>_compare_folders</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Compare &amp;folders</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+F</string>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer1_2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>40</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-            </hbox>
-        </widget>
-        <spacer>
+        </spacer>
+        <widget class="QCheckBox" row="2" column="0" rowspan="1" colspan="2">
             <property name="name">
-                <cstring>spacer3</cstring>
+                <cstring>_diff_compare_folders</cstring>
+            </property>
+            <property name="text">
+                <string>C&amp;ompare folders</string>
+            </property>
+            <property name="accel">
+                <string>Alt+O</string>
+            </property>
+        </widget>
+        <widget class="KURLRequester" row="0" column="0" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>_diff</cstring>
+            </property>
+            <property name="enabled">
+                <bool>true</bool>
+            </property>
+        </widget>
+        <spacer row="2" column="2">
+            <property name="name">
+                <cstring>spacer11</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>121</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QCheckBox" row="1" column="0">
+            <property name="name">
+                <cstring>_diff_use_kio</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;Use KIO</string>
+            </property>
+            <property name="accel">
+                <string>Alt+U</string>
+            </property>
+        </widget>
+        <spacer row="3" column="2">
+            <property name="name">
+                <cstring>spacer12</cstring>
             </property>
             <property name="orientation">
                 <enum>Vertical</enum>
@@ -160,160 +96,21 @@
             <property name="sizeHint">
                 <size>
                     <width>20</width>
-                    <height>5</height>
+                    <height>80</height>
                 </size>
             </property>
         </spacer>
-        <widget class="KSeparator">
-            <property name="name">
-                <cstring>kSeparator1</cstring>
-            </property>
-        </widget>
-        <widget class="QLayoutWidget">
-            <property name="name">
-                <cstring>layout5</cstring>
-            </property>
-            <hbox>
-                <property name="name">
-                    <cstring>unnamed</cstring>
-                </property>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>_about</cstring>
-                    </property>
-                    <property name="text">
-                        <string>A&amp;bout</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+B</string>
-                    </property>
-                </widget>
-                <spacer>
-                    <property name="name">
-                        <cstring>spacer1_3</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>40</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>_ok</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;OK</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+O</string>
-                    </property>
-                    <property name="autoRepeat">
-                        <bool>false</bool>
-                    </property>
-                    <property name="autoDefault">
-                        <bool>true</bool>
-                    </property>
-                    <property name="default">
-                        <bool>true</bool>
-                    </property>
-                    <property name="stdItem" stdset="0">
-                        <number>1</number>
-                    </property>
-                </widget>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>_apply</cstring>
-                    </property>
-                    <property name="text">
-                        <string>&amp;Apply</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+A</string>
-                    </property>
-                    <property name="stdItem" stdset="0">
-                        <number>9</number>
-                    </property>
-                </widget>
-                <widget class="KPushButton">
-                    <property name="name">
-                        <cstring>_cancel</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Ca&amp;ncel</string>
-                    </property>
-                    <property name="accel">
-                        <string>Alt+N</string>
-                    </property>
-                    <property name="stdItem" stdset="0">
-                        <number>2</number>
-                    </property>
-                </widget>
-            </hbox>
-        </widget>
-    </vbox>
+    </grid>
 </widget>
-<connections>
-    <connection>
-        <sender>_ok</sender>
-        <signal>clicked()</signal>
-        <receiver>ui_base</receiver>
-        <slot>ok_clicked()</slot>
-    </connection>
-    <connection>
-        <sender>_apply</sender>
-        <signal>clicked()</signal>
-        <receiver>ui_base</receiver>
-        <slot>apply_clicked()</slot>
-    </connection>
-    <connection>
-        <sender>_cancel</sender>
-        <signal>clicked()</signal>
-        <receiver>ui_base</receiver>
-        <slot>cancel_clicked()</slot>
-    </connection>
-    <connection>
-        <sender>_about</sender>
-        <signal>clicked()</signal>
-        <receiver>ui_base</receiver>
-        <slot>about_clicked()</slot>
-    </connection>
-</connections>
 <tabstops>
     <tabstop>_diff</tabstop>
-    <tabstop>_diff3</tabstop>
-    <tabstop>_3_way_compare</tabstop>
-    <tabstop>_compare_folders</tabstop>
-    <tabstop>_ok</tabstop>
-    <tabstop>_apply</tabstop>
-    <tabstop>_cancel</tabstop>
-    <tabstop>_about</tabstop>
+    <tabstop>_diff_use_kio</tabstop>
+    <tabstop>_diff_compare_folders</tabstop>
 </tabstops>
-<slots>
-    <slot>ok_clicked()</slot>
-    <slot>apply_clicked()</slot>
-    <slot>cancel_clicked()</slot>
-    <slot>about_clicked()</slot>
-</slots>
 <layoutdefaults spacing="6" margin="11"/>
 <includehints>
     <includehint>kurlrequester.h</includehint>
     <includehint>klineedit.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>kurlrequester.h</includehint>
-    <includehint>klineedit.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>kseparator.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>kpushbutton.h</includehint>
-    <includehint>kpushbutton.h</includehint>
     <includehint>kpushbutton.h</includehint>
 </includehints>
 </UI>
