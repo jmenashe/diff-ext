@@ -6,12 +6,15 @@
  *
  */
 #include <qlabel.h>
-#include <kinstance.h>
 #include <qstring.h>
 #include <qwidget.h>
+#include <kinstance.h>
 #include <kgenericfactory.h>
 #include <kmessagebox.h>
 #include <kapplication.h>
+#include <kiconloader.h>
+
+#include <settings.h>
 
 #include "kdiffext.h"
 #include "kdiffext.moc"
@@ -19,135 +22,184 @@
 typedef KGenericFactory<kdiffext, KonqPopupMenu> factory;
 K_EXPORT_COMPONENT_FACTORY(konq_diffext, factory("kdiffext"))
 
-QStringList kdiffext::_files;
-    
-kdiffext::kdiffext(KonqPopupMenu* popupmenu, const char* name, const QStringList &list) : KonqPopupMenuPlugin(popupmenu, name) {
-  _config = new KConfig("kdiffextsetuprc"); //use setConfigName() in setup
+KFileItemList kdiffext::_files;
+
+kdiffext::kdiffext(KonqPopupMenu* popupmenu, const char* name, const QStringList&) : KonqPopupMenuPlugin(popupmenu, name) {
   _menu = popupmenu;
-  
-  KFileItemList selected = _menu->fileItemList();
-  int n = selected.count();
-  
-  addSeparator();
-  
-  if(n == 1) {
-    if(_files.size() == 0) {
-      addAction(new KAction(i18n("Compare later"), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
-    } else {
-      addAction(new KAction(i18n("Compare to '%1'").arg(_files.first()), 0, this, SLOT(compare_to()), actionCollection(), "kdiffext::Compare to"));
-      addAction(new KAction(i18n("Compare later"), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
 
-      addAction(new KAction("diff-ext::", 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::"));
-      _compare_to = new QPopupMenu(_menu, i18n("Compare to"));
-      unsigned int n = 0;
-      for(QStringList::iterator i = _files.begin(); i != _files.end(); i++, n++) {
-        int id;
-        id = _compare_to->insertItem(*i, this, SLOT(compare_to(int)));
-        _compare_to->setItemParameter(id, n);
-      }
-    }
-  } else if(n == 2) {
-    if(_config->readBoolEntry("3-way-diff-enabled", false)) {
-      if(_files.size() == 0) {
-        addAction(new KAction(i18n("Compare"), 0, this, SLOT(compare()), actionCollection(), "kdiffext::Compare"));
-        addAction(new KAction(i18n("Compare later"), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
-      } else {
-        addAction(new KAction(i18n("3-way Compare to '%1'").arg(_files.first()), 0, this, SLOT(compare3_to()), actionCollection(), "kdiffext::3-way Compare to"));
-        addAction(new KAction(i18n("Compare"), 0, this, SLOT(compare()), actionCollection(), "kdiffext::Compare"));
-        addAction(new KAction(i18n("Compare later"), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+  _mapper = 0;
 
-        addAction(new KAction("diff-ext::3", 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::"));
-        _compare_to = new QPopupMenu(_menu, i18n("3-way compare to"));
-        unsigned int n = 0;
-        for(QStringList::iterator i = _files.begin(); i != _files.end(); i++, n++) {
-          int id;
-          id = _compare_to->insertItem(*i, this, SLOT(compare3_to(int)));
-          _compare_to->setItemParameter(id, n);
-        }
-      }
-    } else {
-      addAction(new KAction(i18n("Compare"), 0, this, SLOT(compare()), actionCollection(), "kdiffext::Compare"));
-      addAction(new KAction(i18n("Compare later"), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
-    }
-  } else if(n == 3) {
-    if(_config->readBoolEntry("3-way-diff-enabled", false)) {
-      addAction(new KAction(i18n("3-way Compare"), 0, this, SLOT(compare3()), actionCollection(), "kdiffext::3-way Compare"));
-      addAction(new KAction(i18n("Compare later"), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
-    } else {
-      addAction(new KAction(i18n("Compare later"), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
-    }
-  } else {
-    addAction(new KAction(i18n("Compare later"), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
-  }
-  
-  addSeparator();
-  
-  connect(_menu, SIGNAL(aboutToShow()), this, SLOT(about_to_show()));
+  _files.setAutoDelete(true);
+
+  Settings::self()->readConfig();
+
+  setup_actions();
 }
 
 kdiffext::~kdiffext() {
-  delete _config;
+  if(_mapper != 0) {
+    delete _mapper;
+  }
+}
+
+void
+kdiffext::setup_actions() {
+  KFileItemList selected = _menu->fileItemList();
+  int n = selected.count();
+  bool diff3_enabled = Settings::diff3_command().length() > 0;
+
+  addSeparator();
+  if(n == 1) {
+    if(_files.count() == 0) {
+      addAction(new KAction(i18n("Compare later"), kapp->iconLoader()->loadIcon("diff_later.png", KIcon::Small), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+    } else {
+      if(Settings::diff_kio() || _files.first()->isLocalFile()) {
+        addAction(new KAction(i18n("Compare to '%1'").arg(display(_files.first())), kapp->iconLoader()->loadIcon("diff.png", KIcon::Small), 0, this, SLOT(compare_to()), actionCollection(), "kdiffext::Compare to"));
+      }
+      addAction(new KAction(i18n("Compare later"), kapp->iconLoader()->loadIcon("diff_later.png", KIcon::Small), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+
+      _mapper = new QSignalMapper(this);
+      connect(_mapper, SIGNAL(mapped(int)), this, SLOT(compare_to(int)));
+
+      KActionMenu* compare_to_menu = new KActionMenu(i18n("Compare to"), kapp->iconLoader()->loadIcon("diff.png", KIcon::Small), actionCollection(), "kdiffext::Compare to menu");
+      unsigned int n = 0;
+      for(KFileItemList::iterator i = _files.begin(); i != _files.end(); i++, n++) {
+        if(Settings::diff_kio() || _files.first()->isLocalFile()) {
+          KAction* action = new KAction(display(*i), kapp->iconLoader()->loadIcon((*i)->iconName(), KIcon::Small), 0, _mapper, SLOT(map()), compare_to_menu, QString("kdiffext::%1").arg(n));
+          _mapper->setMapping(action, n);
+          compare_to_menu->insert(action);
+          action->setEnabled(Settings::diff_kio() || (*i)->isLocalFile());
+        }
+      }
+      compare_to_menu->insert(new KActionSeparator());
+      compare_to_menu->insert(new KAction(i18n("Clear"), kapp->iconLoader()->loadIcon("clear.png", KIcon::Small), 0, this, SLOT(clear()), compare_to_menu, QString("kdiffext::clear")));
+      addAction(compare_to_menu);
+    }
+  } else if(n == 2) {
+    if(diff3_enabled) {
+      if(_files.count() == 0) {
+        addAction(new KAction(i18n("Compare"), kapp->iconLoader()->loadIcon("diff.png", KIcon::Small), 0, this, SLOT(compare()), actionCollection(), "kdiffext::Compare"));
+        addAction(new KAction(i18n("Compare later"), kapp->iconLoader()->loadIcon("diff_later.png", KIcon::Small), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+      } else {
+        if(Settings::diff3_kio() || _files.first()->isLocalFile()) {
+          addAction(new KAction(i18n("3-way compare to '%1'").arg(display(_files.first())), kapp->iconLoader()->loadIcon("diff3.png", KIcon::Small), 0, this, SLOT(compare3_to()), actionCollection(), "kdiffext::3-way compare to"));
+        }
+        addAction(new KAction(i18n("Compare"), kapp->iconLoader()->loadIcon("diff.png", KIcon::Small), 0, this, SLOT(compare()), actionCollection(), "kdiffext::Compare"));
+        addAction(new KAction(i18n("Compare later"), kapp->iconLoader()->loadIcon("diff_later.png", KIcon::Small), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+
+        _mapper = new QSignalMapper(this);
+        connect(_mapper, SIGNAL(mapped(int)), this, SLOT(compare3_to(int)));
+
+        KActionMenu* compare_to_menu = new KActionMenu(i18n("3-way compare to"), kapp->iconLoader()->loadIcon("diff3.png", KIcon::Small), actionCollection(), "kdiffext::3-way compare to menu");
+        unsigned int n = 0;
+        for(KFileItemList::iterator i = _files.begin(); i != _files.end(); i++, n++) {
+          KAction* action = new KAction(display(*i), kapp->iconLoader()->loadIcon((*i)->iconName(), KIcon::Small), 0, _mapper, SLOT(map()), compare_to_menu, QString("kdiffext::%1").arg(n));
+          _mapper->setMapping(action, n);
+          compare_to_menu->insert(action);
+          action->setEnabled(Settings::diff3_kio() || (*i)->isLocalFile());
+        }
+        compare_to_menu->insert(new KActionSeparator());
+        compare_to_menu->insert(new KAction(i18n("Clear"), kapp->iconLoader()->loadIcon("clear.png", KIcon::Small), 0, this, SLOT(clear()), compare_to_menu, QString("kdiffext::clear")));
+        addAction(compare_to_menu);
+      }
+    } else {
+      addAction(new KAction(i18n("Compare"), kapp->iconLoader()->loadIcon("diff.png", KIcon::Small), 0, this, SLOT(compare()), actionCollection(), "kdiffext::Compare"));
+      addAction(new KAction(i18n("Compare later"), kapp->iconLoader()->loadIcon("diff_later.png", KIcon::Small), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+    }
+  } else if(n == 3) {
+    if(diff3_enabled) {
+      addAction(new KAction(i18n("3-way Compare"), kapp->iconLoader()->loadIcon("diff3.png", KIcon::Small), 0, this, SLOT(compare3()), actionCollection(), "kdiffext::3-way Compare"));
+      addAction(new KAction(i18n("Compare later"), kapp->iconLoader()->loadIcon("diff_later.png", KIcon::Small), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+    } else {
+      addAction(new KAction(i18n("Compare later"), kapp->iconLoader()->loadIcon("diff_later.png", KIcon::Small), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+    }
+  } else {
+    addAction(new KAction(i18n("Compare later"), kapp->iconLoader()->loadIcon("diff_later.png", KIcon::Small), 0, this, SLOT(compare_later()), actionCollection(), "kdiffext::Compare later"));
+  }
+  addSeparator();
 }
 
 void 
 kdiffext::compare_later() {
-  KFileItem* file;
   KFileItemList selected = _menu->fileItemList();
-  
-  for(file=selected.first(); file; file=selected.next()) {
-    QStringList::iterator i = _files.find(file->url().path());
-    if(i != _files.end()) {
-      _files.remove(i);
+
+  for(KFileItemList::iterator i = selected.begin(); i != selected.end(); i++) {
+    KFileItemList::iterator found = _files.begin();
+    while(found != _files.end()) {
+      if((*found)->url() == (*i)->url()) {
+        _files.erase(found);
+        found = _files.end();
+      } else {
+        found++;
+      }
     }
-    _files.push_front(file->url().path());
+    _files.prepend(new KFileItem(*(*i)));
   }
 }
 
 void 
 kdiffext::compare() {
   QStringList args;
+
   KFileItemList selected = _menu->fileItemList();
-  args << selected.at(0)->url().path() << selected.at(1)->url().path();
-  KApplication::kdeinitExec(_config->readEntry("diff-command"), args);
+  args << arg(selected.at(0), Settings::diff_kio()) << arg(selected.at(1), Settings::diff_kio());
+  KApplication::kdeinitExec(Settings::diff_command(), args);
 }
 
 void 
 kdiffext::compare3() {
   QStringList args;
+
   KFileItemList selected = _menu->fileItemList();
-  args << selected.at(0)->url().path() << selected.at(1)->url().path() << selected.at(2)->url().path();
-  KApplication::kdeinitExec(_config->readEntry("diff3-command"), args);
+  args << arg(selected.at(0), Settings::diff3_kio()) << arg(selected.at(1), Settings::diff3_kio()) << arg(selected.at(2), Settings::diff3_kio());
+  KApplication::kdeinitExec(Settings::diff3_command(), args);
 }
 
 void 
 kdiffext::compare_to(int n) {
   QStringList args;
+
   KFileItemList selected = _menu->fileItemList();
-  args << selected.at(0)->url().path() << _files[n];
-  KApplication::kdeinitExec(_config->readEntry("diff-command"), args);
+  args << arg(selected.at(0), Settings::diff_kio()) << arg(_files.at(n), Settings::diff_kio());
+  KApplication::kdeinitExec(Settings::diff_command(), args);
 }
 
 void 
 kdiffext::compare3_to(int n) {
   QStringList args;
+
   KFileItemList selected = _menu->fileItemList();
-  args << selected.at(0)->url().path() << selected.at(1)->url().path() << _files[n];
-  KApplication::kdeinitExec(_config->readEntry("diff3-command"), args);
+  args << arg(selected.at(0), Settings::diff3_kio()) << arg(selected.at(1), Settings::diff3_kio()) << arg(_files.at(n), Settings::diff3_kio());
+  KApplication::kdeinitExec(Settings::diff3_command(), args);
 }
 
-void
-kdiffext::about_to_show() {
-  for(int i = _menu->count(); i >= 1; i--) {
-    int id = _menu->idAt(i);
-    QString text = _menu->text(id);
-    if(text.contains("diff-ext::")) {
-      _menu->removeItem(id);
-      _menu->insertItem(i18n("Compare to"), _compare_to, -1, i);
-      break;
-    } else if(text.contains("diff-ext::3")) {
-      _menu->removeItem(id);
-      _menu->insertItem(i18n("3-way compare to"), _compare_to, -1, i);
-      break;
+void 
+kdiffext::clear() {
+  _files.clear();
+}
+
+QString
+kdiffext::arg(KFileItem* item, bool _3_way) {
+  return _3_way ? item->url().url() : item->url().path();
+}
+
+QString
+kdiffext::display(KFileItem* item) {
+  QString tmp = item->isLocalFile() ? item->url().path() : item->url().prettyURL();
+  QString result;
+  unsigned int length = Settings::max_filename_length();
+
+  if(length > 20) {
+    if(tmp.length() > length) {
+      int part_length = (length-3)/2;
+
+      result = tmp.left(part_length) + "..." + tmp.right(part_length);
+    } else {
+      result = tmp;
     }
+  } else {
+    result = tmp;
   }
+
+  return result;
 }
