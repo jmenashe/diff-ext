@@ -608,6 +608,8 @@ uninstall-am: uninstall-info-am uninstall-kde_moduleLTLIBRARIES \
 .NOEXPORT:
 
 
+
+
 #>+ 8
 kdiff-ext.la.closure: $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES)
 	@echo "int main() {return 0;}" > kdiff_ext_la_closure.cpp

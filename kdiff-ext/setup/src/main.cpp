@@ -73,9 +73,9 @@ main(int argc, char **argv) {
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   KConfigDialog* mainWin = new KConfigDialog(0, "settings", Settings::self());
 
-  mainWin->addPage(new GENERAL(), i18n("General"), "");
-  mainWin->addPage(new DIFF(), i18n("Compare tool"), "");
-  mainWin->addPage(new DIFF3(), i18n("3-way compare tool"), "");
+  mainWin->addPage(new GENERAL(), i18n("General"), "kdiffextsetup.png");
+  mainWin->addPage(new DIFF(), i18n("Compare tool"), "package_settings.png");
+  mainWin->addPage(new DIFF3(), i18n("3-way compare tool"), "package_settings.png");
 
 //  mainWin->connect(mainWin, SIGNAL(helpClicked()), &app, SLOT(about_clicked()));
 
