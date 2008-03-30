@@ -340,7 +340,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  settings/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin kdiff-ext-0.3.1/settings/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin settings/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 
@@ -578,7 +578,7 @@ docs-am:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  settings/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin kdiff-ext-0.3.1/settings/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin settings/Makefile.in
 
 
 #>+ 21
