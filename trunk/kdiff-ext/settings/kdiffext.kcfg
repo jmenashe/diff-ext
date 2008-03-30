@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <include>limits.h</include>
+  <kcfgfile name="kdiffextrc"/>
+  <group name="general">
+    <entry key="max_filename_length" type="Int">
+      <default>63</default>
+      <min>20</min>
+      <max code="PATH_MAX" />
+    </entry>
+  </group>
+  <group name="diff">
+    <entry name="diff_command" key="command" type="Path">
+	    <label>Compare command</label>
+	    <default></default>
+    </entry>
+    <entry name="diff_kio" key="use_kio" type="Bool">
+	    <label>Compare tool supports KIO</label>
+	    <default>false</default>
+    </entry>
+    <entry name="diff_folders" key="compare_folders" type="Bool">
+	    <label>Compare folders</label>
+	    <default>false</default>
+    </entry>
+  </group>
+  <group name="diff3">
+    <entry name="diff3_command" key="command" type="Path">
+      <label>3-way compare command</label>
+      <default></default>
+    </entry>
+    <entry name="diff3_kio" key="use_kio" type="Bool">
+      <label>3-way compare tool supports KIO</label>
+      <default>false</default>
+    </entry>
+    <entry name="diff3_folders" key="compare_folders" type="Bool">
+      <label>Compare folders</label>
+      <default>false</default>
+    </entry>
+  </group>
+</kcfg>

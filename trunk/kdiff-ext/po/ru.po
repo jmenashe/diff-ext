@@ -1,0 +1,263 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdiffext 0.3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-02-11 23:35-0500\n"
+"PO-Revision-Date: 2007-02-11 23:54-0500\n"
+"Last-Translator: Sergey Zorin <szorin@comcast.net>\n"
+"Language-Team: Сергей Зорин <szorin@comcast.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: _translatorinfo.cpp:1
+msgid ""
+"_: NAME OF TRANSLATORS\n"
+"Your names"
+msgstr "Сергей Зорин"
+
+#: _translatorinfo.cpp:3
+msgid ""
+"_: EMAIL OF TRANSLATORS\n"
+"Your emails"
+msgstr "szorin@comcast.net"
+
+#: diff-ext/src/kdiffext.cpp:54
+#: diff-ext/src/kdiffext.cpp:59
+#: diff-ext/src/kdiffext.cpp:82
+#: diff-ext/src/kdiffext.cpp:88
+#: diff-ext/src/kdiffext.cpp:107
+#: diff-ext/src/kdiffext.cpp:112
+#: diff-ext/src/kdiffext.cpp:114
+#: diff-ext/src/kdiffext.cpp:117
+msgid "Compare later"
+msgstr "Сравнить позже"
+
+#: diff-ext/src/kdiffext.cpp:57
+msgid "Compare to '%1'"
+msgstr "Сравнить с '%1'"
+
+#: diff-ext/src/kdiffext.cpp:64
+msgid "Compare to"
+msgstr "Сравнить с"
+
+#: diff-ext/src/kdiffext.cpp:81
+#: diff-ext/src/kdiffext.cpp:87
+#: diff-ext/src/kdiffext.cpp:106
+msgid "Compare"
+msgstr "Сравнить"
+
+#: diff-ext/src/kdiffext.cpp:85
+msgid "3-way compare to '%1'"
+msgstr "3-х стороннее сравнение с '%1'"
+
+#: diff-ext/src/kdiffext.cpp:93
+msgid "3-way compare to"
+msgstr "3-х стороннее сравнение с"
+
+#: diff-ext/src/kdiffext.cpp:111
+msgid "3-way Compare"
+msgstr "3-х стороннее сравнение"
+
+#: setup/src/main.cpp:20
+msgid "diff-ext context menu extension for Konqueror"
+msgstr "diff-ext расширение контекстного меню Konqueror"
+
+#: setup/src/main.cpp:34
+msgid "kdiffextsetup"
+msgstr ""
+
+#: setup/src/main.cpp:37
+msgid ""
+"(c) 2007 Sergey Zorin\n"
+"All rights reserved."
+msgstr ""
+"(c) 2007 Сергей Зорин\n"
+"Все права защищены."
+
+#: setup/src/main.cpp:41
+msgid ""
+"Copyright (c) 2007 Sergey Zorin\n"
+"All rights reserved.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions\n"
+"are met:\n"
+"   1. Redistributions  of  source  code   must  retain  the  above\n"
+"      copyright notice,  this list of conditions and the following\n"
+"      disclaimer.\n"
+"   2. Redistributions in binary  form  must  reproduce  the  above\n"
+"      copyright notice,  this list of conditions and the following\n"
+"      disclaimer  in  the  documentation  and/or  other  materials\n"
+"      provided with the distribution.\n"
+"\n"
+"THIS SOFTWARE  IS  PROVIDED  BY  THE  COPYRIGHT  HOLDERS  AND  CONTRIBUTORS\n"
+"\"AS IS\" AND ANY EXPRESS OR IMPLIED  WARRANTIES, INCLUDING,  BUT NOT LIMITED\n"
+"TO, THE IMPLIED WARRANTIES  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
+"PURPOSE  ARE  DISCLAIMED.  IN  NO  EVENT  SHALL  THE  COPYRIGHT   OWNER  OR\n"
+"CONTRIBUTORS  BE  LIABLE  FOR  ANY DIRECT,  INDIRECT, INCIDENTAL,  SPECIAL,\n"
+"EXEMPLARY,  OR  CONSEQUENTIAL  DAMAGES  (INCLUDING,  BUT  NOT  LIMITED  TO,\n"
+"PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;\n"
+"OR BUSINESS INTERRUPTION)  HOWEVER CAUSED AND ON ANY THEORY  OF  LIABILITY,\n"
+"WHETHER IN CONTRACT,  STRICT LIABILITY,  OR  TORT  (INCLUDING NEGLIGENCE OR\n"
+"OTHERWISE) ARISING  IN  ANY WAY OUT OF THE USE  OF THIS  SOFTWARE,  EVEN IF\n"
+"ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+"Copyright (c) 2007 Сергей Зорин\n"
+"Все права защищены.\n"
+"\n"
+"Распространение и использование исходных и 'скомпилированных' форм\n"
+" с модификацией или без оной, разрешены при соблюдении следующих\n"
+"соглашений:\n"
+"   1. Распространяемые копии исходного кода должны сохранять\n"
+"      вышеупомянутые объявления copyright, этот список положений и\n"
+"      сохранять следующий отказ от прав.\n"
+"   2. Распространяемые копии скомпилированных форм должны повторять\n"
+"      вышеупомянутые объявления copyright, этот список положений и\n"
+"      следующий отказ в документации и/или других материалах,\n"
+"      поставляемых с дистрибуцией.\n"
+"\n"
+"ЭТОТ   ПРОГРАММНЫЙ  ПРОДУКТ   ПОСТАВЛЯЕТСЯ   ВЛАДЕЛЬЦЕМ  АВТОРСКИХ   ПРАВ  И\n"
+"ЖЕРТВОВАТЕЛЯМИ  \"КАК ЕСТЬ\"  И ЛЮБЫЕ ЯВНЫЕ ИЛИ НЕЯВНЫЕ ГАРАНТИИ, ВКЛЮЧАЯ, НО\n"
+"НЕ ОГРАНИЧИВАЯСЬ  НЕЯВНЫМИ ГАРАНТИЯМИ, КОММЕРЧЕСКОЙ ЦЕННОСТИ  И ПРИГОДНОСТИ\n"
+"ДЛЯ КОНКРЕТНОЙ ЦЕЛИ ОТРИЦАЮТСЯ. НИ В КОЕМ СЛУЧАЕ  ВЛАДЕЛЕЦ  АВТОРСКИХ  ПРАВ\n"
+"И ЖЕРТВОВАТЕЛИ НЕ ДОЛЖНЫ  БЫТЬ  ОТВЕТСТВЕННЫМИ  ЗА ЛЮБОЙ ПРЯМОЙ, КОСВЕННЫЙ,\n"
+"СЛУЧАЙНЫЙ, СПЕЦИАЛЬНЫЙ, ОБРАЗЦОВЫЙ  ИЛИ  ПОСЛЕДУЮЩИЙ УЩЕРБ (ВКЛЮЧАЯ, НО НЕ\n"
+" ОГРАНИЧИВАЯСЬ  ПОСТАВКОЙ  ТОВАРОВ  ЗАМЕНЫ  ИЛИ  УСЛУГ; ПОТЕРЮ ДАННЫХ ИЛИ ИХ\n"
+"НЕПРАВИЛЬНУЮ ПЕРЕДАЧУ ИЛИ ПОТЕРИ; ПРИОСТАНОВЛЕНИЕ БИЗНЕСА), И  ТЕМ НЕ МЕНЕЕ\n"
+"ВЫЗВАННЫЕ  И  В  ЛЮБОЙ  ТЕОРИИ  ОТВЕТСТВЕННОСТИ,  НЕЗАВИСИМО ОТ КОНТРАКТНОЙ,\n"
+"СТРОГОЙ  ОТВЕТСТВЕННОСТИ, ИЛИ  ПРАВОНАРУШЕНИИ  (ВКЛЮЧАЯ ХАЛАТНОСТЬ ИЛИ ИНЫМ\n"
+" СПОСОБОМ),  ВОЗНИКШЕМ  ЛЮБЫМ  ПУТЕМ  ПРИ  ИСПОЛЬЗОВАНИИ  ЭТОГО ПРОГРАММНОГО\n"
+"ОБЕСПЕЧЕНИЯ, ДАЖЕ ЕСЛИ БЫ БЫЛО СООБЩЕНО О ВОЗМОЖНОСТИ ТАКОГО УЩЕРБА.\n"
+
+#. i18n: file ./setup/src/ui_base.ui line 16
+#: setup/src/ui_base.cpp:181
+#: debug/setup/src/ui_base.cpp:181
+#: rc.cpp:3
+#, no-c-format
+msgid "ui_base"
+msgstr ""
+
+#. i18n: file ./setup/src/ui_base.ui line 79
+#. i18n: file ./setup/src/ui_base.ui line 196
+#: setup/src/ui_base.cpp:182
+#: setup/src/ui_base.cpp:187
+#: debug/setup/src/ui_base.cpp:182
+#: debug/setup/src/ui_base.cpp:187
+#: rc.cpp:9
+#: rc.cpp:24
+#, no-c-format
+msgid "Co&mpare folders"
+msgstr "С&равнивать папки"
+
+#. i18n: file ./setup/src/ui_base.ui line 82
+#. i18n: file ./setup/src/ui_base.ui line 199
+#: setup/src/ui_base.cpp:183
+#: setup/src/ui_base.cpp:188
+#: debug/setup/src/ui_base.cpp:183
+#: debug/setup/src/ui_base.cpp:188
+#: rc.cpp:12
+#: rc.cpp:27
+#, no-c-format
+msgid "Alt+M"
+msgstr "Alt+Р"
+
+#. i18n: file ./setup/src/ui_base.ui line 117
+#. i18n: file ./setup/src/ui_base.ui line 234
+#: setup/src/ui_base.cpp:184
+#: setup/src/ui_base.cpp:189
+#: debug/setup/src/ui_base.cpp:184
+#: debug/setup/src/ui_base.cpp:189
+#: rc.cpp:15
+#: rc.cpp:30
+#, no-c-format
+msgid "Use K&IO"
+msgstr "Использовать K&IO"
+
+#. i18n: file ./setup/src/ui_base.ui line 120
+#. i18n: file ./setup/src/ui_base.ui line 237
+#: setup/src/ui_base.cpp:185
+#: setup/src/ui_base.cpp:190
+#: debug/setup/src/ui_base.cpp:185
+#: debug/setup/src/ui_base.cpp:190
+#: rc.cpp:18
+#: rc.cpp:33
+#, no-c-format
+msgid "Alt+I"
+msgstr ""
+
+#. i18n: file ./setup/src/ui_base.ui line 52
+#: setup/src/ui_base.cpp:186
+#: debug/setup/src/ui_base.cpp:186
+#: rc.cpp:6
+#, no-c-format
+msgid "Compare &tool"
+msgstr "Программа сравнения"
+
+#. i18n: file ./setup/src/ui_base.ui line 169
+#: setup/src/ui_base.cpp:191
+#: debug/setup/src/ui_base.cpp:191
+#: rc.cpp:21
+#, no-c-format
+msgid "&3-way compare tool"
+msgstr "Программа 3-х стороннего сравнения"
+
+#. i18n: file ./setup/src/ui_base.ui line 292
+#: setup/src/ui_base.cpp:192
+#: debug/setup/src/ui_base.cpp:192
+#: rc.cpp:36
+#, no-c-format
+msgid "S&queeze filenames longer then:"
+msgstr "Сжимать имена файлов длиннее:"
+
+#. i18n: file ./setup/src/ui_base.ui line 304
+#: setup/src/ui_base.cpp:193
+#: debug/setup/src/ui_base.cpp:193
+#: rc.cpp:39
+#, no-c-format
+msgid "diasbled"
+msgstr "выключено"
+
+#. i18n: file ./setup/src/ui_base.ui line 364
+#: setup/src/ui_base.cpp:195
+#: debug/setup/src/ui_base.cpp:195
+#: rc.cpp:45
+#, no-c-format
+msgid "Alt+B"
+msgstr ""
+
+#. i18n: file ./setup/src/ui_base.ui line 392
+#: setup/src/ui_base.cpp:197
+#: debug/setup/src/ui_base.cpp:197
+#: rc.cpp:51
+#, no-c-format
+msgid "Alt+O"
+msgstr "Alt+О"
+
+#. i18n: file ./setup/src/ui_base.ui line 415
+#: setup/src/ui_base.cpp:199
+#: debug/setup/src/ui_base.cpp:199
+#: rc.cpp:57
+#, no-c-format
+msgid "Alt+A"
+msgstr ""
+
+#. i18n: file ./setup/src/ui_base.ui line 426
+#: setup/src/ui_base.cpp:200
+#: debug/setup/src/ui_base.cpp:200
+#: rc.cpp:60
+#, no-c-format
+msgid "Ca&ncel"
+msgstr "О&тмена"
+
+#. i18n: file ./setup/src/ui_base.ui line 429
+#: setup/src/ui_base.cpp:201
+#: debug/setup/src/ui_base.cpp:201
+#: rc.cpp:63
+#, no-c-format
+msgid "Alt+N"
+msgstr "Alt+Т"
+

@@ -1,14 +1,30 @@
+/*
+ * Copyright (c) 2007, Sergey Zorin. All rights reserved.
+ *
+ * This software is distributable under the BSD license. See the terms
+ * of the BSD license in the COPYING file provided with this software.
+ *
+ */
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <kapplication.h>
 #include <kaboutdata.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
-#include <kmainwindow.h>
+#include <kconfigdialog.h>
+#include <kaboutapplication.h>
 
-#include "mainwidget.h"
-
+#include <settings.h>
+#include "diff.h"
+#include "diff3.h"
+#include "general.h"
+#include "main.h"
+    
 static const char description[] = I18N_NOOP("diff-ext context menu extension for Konqueror");
 
-static const char version[] = "0.2.0";
+static const char version[] = "0.3.1";
 
 static KCmdLineOptions options[] = {
 //    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
@@ -17,13 +33,14 @@ static KCmdLineOptions options[] = {
 
 int 
 main(int argc, char **argv) {
+  KLocale::setMainCatalogue("kdiffext");
+
   KAboutData about("kdiffextsetup", 
                    I18N_NOOP("kdiffextsetup"), 
                    version, description,
                    KAboutData::License_Custom, 
-                   "(c) 2007 Sergey Zorin\n"
-                   "All rights reserved.",
-//                   "<a href=\"http://diff-ext.sourceforge.net\">http://diff-ext.sourceforge.net</a>", 
+                   I18N_NOOP("(c) 2007 Sergey Zorin\n"
+                   "All rights reserved."),
                    0, "http://diff-ext.sourceforge.net", "szorin@comcast.net");
   about.addAuthor( "Sergey Zorin", 0, "szorin@comcast.net" );
   about.setLicenseText(I18N_NOOP("Copyright (c) 2007 Sergey Zorin\n"
@@ -51,23 +68,23 @@ main(int argc, char **argv) {
       "ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"));
   KCmdLineArgs::init(argc, argv, &about);
   KCmdLineArgs::addCmdLineOptions(options);
-  KApplication app;
-  KMainWindow *mainWin = 0;
-  
-  if(app.isRestored()) {
-    RESTORE(KMainWindow);
-  } else {
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-  
-    mainWin = new KMainWindow();
-    mainWin->setCentralWidget(new MainWidget(mainWin));
-    app.setMainWidget(mainWin);
-    mainWin->show();
-  
-    args->clear();
-  }
-  
+  KDIFF_EXT_SETUP app;
+
+  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+  KConfigDialog* mainWin = new KConfigDialog(0, "settings", Settings::self());
+
+  mainWin->addPage(new GENERAL(), i18n("General"), "");
+  mainWin->addPage(new DIFF(), i18n("Compare tool"), "");
+  mainWin->addPage(new DIFF3(), i18n("3-way compare tool"), "");
+
+//  mainWin->connect(mainWin, SIGNAL(helpClicked()), &app, SLOT(about_clicked()));
+
+  app.setMainWidget(mainWin);
+
+  mainWin->show();
+
+  args->clear();
+
   // mainWin has WDestructiveClose flag by default, so it will delete itself.
   return app.exec();
 }
-
