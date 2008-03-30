@@ -5,14 +5,14 @@
 Summary: Konqueror context menu extension to launch file comparison tool
 
 Name: 		kdiff-ext
-Version: 		0.3.1
+Version: 	0.3.1
 Release: 	1
-License: 		BSD
+License: 	BSD
 Group: 		User Interface/Desktops 
-Source: 		http://downloads.sourceforge.net/diff-ext/kdiff-ext-%{version}.tar.gz 
+Source: 	http://downloads.sourceforge.net/diff-ext/kdiff-ext-%{version}.tar.gz 
 URL: 		http://diff-ext.sourceforge.net
 BuildRoot: 	/var/tmp/%{name}-buildroot
-BuildRequires:	kdebase3-devel  >= 3.2, kdelibs-devel >= 3.2, gcc-c++, autoconf, automake, gettext
+BuildRequires:	kdebase3-devel >= 3.2, kdelibs-devel >= 3.2, gcc-c++, autoconf, automake, gettext
 
 %description
 This Konqueror extension (kdiff-ext) makes it possible to launch file 
@@ -38,7 +38,7 @@ or "save" a file(s) for later comparison. It acts as external most recent used
 %{_bindir}/kdiffextsetup
 %{_libdir}/kde3/kdiff-ext.la
 %{_libdir}/kde3/kdiff-ext.so
- %{_datadir}/applnk/Utilities/kdiffextsetup.desktop 
+%{_datadir}/applnk/Utilities/kdiffextsetup.desktop 
 %{_datadir}/apps/kdiffextsetup/kdiffextsetupui.rc 
 %{_datadir}/config.kcfg/kdiffext.kcfg
 %doc %{_datadir}/doc/HTML/en/kdiffext/common

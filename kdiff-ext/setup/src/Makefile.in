@@ -382,7 +382,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  setup/src/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin kdiff-ext-0.3.1/setup/src/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin setup/src/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
@@ -690,7 +690,7 @@ clean-metasources:
 	-rm -f  diff.moc general_base.moc diff3.moc main.moc.cpp
 
 #>+ 2
-KDE_DIST=ui_base.ui general_base.cpp kdiffextsetup.lsm hi32-app-kdiffextsetup.png kdiffextsetup.desktop hi16-app-kdiffextsetup.png kdiffextsetupui.rc general.ui general_base.h 
+KDE_DIST=general.ui ui_base.ui general_base.cpp kdiffextsetup.lsm general_base.h hi32-app-kdiffextsetup.png kdiffextsetup.desktop ui_base.h hi16-app-kdiffextsetup.png kdiffextsetupui.rc general.h 
 
 #>+ 5
 clean-ui:
@@ -716,7 +716,7 @@ uninstall-kde-icons:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  setup/src/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin kdiff-ext-0.3.1/setup/src/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin setup/src/Makefile.in
 
 
 #>+ 21

@@ -40,7 +40,7 @@ dnl Perform program name transformation
 AC_ARG_PROGRAM
 
 dnl Automake doc recommends to do this only here. (Janos)
-AM_INIT_AUTOMAKE(kdiffext, 0.2.0) dnl searches for some needed programs
+AM_INIT_AUTOMAKE(kdiff-ext, 0.3.1) dnl searches for some needed programs
 
 KDE_SET_PREFIX
 
@@ -70,13 +70,28 @@ AC_C_BIGENDIAN
 AC_CHECK_KDEMAXPATHLEN
 
 AC_SUBST(DIFF_EXT_DOC_DIR, ${datadir}/doc/kdiff-ext)
+
+dnl =======================================================
+dnl FILE: ./kdiff-ext-0.3.1/configure.in.in
+dnl =======================================================
+
+#MIN_CONFIG(3.2.0)
+
+dnl PACKAGE set before
+AC_C_BIGENDIAN
+AC_CHECK_KDEMAXPATHLEN
+
+AC_SUBST(DIFF_EXT_DOC_DIR, ${datadir}/doc/kdiff-ext)
+
 KDE_CREATE_SUBDIRSLIST
 AC_CONFIG_FILES([ Makefile ])
 AC_CONFIG_FILES([ diff-ext/Makefile ])
+AC_CONFIG_FILES([ diff-ext/icons/Makefile ])
 AC_CONFIG_FILES([ diff-ext/src/Makefile ])
 AC_CONFIG_FILES([ doc/Makefile ])
 AC_CONFIG_FILES([ doc/en/Makefile ])
 AC_CONFIG_FILES([ po/Makefile ])
+AC_CONFIG_FILES([ settings/Makefile ])
 AC_CONFIG_FILES([ setup/Makefile ])
 AC_CONFIG_FILES([ setup/src/Makefile ])
 AC_OUTPUT
