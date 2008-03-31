@@ -11,7 +11,7 @@ License: 	BSD
 Group: 		User Interface/Desktops 
 Source: 	http://downloads.sourceforge.net/diff-ext/kdiff-ext-%{version}.tar.gz 
 URL: 		http://diff-ext.sourceforge.net
-BuildRoot: 	/var/tmp/%{name}-buildroot
+BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	kdebase3-devel >= 3.2, kdelibs-devel >= 3.2, gcc-c++, autoconf, automake, gettext
 
 %description
@@ -24,7 +24,7 @@ or "save" a file(s) for later comparison. It acts as external most recent used
 %setup -q -n %{name}-%{version}
 
 %build
-./configure --prefix=$RPM_BUILD_ROOT/usr
+%configure
 %__make %{?_smp_mflags}
 
 %install
@@ -36,8 +36,8 @@ or "save" a file(s) for later comparison. It acts as external most recent used
 
 %files
 %{_bindir}/kdiffextsetup
-%{_libdir}/kde3/kdiff-ext.la
-%{_libdir}/kde3/kdiff-ext.so
+%{_libdir}/kde3/kdiff_ext.la
+%{_libdir}/kde3/kdiff_ext.so
 %{_datadir}/applnk/Utilities/kdiffextsetup.desktop 
 %{_datadir}/apps/kdiffextsetup/kdiffextsetupui.rc 
 %{_datadir}/config.kcfg/kdiffext.kcfg

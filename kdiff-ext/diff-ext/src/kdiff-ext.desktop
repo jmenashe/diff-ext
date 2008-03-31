@@ -4,4 +4,4 @@ Name=kdiff-ext
 Comment=
 Icon=de
 ServiceTypes=KonqPopupMenu/Plugin,all/all
-X-KDE-Library=kdiff-ext
+X-KDE-Library=kdiff_ext

@@ -435,6 +435,8 @@ uninstall-am: uninstall-info-am
 
 
 
+
+
 #>+ 2
 KDE_DIST=ru.po ru.gmo kdiff-ext.pot 
 

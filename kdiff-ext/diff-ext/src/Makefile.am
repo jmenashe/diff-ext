@@ -3,7 +3,7 @@ METASOURCES = AUTO
 
 KDE_ICON = AUTO
 
-kde_module_LTLIBRARIES=kdiff-ext.la
+kde_module_LTLIBRARIES=kdiff_ext.la
 
 kdiff_ext_la_SOURCES = kdiffext.cpp
 kdiff_ext_la_LDFLAGS = -avoid-version -module $(KDE_PLUGIN) $(all_libraries) \
