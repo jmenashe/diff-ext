@@ -570,6 +570,8 @@ uninstall-am: uninstall-info-am uninstall-kde_kcfgDATA
 
 
 
+
+
 #>+ 2
 KDE_DIST=settings.h settings.kcfgc 
 

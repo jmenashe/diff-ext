@@ -20,7 +20,7 @@
 #include "kdiffext.moc"
 
 typedef KGenericFactory<kdiffext, KonqPopupMenu> factory;
-K_EXPORT_COMPONENT_FACTORY(konq_diffext, factory("kdiffext"))
+K_EXPORT_COMPONENT_FACTORY(kdiff_ext, factory("kdiffext"))
 
 KFileItemList kdiffext::_files;
 

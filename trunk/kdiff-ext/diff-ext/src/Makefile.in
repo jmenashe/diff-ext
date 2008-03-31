@@ -279,7 +279,7 @@ INCLUDES = -I$(top_srcdir)/settings -I$(top_srcdir)/src $(all_includes)
 
 KDE_ICON = AUTO
 
-kde_module_LTLIBRARIES = kdiff-ext.la
+kde_module_LTLIBRARIES = kdiff_ext.la
 
 kdiff_ext_la_SOURCES = kdiffext.cpp
 kdiff_ext_la_LDFLAGS = -avoid-version -module $(KDE_PLUGIN) $(all_libraries) \
@@ -382,10 +382,10 @@ clean-kde_moduleLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-#>- kdiff-ext.la: $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES) 
+#>- kdiff_ext.la: $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES) 
 #>+ 2
-@KDE_USE_CLOSURE_TRUE@kdiff-ext.la: kdiff-ext.la.closure $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES) 
-@KDE_USE_CLOSURE_FALSE@kdiff-ext.la: $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES) 
+@KDE_USE_CLOSURE_TRUE@kdiff_ext.la: kdiff_ext.la.closure $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES) 
+@KDE_USE_CLOSURE_FALSE@kdiff_ext.la: $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES) 
 	$(CXXLINK) -rpath $(kde_moduledir) $(kdiff_ext_la_LDFLAGS) $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
@@ -609,14 +609,13 @@ uninstall-am: uninstall-info-am uninstall-kde_moduleLTLIBRARIES \
 
 
 
-
 #>+ 8
-kdiff-ext.la.closure: $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES)
+kdiff_ext.la.closure: $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_DEPENDENCIES)
 	@echo "int main() {return 0;}" > kdiff_ext_la_closure.cpp
 	@$(LTCXXCOMPILE) -c kdiff_ext_la_closure.cpp
 	$(CXXLINK) kdiff_ext_la_closure.lo $(kdiff_ext_la_LDFLAGS) $(kdiff_ext_la_OBJECTS) $(kdiff_ext_la_LIBADD) $(LIBS)
-	@rm -f kdiff_ext_la_closure.* kdiff-ext.la.closure
-	@echo "timestamp" > kdiff-ext.la.closure
+	@rm -f kdiff_ext_la_closure.* kdiff_ext.la.closure
+	@echo "timestamp" > kdiff_ext.la.closure
 
 
 #>+ 3
@@ -635,7 +634,7 @@ KDE_DIST=kdiffext.lsm kdiff-ext.desktop kdiffext.h
 
 #>+ 3
 clean-closures:
-	-rm -f  kdiff-ext.la.closure
+	-rm -f  kdiff_ext.la.closure
 
 #>+ 2
 docs-am:
