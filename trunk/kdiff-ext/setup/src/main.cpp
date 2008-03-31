@@ -88,3 +88,5 @@ main(int argc, char **argv) {
   // mainWin has WDestructiveClose flag by default, so it will delete itself.
   return app.exec();
 }
+
+#include "main.moc"

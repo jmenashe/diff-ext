@@ -1,3 +1,6 @@
+#ifndef __DIFF_H__
+#define __DIFF_H__
+
 #include <qwidgetlist.h>
 #include <kapplication.h>
 #include <kaboutapplication.h>
@@ -10,3 +13,5 @@ class KDIFF_EXT_SETUP : public KApplication {
       about->show();
     }
 };
+
+#endif // __DIFF_H__

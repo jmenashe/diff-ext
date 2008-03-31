@@ -311,7 +311,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  doc/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin doc/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit doc/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 
@@ -420,12 +420,16 @@ GTAGS:
 
 distclean-tags:
 	-rm -f TAGS ID GTAGS GRTAGS GSYMS GPATH
-DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+#>- DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+#>+ 1
+DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST) $(KDE_DIST)
 
 top_distdir = ..
 distdir = $(top_distdir)/$(PACKAGE)-$(VERSION)
 
-distdir: $(DISTFILES)
+#>- distdir: $(DISTFILES)
+#>+ 1
+distdir: distdir-nls  $(DISTFILES)
 	@list='$(DISTFILES)'; for file in $$list; do \
 	  if test -f $$file || test -d $$file; then d=.; else d=$(srcdir); fi; \
 	  dir=`echo "$$file" | sed -e 's,/[^/]*$$,,'`; \
@@ -468,7 +472,9 @@ installdirs-am:
 install: install-recursive
 install-exec: install-exec-recursive
 install-data: install-data-recursive
-uninstall: uninstall-recursive
+#>- uninstall: uninstall-recursive
+#>+ 1
+uninstall: uninstall-nls  uninstall-recursive
 
 install-am: all-am
 	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
@@ -510,7 +516,9 @@ info: info-recursive
 
 info-am:
 
-install-data-am:
+#>- install-data-am:
+#>+ 1
+install-data-am: install-nls 
 
 install-exec-am:
 
@@ -551,19 +559,37 @@ uninstall-info: uninstall-info-recursive
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
 
-
-
-
-
+#>+ 2
+KDE_DIST=CMakeLists.txt 
 
 #>+ 2
-docs-am:
+docs-am: CMakeLists.txt 
+
+#>+ 13
+install-nls:
+	$(mkinstalldirs) $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/kdiffext
+	@for base in CMakeLists.txt ; do \
+	  echo $(INSTALL_DATA) $$base $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/kdiffext/$$base ;\
+	  $(INSTALL_DATA) $(srcdir)/$$base $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/kdiffext/$$base ;\
+	done
+
+uninstall-nls:
+	for base in CMakeLists.txt ; do \
+	  rm -f $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/kdiffext/$$base ;\
+	done
+
+
+#>+ 5
+distdir-nls:
+	for file in CMakeLists.txt ; do \
+	  cp $(srcdir)/$$file $(distdir); \
+	done
 
 #>+ 6
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  doc/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin doc/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit doc/Makefile.in
 
 
 #>+ 21

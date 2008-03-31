@@ -77,7 +77,7 @@ AS = @AS@
 AUTODIRS = 
 AWK = gawk
 CC = gcc
-CONF_FILES =  $(top_srcdir)/./admin/configure.in.min $(top_srcdir)/configure.in.in $(top_srcdir)/./kdiff-ext-0.3.1/configure.in.in
+CONF_FILES =  $(top_srcdir)/./admin/configure.in.min $(top_srcdir)/configure.in.in
 CPP = gcc -E
 CXX = g++
 CXXCPP = g++ -E
@@ -293,7 +293,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  doc/en/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin doc/en/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit doc/en/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 
@@ -426,14 +426,11 @@ uninstall-am: uninstall-info-am
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
 
-
-
-
 #>+ 2
-KDE_DIST=index.docbook 
+KDE_DIST=index.docbook CMakeLists.txt 
 
 #>+ 24
-index.cache.bz2: $(srcdir)/index.docbook $(KDE_XSL_STYLESHEET) index.docbook 
+index.cache.bz2: $(srcdir)/index.docbook $(KDE_XSL_STYLESHEET) index.docbook CMakeLists.txt 
 	@if test -n "$(MEINPROC)"; then echo $(MEINPROC) --check --cache index.cache.bz2 $(srcdir)/index.docbook; $(MEINPROC) --check --cache index.cache.bz2 $(srcdir)/index.docbook; fi
 
 docs-am: index.cache.bz2
@@ -460,20 +457,20 @@ clean-docs:
 #>+ 13
 install-nls:
 	$(mkinstalldirs) $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/kdiffext
-	@for base in index.docbook ; do \
+	@for base in index.docbook CMakeLists.txt ; do \
 	  echo $(INSTALL_DATA) $$base $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/kdiffext/$$base ;\
 	  $(INSTALL_DATA) $(srcdir)/$$base $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/kdiffext/$$base ;\
 	done
 
 uninstall-nls:
-	for base in index.docbook ; do \
+	for base in index.docbook CMakeLists.txt ; do \
 	  rm -f $(DESTDIR)$(kde_htmldir)/$(KDE_LANG)/kdiffext/$$base ;\
 	done
 
 
 #>+ 5
 distdir-nls:
-	for file in index.docbook ; do \
+	for file in index.docbook CMakeLists.txt ; do \
 	  cp $(srcdir)/$$file $(distdir); \
 	done
 
@@ -481,7 +478,7 @@ distdir-nls:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  doc/en/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin doc/en/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit doc/en/Makefile.in
 
 
 #>+ 21

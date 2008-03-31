@@ -295,7 +295,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  po/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin po/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit po/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 
@@ -432,13 +432,8 @@ uninstall-am: uninstall-info-am
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
 
-
-
-
-
-
 #>+ 2
-KDE_DIST=ru.po ru.gmo kdiff-ext.pot 
+KDE_DIST=ru.po ru.gmo kdiff-ext.pot CMakeLists.txt 
 
 #>+ 4
 ru.gmo: ru.po
@@ -488,7 +483,7 @@ docs-am:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  po/Makefile
-	cd $(top_srcdir) && perl admin/am_edit -padmin po/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit po/Makefile.in
 
 
 #>+ 21
