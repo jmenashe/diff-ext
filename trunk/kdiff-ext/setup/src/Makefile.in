@@ -381,7 +381,7 @@ $(srcdir)/Makefile.in:  Makefile.am  $(top_srcdir)/configure.in $(ACLOCAL_M4)
 #>+ 3
 	cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  setup/src/Makefile
-	cd $(top_srcdir) && perl admin/am_edit setup/src/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin setup/src/Makefile.in
 Makefile:  $(srcdir)/Makefile.in  $(top_builddir)/config.status
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__depfiles_maybe)
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
@@ -655,6 +655,7 @@ uninstall-am: uninstall-kde-icons  uninstall-binPROGRAMS uninstall-info-am \
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
 
+
 #>+ 3
 diff.moc: $(srcdir)/diff.h
 	$(MOC) $(srcdir)/diff.h -o diff.moc
@@ -714,7 +715,7 @@ uninstall-kde-icons:
 force-reedit:
 		cd $(top_srcdir) && \
 	  $(AUTOMAKE) --gnu  setup/src/Makefile
-	cd $(top_srcdir) && perl admin/am_edit setup/src/Makefile.in
+	cd $(top_srcdir) && perl admin/am_edit -padmin setup/src/Makefile.in
 
 
 #>+ 21
