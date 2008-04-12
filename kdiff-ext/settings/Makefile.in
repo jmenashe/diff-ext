@@ -568,6 +568,7 @@ uninstall-am: uninstall-info-am uninstall-kde_kcfgDATA
 .NOEXPORT:
 
 
+
 #>+ 2
 KDE_DIST=settings.h settings.kcfgc CMakeLists.txt 
 

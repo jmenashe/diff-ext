@@ -714,8 +714,9 @@ dist-hook:
 .NOEXPORT:
 
 
+
 #>+ 2
-KDE_DIST=stamp-h.in subdirs kdiffext.kdevelop.pcs configure.files kdiff-ext.kdevses kdiff-ext.spec Doxyfile CMakeLists.txt 
+KDE_DIST=stamp-h.in config.h.cmake subdirs kdiffext.kdevelop.pcs configure.files kdiff-ext.kdevses kdiff-ext.spec Doxyfile CMakeLists.txt 
 
 #>+ 2
 docs-am:
