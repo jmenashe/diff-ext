@@ -656,6 +656,7 @@ uninstall-am: uninstall-kde-icons  uninstall-binPROGRAMS uninstall-info-am \
 .NOEXPORT:
 
 
+
 #>+ 3
 diff.moc: $(srcdir)/diff.h
 	$(MOC) $(srcdir)/diff.h -o diff.moc

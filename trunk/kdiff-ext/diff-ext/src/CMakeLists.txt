@@ -1,0 +1,47 @@
+include_directories(${CMAKE_SOURCE_DIR}/settings ${CMAKE_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR} )
+
+
+########### next target ###############
+
+SET(kdiff_ext_PART_SRCS
+   kdiffext.cpp
+)
+
+kde3_automoc(${kdiff_ext_PART_SRCS})
+
+kde3_add_kpart(kdiff_ext ${kdiff_ext_PART_SRCS})
+
+target_link_libraries(kdiff_ext ${QT_AND_KDECORE_LIBS} konq settings kparts)
+
+install(TARGETS kdiff_ext DESTINATION lib/kde3)
+
+
+########### install files ###############
+
+install(FILES  DESTINATION /share/services)
+install(FILES  kdiff-ext.desktop DESTINATION /share/services)
+
+kde3_install_icons(hicolor)
+
+
+
+#original Makefile.am contents follow:
+
+#INCLUDES = -I$(top_srcdir)/settings -I$(top_srcdir)/src $(all_includes)
+#METASOURCES = AUTO
+#
+#KDE_ICON = AUTO
+#
+#kde_module_LTLIBRARIES=kdiff_ext.la
+#
+#kdiff_ext_la_SOURCES = kdiffext.cpp
+#kdiff_ext_la_LDFLAGS = -avoid-version -module $(KDE_PLUGIN) $(all_libraries) \
+#	-lkonq
+#kdiff_ext_la_LIBADD = $(top_builddir)/settings/libsettings.la $(LIB_KPARTS) \
+#	$(LIB_KFILE)
+#
+#
+#kdiff_ext_entrydir = $(kde_servicesdir)
+#
+#kde_services_DATA = kdiff-ext.desktop
+#
