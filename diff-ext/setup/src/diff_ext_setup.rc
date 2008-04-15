@@ -3,12 +3,16 @@
 #include <windows.h>
 #include <commctrl.h>
 #include <richedit.h>
-#include "..\include\resource.h"
+#include "resource.h"
 #include "about.dlg"
 
 LANGUAGE LANG_ENGLISH,SUBLANG_ENGLISH_US
 
-MAIN_ICON MANIFEST "..\\common\\diff_ext_setup.manifest"
+#ifndef __LCC__
+  #define MANIFEST 24
+
+1 MANIFEST "../common/diff_ext_setup.manifest"
+#endif
 
 VS_VERSION_INFO VERSIONINFO
 FILEVERSION 1,9,1,527
@@ -43,18 +47,6 @@ BEGIN
 END
 
 MAIN_ICON ICON "..\\common\\de.ico"
-
-IDD_ABOUT DIALOG DISCARDABLE 10, 10, 214, 73
-STYLE WS_POPUP|DS_MODALFRAME|WS_CAPTION|WS_SYSMENU
-CAPTION "About Diff-ext"
-FONT 8, "MS Shell Dlg"
-BEGIN
-  CONTROL "&Close", MAIN_ICON, "Button", BS_DEFPUSHBUTTON|WS_TABSTOP, 157, 52, 50, 14
-  CONTROL MAIN_ICON, 203, "Static", SS_ICON, 7, 7, 21, 20
-  CONTROL "diff-ext", ID_LINK, "Static", SS_CENTER|WS_GROUP|WS_TABSTOP, 98, 7, 26, 8
-  CONTROL "No version information available.", ID_VERSION, "Static", SS_CENTER|WS_GROUP, 30, 22, 162, 8
-  CONTROL "© 2003-2006 Sergey Zorin. All rights reserved.", 202, "Static", SS_CENTER|WS_GROUP, 7, 37, 200, 8
-END
 
 IDD_MAINDIALOG DIALOGEX DISCARDABLE 70, 60, 261, 179
 STYLE WS_POPUP|DS_3DLOOK|DS_CENTER|WS_THICKFRAME|WS_CAPTION|WS_SYSMENU|WS_MINIMIZEBOX|WS_MAXIMIZEBOX|WS_VISIBLE

@@ -38,10 +38,12 @@ ICON::~ICON() {
 
 unsigned int
 ICON::width() const {
+  return 0;
 }
 
 unsigned int
 ICON::height() const {
+  return 0;
 }
 
 ICON::operator HICON() const {

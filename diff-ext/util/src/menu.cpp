@@ -50,8 +50,8 @@ MENUITEM::item_info() {
 
 void 
 MENUITEM::measure(MEASUREITEMSTRUCT* mis) {
-  int icon_width;
-  int icon_height;
+  unsigned int icon_width;
+  unsigned int icon_height;
   
   mis->itemWidth += 10;
   
