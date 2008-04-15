@@ -8,7 +8,7 @@ all:
   @cd ja
   $(MAKE) ROOT=$(ROOT) BUILD=$(BUILD) LIBRARY=$(LIBRARY)
   @cd ..
-  @cd ua
+  @cd uk
   $(MAKE) ROOT=$(ROOT) BUILD=$(BUILD) LIBRARY=$(LIBRARY)
   @cd ..
         
@@ -22,6 +22,6 @@ clean:
   @cd ja
   $(MAKE) ROOT=$(ROOT) BUILD=$(BUILD) LIBRARY=$(LIBRARY) clean
   @cd ..
-  @cd ua
+  @cd uk
   $(MAKE) ROOT=$(ROOT) BUILD=$(BUILD) LIBRARY=$(LIBRARY) clean
   @cd ..
