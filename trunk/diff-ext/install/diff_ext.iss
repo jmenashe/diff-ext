@@ -66,18 +66,18 @@ Name: "translations\i18n_uk"; Description: "Український"; Types: full custom; La
 
 
 [Files]
-Source: ..\diff-ext\icons\diff-ext\clear.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
-Source: ..\diff-ext\icons\diff-ext\diff3.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
-Source: ..\diff-ext\icons\diff-ext\diff3_with.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
-Source: ..\diff-ext\icons\diff-ext\diff.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
-Source: ..\diff-ext\icons\diff-ext\diff_later.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
-Source: ..\diff-ext\icons\diff-ext\diff_with.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
-Source: ..\diff-ext\icons\meta-diff\clear.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
-Source: ..\diff-ext\icons\meta-diff\diff3.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
-Source: ..\diff-ext\icons\meta-diff\diff3_with.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
-Source: ..\diff-ext\icons\meta-diff\diff.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
-Source: ..\diff-ext\icons\meta-diff\diff_later.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
-Source: ..\diff-ext\icons\meta-diff\diff_with.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
+Source: ..\icons\diff-ext\clear.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
+Source: ..\icons\diff-ext\diff3.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
+Source: ..\icons\diff-ext\diff3_with.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
+Source: ..\icons\diff-ext\diff.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
+Source: ..\icons\diff-ext\diff_later.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
+Source: ..\icons\diff-ext\diff_with.ico; DestDir: {app}\icons; Flags: ;Components: icons\diff_ext_icons
+Source: ..\icons\meta-diff\clear.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
+Source: ..\icons\meta-diff\diff3.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
+Source: ..\icons\meta-diff\diff3_with.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
+Source: ..\icons\meta-diff\diff.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
+Source: ..\icons\meta-diff\diff_later.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
+Source: ..\icons\meta-diff\diff_with.ico; DestDir: {app}\icons; Flags: ;Components: icons\meta_diff_icons
 Source: ..\build\diff_ext.dll; DestDir: {app}; Flags: regserver restartreplace uninsrestartdelete
 Source: ..\build\diff_ext_setup.exe; DestDir: {app}; Flags: 
 Source: ..\build\diff_ext1049.dll; DestDir: {app}; Flags: ;Components: translations\i18n_ru

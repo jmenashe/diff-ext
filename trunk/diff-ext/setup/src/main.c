@@ -327,7 +327,7 @@ init(HWND dialog, WPARAM not_used_1, LPARAM not_used_2) {
     }
   }
 /******************************************************************************/  
-  SetClassLongPtr(dialog, GCLP_HICON, (LONG_PTR)LoadIcon(resource, MAKEINTRESOURCE(MAIN_ICON)));
+  SetClassLongPtr(dialog, GCLP_HICON, (LONG_PTR)LoadIcon(/*resource*/GetModuleHandle(0), MAKEINTRESOURCE(MAIN_ICON)));
   
   attach_layout(resource, dialog, MAKEINTRESOURCE(ID_MAINDIALOG_LAYOUT));
   
