@@ -51,7 +51,7 @@ BEGIN
     END
 END
 
-MAIN_ICON ICON "../../common/de.ico"
+//MAIN_ICON ICON "../../common/de.ico"
 
 #include "about.dlg"
 

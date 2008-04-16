@@ -11,7 +11,7 @@
 #include <windows.h>
 #include <commctrl.h>
 #endif
-#include "../../include/resource.h"
+#include "resource.h"
 
 LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 
@@ -51,7 +51,7 @@ BEGIN
     END
 END
 
-MAIN_ICON ICON "../../common/de.ico"
+//MAIN_ICON ICON "../../common/de.ico"
 
 #include "about.dlg"
 

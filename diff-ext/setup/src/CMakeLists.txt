@@ -1,4 +1,4 @@
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../include ${PROJECT_SOURCE_DIR}/util/include ${PROJECT_SOURCE_DIR}/dialog-layout/include )
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/util/include ${PROJECT_SOURCE_DIR}/dialog-layout/include )
 
 add_definitions(-D_WIN32_WINNT=0x0500)
 

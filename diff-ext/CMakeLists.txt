@@ -1,13 +1,16 @@
-project(diff-ext)
+project(diff_ext)
 
-include(CPack)
-
-set(VERSION "1.9.1bis")
+set(CPACK_PACKAGE_VERSION_MAJOR "1")
+set(CPACK_PACKAGE_VERSION_MINOR "9")
+set(CPACK_PACKAGE_VERSION_PATCH "2")
+set(VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${VERSION}")
 
 cmake_minimum_required(VERSION 2.4)
 
 if(UNICODE)
   add_definitions(-DUNICODE -D_UNICODE)
+  set(CMAKE_RC_FLAGS "${CMAKE_RC_FLAGS} -DUNICODE -D_UNICODE")
   message("-- Building for Unicode")
 else(UNICODE)
   add_definitions(-D_MBCS)
@@ -51,3 +54,5 @@ add_subdirectory(util)
 add_subdirectory(diff-ext)
 add_subdirectory(setup)
 add_subdirectory(install)
+
+include(CPack)
