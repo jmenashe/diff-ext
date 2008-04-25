@@ -1,9 +1,9 @@
-include_directories(${CMAKE_SOURCE_DIR}/settings ${CMAKE_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR} )
+include_directories(${CMAKE_SOURCE_DIR}/settings ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR})
 
 
 ########### next target ###############
 
-SET(kdiff_ext_PART_SRCS
+set(kdiff_ext_PART_SRCS
    kdiffext.cpp
 )
 
@@ -13,13 +13,18 @@ kde3_add_kpart(kdiff_ext ${kdiff_ext_PART_SRCS})
 
 target_link_libraries(kdiff_ext ${QT_AND_KDECORE_LIBS} konq settings kparts)
 
-install(TARGETS kdiff_ext DESTINATION lib/kde3)
+message("diff-ext prefix: ${CMAKE_INSTALL_PREFIX}")
 
+if(user_install)
+  install(TARGETS kdiff_ext DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+else(user_install)
+  install(TARGETS kdiff_ext DESTINATION ${KDE3_LIB_DIR}/kde3)
+endif(user_install)
 
 ########### install files ###############
 
-install(FILES  DESTINATION /share/services)
-install(FILES  kdiff-ext.desktop DESTINATION /share/services)
+install(FILES DESTINATION ${CMAKE_INSTALL_PREFIX}/share/services)
+install(FILES kdiff-ext.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/services)
 
 kde3_install_icons(hicolor)
 

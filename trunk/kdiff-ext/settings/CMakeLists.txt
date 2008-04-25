@@ -2,22 +2,19 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KD
 
 
 ########### next target ###############
+set(settings_STAT_SRCS "")
 
-SET(settings_STAT_SRCS
-   kdiffext.kcfg
-   settings.cpp
-)
+kde3_add_kcfg_files(settings_STAT_SRCS settings.kcfgc)
 
-kde3_automoc(${settings_STAT_SRCS})
+#kde3_automoc(${settings_STAT_SRCS})
 
 add_library(settings STATIC ${settings_STAT_SRCS})
 
 
 ########### install files ###############
+message("settings prefix: ${CMAKE_INSTALL_PREFIX}")
 
-install(FILES  kdiffext.kcfg DESTINATION /share/config.kcfg)
-
-
+install(FILES kdiffext.kcfg DESTINATION ${CMAKE_INSTALL_PREFIX}/share/config.kcfg)
 
 #original Makefile.am contents follow:
 
