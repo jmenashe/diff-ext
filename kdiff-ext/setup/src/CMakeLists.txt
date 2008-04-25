@@ -22,13 +22,15 @@ kde3_add_executable(kdiffextsetup ${kdiffextsetup_SRCS})
 
 target_link_libraries(kdiffextsetup ${QT_AND_KDECORE_LIBS} settings kio kdeui)
 
+message("setup prefix: ${CMAKE_INSTALL_PREFIX}")
+
 install(TARGETS kdiffextsetup DESTINATION bin)
 
 
 ########### install files ###############
 
-install(FILES  kdiffextsetupui.rc DESTINATION /share/apps/kdiffextsetup)
-install(FILES  kdiffextsetup.desktop DESTINATION /share/applnk/Utilities)
+install(FILES kdiffextsetupui.rc DESTINATION ${CMAKE_INSTALL_PREFIX}/share/apps/kdiffextsetup)
+install(FILES kdiffextsetup.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applnk/Utilities)
 
 kde3_install_icons(hicolor)
 

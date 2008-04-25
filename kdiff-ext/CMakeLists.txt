@@ -1,12 +1,24 @@
 find_package(KDE3 REQUIRED)
 
-set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CPACK_PACKAGE_VERSION_MAJOR "0")
+set(CPACK_PACKAGE_VERSION_MINOR "3")
+set(CPACK_PACKAGE_VERSION_PATCH "1")
+set(VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${VERSION}")
 
 add_definitions(${QT_DEFINITIONS} ${KDE3_DEFINITIONS})
 
 link_directories(${KDE3_LIB_DIR})
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+#configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+
+if(user_install)
+  set(CMAKE_INSTALL_PREFIX $ENV{HOME}/.kde)
+else(user_install)
+  set(CMAKE_INSTALL_PREFIX ${kdedir})
+endif(user_install)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/settings ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR})
 
 add_subdirectory(settings)
 add_subdirectory(diff-ext)
@@ -14,15 +26,11 @@ add_subdirectory(setup)
 add_subdirectory(po)
 add_subdirectory(doc)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR} )
-
-
 ########### install files ###############
 
-install(FILES  README    COPYING    AUTHORS    ChangeLog    INSTALL    NEWS
-TODO DESTINATION share/doc/kdiff-ext )
+install(FILES README COPYING AUTHORS ChangeLog INSTALL NEWS TODO DESTINATION share/doc/kdiff-ext)
 
-
+include(CPack)
 
 #original Makefile.am contents follow:
 
