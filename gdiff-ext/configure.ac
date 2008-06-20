@@ -15,12 +15,12 @@ AM_GCONF_SOURCE_2
 
 PKG_CHECK_MODULES(DIFF_EXT, [libnautilus-extension >= 2.16.0],
   [MENU=gdiff-ext-2.16.lo],
-  [PKG_CHECK_MODULES(DIFF_EXT, [libnautilus-extension >= 2.14.0],[MENU=gdiff-ext-2.14.lo], exit)])
+  [PKG_CHECK_MODULES(DIFF_EXT, [libnautilus-extension >= 2.12.0],[MENU=gdiff-ext-2.14.lo], exit)])
 AC_SUBST(DIFF_EXT_CFLAGS)
 AC_SUBST(DIFF_EXT_LIBS)
 AC_SUBST(MENU)
 
-pkg_modules="gtk+-2.0 >= 2.0.0 gconf-2.0 >= 2.14.0"
+pkg_modules="gtk+-2.0 >= 2.0.0 gconf-2.0 >= 2.12.0"
 PKG_CHECK_MODULES(SETUP, [$pkg_modules])
 AC_SUBST(SETUP_CFLAGS)
 AC_SUBST(SETUP_LIBS)
