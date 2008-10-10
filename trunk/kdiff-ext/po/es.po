@@ -1,0 +1,234 @@
+# Spanish translation for kdiff-ext
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the kdiff-ext package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdiff-ext\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2007-02-11 23:35-0500\n"
+"PO-Revision-Date: 2008-07-07 21:03+0000\n"
+"Last-Translator: MrcredsAlex <sixximux@gmail.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-09-17 03:12+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: _translatorinfo.cpp:1 _translatorinfo.cpp:1
+msgid ""
+"_: NAME OF TRANSLATORS\n"
+"Your names"
+msgstr ",Launchpad Contributions:,Kito,MrcredsAlex"
+
+#: _translatorinfo.cpp:3 _translatorinfo.cpp:3
+msgid ""
+"_: EMAIL OF TRANSLATORS\n"
+"Your emails"
+msgstr ",,,sixximux@gmail.com"
+
+#: diff-ext/src/kdiffext.cpp:54 diff-ext/src/kdiffext.cpp:59
+#: diff-ext/src/kdiffext.cpp:82 diff-ext/src/kdiffext.cpp:88
+#: diff-ext/src/kdiffext.cpp:107 diff-ext/src/kdiffext.cpp:112
+#: diff-ext/src/kdiffext.cpp:114 diff-ext/src/kdiffext.cpp:117
+#, fuzzy
+msgid "Compare later"
+msgstr "Comparar despues"
+
+#: diff-ext/src/kdiffext.cpp:57
+#, fuzzy
+msgid "Compare to '%1'"
+msgstr "Comparar con '%1'"
+
+#: diff-ext/src/kdiffext.cpp:64
+#, fuzzy
+msgid "Compare to"
+msgstr "Comparar con"
+
+#: diff-ext/src/kdiffext.cpp:81 diff-ext/src/kdiffext.cpp:87
+#: diff-ext/src/kdiffext.cpp:106
+#, fuzzy
+msgid "Compare"
+msgstr "Comparar"
+
+#: diff-ext/src/kdiffext.cpp:85
+msgid "3-way compare to '%1'"
+msgstr "Comparar de tres maneras a '%1'"
+
+#: diff-ext/src/kdiffext.cpp:93
+msgid "3-way compare to"
+msgstr "Comparar de tres maneras"
+
+#: diff-ext/src/kdiffext.cpp:111
+msgid "3-way Compare"
+msgstr "Comparar de tres maneras"
+
+#: setup/src/main.cpp:20
+msgid "diff-ext context menu extension for Konqueror"
+msgstr "Menu contextual diff-ext de la extension para Konqueror"
+
+#: setup/src/main.cpp:34
+msgid "kdiffextsetup"
+msgstr "kdiffextsetup"
+
+#: setup/src/main.cpp:37
+msgid ""
+"(c) 2007 Sergey Zorin\n"
+"All rights reserved."
+msgstr ""
+"(c) 2007 Sergey Zorin\n"
+"Todos los derechos reservados."
+
+#: setup/src/main.cpp:41
+msgid ""
+"Copyright (c) 2007 Sergey Zorin\n"
+"All rights reserved.\n"
+"\n"
+"Redistribution and use in source and binary forms, with or without\n"
+"modification, are permitted provided that the following conditions\n"
+"are met:\n"
+"   1. Redistributions  of  source  code   must  retain  the  above\n"
+"      copyright notice,  this list of conditions and the following\n"
+"      disclaimer.\n"
+"   2. Redistributions in binary  form  must  reproduce  the  above\n"
+"      copyright notice,  this list of conditions and the following\n"
+"      disclaimer  in  the  documentation  and/or  other  materials\n"
+"      provided with the distribution.\n"
+"\n"
+"THIS SOFTWARE  IS  PROVIDED  BY  THE  COPYRIGHT  HOLDERS  AND  CONTRIBUTORS\n"
+"\"AS IS\" AND ANY EXPRESS OR IMPLIED  WARRANTIES, INCLUDING,  BUT NOT "
+"LIMITED\n"
+"TO, THE IMPLIED WARRANTIES  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR\n"
+"PURPOSE  ARE  DISCLAIMED.  IN  NO  EVENT  SHALL  THE  COPYRIGHT   OWNER  OR\n"
+"CONTRIBUTORS  BE  LIABLE  FOR  ANY DIRECT,  INDIRECT, INCIDENTAL,  SPECIAL,\n"
+"EXEMPLARY,  OR  CONSEQUENTIAL  DAMAGES  (INCLUDING,  BUT  NOT  LIMITED  TO,\n"
+"PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;\n"
+"OR BUSINESS INTERRUPTION)  HOWEVER CAUSED AND ON ANY THEORY  OF  LIABILITY,\n"
+"WHETHER IN CONTRACT,  STRICT LIABILITY,  OR  TORT  (INCLUDING NEGLIGENCE OR\n"
+"OTHERWISE) ARISING  IN  ANY WAY OUT OF THE USE  OF THIS  SOFTWARE,  EVEN IF\n"
+"ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+msgstr ""
+"Copyright (c) 2007 Segery Zorin\n"
+"Todos los derechos reservados.\n"
+"\n"
+"La redistribuicion y uso en formas de fuente y binarias, con o sin\n"
+"modificacion, son permitidas, con estas condiciones:\n"
+"   1. Redistribuiciones del codigo fuente tienen que seguir\n"
+"      notificacion de copyright, esta lista de condiciones y el disclaimer "
+"siguiente\n"
+"    2. Redistribuiciones en forma binaria tienen que reproducir\n"
+"       noticia de copyright, esta lista de condiciones\n"
+"       y el siguiente disclaimer en la documentacion y/o otros materiales\n"
+"       que vienen con la distribuicion\n"
+"\n"
+"ESTE SOFTWARE ES PROPORCIONADO POR LOS DUEÑOS DEL COPYRIGHT Y LOS "
+"CONTRIBUIDORES\n"
+"\"COMO ES\" Y CUALQUIER GARANTIA EXPRESA O IMPLICADA, INCLUYENDO, PERO NO "
+"LIMITADO\n"
+"A, LAS GARANTIAS IMPLICADAS O MERCANCIA Y FITNESS PARA UNA RAZON\n"
+"PARTICULAR. EN NINGUN EVENTO EL DUEÑO DEL COPYRIGHT\n"
+"O EL EJEMPLAR, O DAÑOS CONSEQUENCIALES (INCLUYENDO, PERO NO LIMITADO A,\n"
+"PROCURAMIENTO DE SUBSTITUICION DE BIENES O SERVICIOS; PERDIDA DE USO, DATOS, "
+"PROFITS\n"
+"O INTERRUPCION DE EMPRESA) AUNQUE HAYA CAUSADO Y EN TEORIA DE LIABILIDAD,\n"
+"EN EL CONTRATO, LIABILIDAD EXTRICTA O TOT (INCLUYENDO NEGLICENCIA\n"
+"O AL REVES) EN CUALQUIER MANERA EN EL USO DE ESTE SOFTWARE, AUNQUE\n"
+"SEA NOTIFICADA LA LA POSIBILIDAD DE ESE DAÑO.\n"
+
+#. i18n: file ./setup/src/ui_base.ui line 16
+#: setup/src/ui_base.cpp:181 debug/setup/src/ui_base.cpp:181 rc.cpp:3
+#, no-c-format
+msgid "ui_base"
+msgstr ""
+
+#. i18n: file ./setup/src/ui_base.ui line 79
+#. i18n: file ./setup/src/ui_base.ui line 196
+#: setup/src/ui_base.cpp:182 setup/src/ui_base.cpp:187
+#: debug/setup/src/ui_base.cpp:182 debug/setup/src/ui_base.cpp:187 rc.cpp:9
+#: rc.cpp:24
+#, fuzzy, no-c-format
+msgid "Co&mpare folders"
+msgstr "Comparar carpetas"
+
+#. i18n: file ./setup/src/ui_base.ui line 82
+#. i18n: file ./setup/src/ui_base.ui line 199
+#: setup/src/ui_base.cpp:183 setup/src/ui_base.cpp:188
+#: debug/setup/src/ui_base.cpp:183 debug/setup/src/ui_base.cpp:188 rc.cpp:12
+#: rc.cpp:27
+#, no-c-format
+msgid "Alt+M"
+msgstr "Alt+M"
+
+#. i18n: file ./setup/src/ui_base.ui line 117
+#. i18n: file ./setup/src/ui_base.ui line 234
+#: setup/src/ui_base.cpp:184 setup/src/ui_base.cpp:189
+#: debug/setup/src/ui_base.cpp:184 debug/setup/src/ui_base.cpp:189 rc.cpp:15
+#: rc.cpp:30
+#, no-c-format
+msgid "Use K&IO"
+msgstr ""
+
+#. i18n: file ./setup/src/ui_base.ui line 120
+#. i18n: file ./setup/src/ui_base.ui line 237
+#: setup/src/ui_base.cpp:185 setup/src/ui_base.cpp:190
+#: debug/setup/src/ui_base.cpp:185 debug/setup/src/ui_base.cpp:190 rc.cpp:18
+#: rc.cpp:33
+#, no-c-format
+msgid "Alt+I"
+msgstr "Alt+I"
+
+#. i18n: file ./setup/src/ui_base.ui line 52
+#: setup/src/ui_base.cpp:186 debug/setup/src/ui_base.cpp:186 rc.cpp:6
+#, no-c-format
+msgid "Compare &tool"
+msgstr "Herramienta de comparacion"
+
+#. i18n: file ./setup/src/ui_base.ui line 169
+#: setup/src/ui_base.cpp:191 debug/setup/src/ui_base.cpp:191 rc.cpp:21
+#, no-c-format
+msgid "&3-way compare tool"
+msgstr "Herramienta de comparacion de 3 maneras"
+
+#. i18n: file ./setup/src/ui_base.ui line 292
+#: setup/src/ui_base.cpp:192 debug/setup/src/ui_base.cpp:192 rc.cpp:36
+#, fuzzy, no-c-format
+msgid "S&queeze filenames longer then:"
+msgstr "Acortar nombres de archivo más largos que:"
+
+#. i18n: file ./setup/src/ui_base.ui line 304
+#: setup/src/ui_base.cpp:193 debug/setup/src/ui_base.cpp:193 rc.cpp:39
+#, fuzzy, no-c-format
+msgid "diasbled"
+msgstr "desactivado"
+
+#. i18n: file ./setup/src/ui_base.ui line 364
+#: setup/src/ui_base.cpp:195 debug/setup/src/ui_base.cpp:195 rc.cpp:45
+#, no-c-format
+msgid "Alt+B"
+msgstr "Alt+B"
+
+#. i18n: file ./setup/src/ui_base.ui line 392
+#: setup/src/ui_base.cpp:197 debug/setup/src/ui_base.cpp:197 rc.cpp:51
+#, no-c-format
+msgid "Alt+O"
+msgstr "Alt+O"
+
+#. i18n: file ./setup/src/ui_base.ui line 415
+#: setup/src/ui_base.cpp:199 debug/setup/src/ui_base.cpp:199 rc.cpp:57
+#, no-c-format
+msgid "Alt+A"
+msgstr "Alt+A"
+
+#. i18n: file ./setup/src/ui_base.ui line 426
+#: setup/src/ui_base.cpp:200 debug/setup/src/ui_base.cpp:200 rc.cpp:60
+#, fuzzy, no-c-format
+msgid "Ca&ncel"
+msgstr "Cancelar"
+
+#. i18n: file ./setup/src/ui_base.ui line 429
+#: setup/src/ui_base.cpp:201 debug/setup/src/ui_base.cpp:201 rc.cpp:63
+#, no-c-format
+msgid "Alt+N"
+msgstr "Alt+N"
