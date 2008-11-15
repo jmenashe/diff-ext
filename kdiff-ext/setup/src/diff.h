@@ -4,12 +4,12 @@
 
 #include "ui_base.h"
 
-class DIFF : public UI_BASE
+class DIFF : public QWidget, Ui_BASE
 {
   Q_OBJECT
 
 public:
-  DIFF(QWidget* parent = 0, const char* name = 0, WFlags fl = 0 );
+  DIFF(QWidget* parent = 0);
   ~DIFF();
   /*$PUBLIC_FUNCTIONS$*/
 

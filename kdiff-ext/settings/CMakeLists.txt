@@ -1,12 +1,12 @@
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR} )
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE4_INCLUDE_DIR} ${QT_INCLUDE_DIR} )
 
 
 ########### next target ###############
 set(settings_STAT_SRCS "")
 
-kde3_add_kcfg_files(settings_STAT_SRCS settings.kcfgc)
+kde4_add_kcfg_files(settings_STAT_SRCS settings.kcfgc)
 
-#kde3_automoc(${settings_STAT_SRCS})
+#kde4_automoc(${settings_STAT_SRCS})
 
 add_library(settings STATIC ${settings_STAT_SRCS})
 

@@ -1,17 +1,12 @@
-#ifndef __DIFF_H__
-#define __DIFF_H__
+#ifndef __main_h__
+#define __main_h__
 
-#include <qwidgetlist.h>
 #include <kapplication.h>
-#include <kaboutapplication.h>
 
 class KDIFF_EXT_SETUP : public KApplication {
   Q_OBJECT
   public slots:
-    void about_clicked() {
-      KAboutApplication* about = new KAboutApplication(QApplication::topLevelWidgets()->at(0));
-      about->show();
-    }
+    void about_clicked();
 };
 
-#endif // __DIFF_H__
+#endif // __main_h__

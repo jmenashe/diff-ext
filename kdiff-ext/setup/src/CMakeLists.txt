@@ -1,4 +1,4 @@
-include_directories(${CMAKE_SOURCE_DIR}/settings ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR} )
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/settings ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR} )
 
 
 ########### next target ###############
@@ -7,18 +7,19 @@ SET(kdiffextsetup_SRCS
    main.cpp
    diff.cpp
    diff3.cpp
+   general.cpp
 )
 
-kde3_automoc(${kdiffextsetup_SRCS})
+#kde4_automoc(${kdiffextsetup_SRCS})
 
 set(kdiffextsetup_UI
-    ui_base.ui
+    base.ui
     general.ui
 )
 
-kde3_add_ui_files(kdiffextsetup_SRCS ${kdiffextsetup_UI})
+kde4_add_ui_files(kdiffextsetup_SRCS ${kdiffextsetup_UI})
 
-kde3_add_executable(kdiffextsetup ${kdiffextsetup_SRCS})
+kde4_add_executable(kdiffextsetup ${kdiffextsetup_SRCS})
 
 target_link_libraries(kdiffextsetup ${QT_AND_KDECORE_LIBS} settings kio kdeui)
 
@@ -32,7 +33,7 @@ install(TARGETS kdiffextsetup DESTINATION bin)
 install(FILES kdiffextsetupui.rc DESTINATION ${CMAKE_INSTALL_PREFIX}/share/apps/kdiffextsetup)
 install(FILES kdiffextsetup.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applnk/Utilities)
 
-kde3_install_icons(hicolor)
+kde4_install_icons(hicolor)
 
 
 
