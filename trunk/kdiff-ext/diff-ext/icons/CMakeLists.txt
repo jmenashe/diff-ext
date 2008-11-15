@@ -1,3 +1,3 @@
 message("icons prefix: ${CMAKE_INSTALL_PREFIX}")
 
-kde3_install_icons(hicolor)
+kde4_install_icons(hicolor)

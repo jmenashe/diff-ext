@@ -11,10 +11,10 @@
 
 #include <kapplication.h>
 #include <kaboutdata.h>
+#include <kaboutapplicationdialog.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
 #include <kconfigdialog.h>
-#include <kaboutapplication.h>
 
 #include <settings.h>
 #include "diff.h"
@@ -22,28 +22,30 @@
 #include "general.h"
 #include "main.h"
     
-static const char description[] = I18N_NOOP("diff-ext context menu extension for Konqueror");
+static const char version[] = "0.4.0";
 
-static const char version[] = "0.3.1";
+static KAboutData about = KAboutData(
+		"kdiffextsetup", 
+		"kdiffext",
+		ki18n("kdiffextsetup"), 
+		version, 
+		ki18n("diff-ext context menu extension for Konqueror"),
+		KAboutData::License_Custom, 
+		ki18n("(c) 2007 Sergey Zorin\nAll rights reserved."),
+		KLocalizedString(), 
+		"http://diff-ext.sourceforge.net", 
+		"szorin@comcast.net");
 
-static KCmdLineOptions options[] = {
-//    { "+[URL]", I18N_NOOP( "Document to open" ), 0 },
-  KCmdLineLastOption
-};
+void
+KDIFF_EXT_SETUP::about_clicked() {
+  KAboutApplicationDialog* dlg = new KAboutApplicationDialog(&about, QApplication::topLevelWidgets().at(0));
+  dlg->show();
+}
 
 int 
 main(int argc, char **argv) {
-  KLocale::setMainCatalogue("kdiffext");
-
-  KAboutData about("kdiffextsetup", 
-                   I18N_NOOP("kdiffextsetup"), 
-                   version, description,
-                   KAboutData::License_Custom, 
-                   I18N_NOOP("(c) 2007 Sergey Zorin\n"
-                   "All rights reserved."),
-                   0, "http://diff-ext.sourceforge.net", "szorin@comcast.net");
-  about.addAuthor( "Sergey Zorin", 0, "szorin@comcast.net" );
-  about.setLicenseText(I18N_NOOP("Copyright (c) 2007 Sergey Zorin\n"
+  about.addAuthor(ki18n("Sergey Zorin"), KLocalizedString(), "szorin@comcast.net");
+  about.setLicenseText(ki18n("Copyright (c) 2007 Sergey Zorin\n"
       "All rights reserved.\n\n"
       "Redistribution and use in source and binary forms, with or without\n"
       "modification, are permitted provided that the following conditions\n"
@@ -67,23 +69,22 @@ main(int argc, char **argv) {
       "OTHERWISE) ARISING  IN  ANY WAY OUT OF THE USE  OF THIS  SOFTWARE,  EVEN IF\n"
       "ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"));
   KCmdLineArgs::init(argc, argv, &about);
-  KCmdLineArgs::addCmdLineOptions(options);
   KDIFF_EXT_SETUP app;
 
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   KConfigDialog* mainWin = new KConfigDialog(0, "settings", Settings::self());
 
-  mainWin->addPage(new GENERAL(), i18n("General"), "kdiffextsetup.png");
-  mainWin->addPage(new DIFF(), i18n("Compare tool"), "package_settings.png");
-  mainWin->addPage(new DIFF3(), i18n("3-way compare tool"), "package_settings.png");
+  mainWin->addPage(new GENERAL(), i18n("General")/*, "kdiffextsetup.png"*/);
+  mainWin->addPage(new DIFF(), i18n("Compare tool")/*, "package_settings.png"*/);
+  mainWin->addPage(new DIFF3(), i18n("3-way compare tool")/*, "package_settings.png"*/);
 
-//  mainWin->connect(mainWin, SIGNAL(helpClicked()), &app, SLOT(about_clicked()));
+  mainWin->connect(mainWin, SIGNAL(helpClicked()), &app, SLOT(about_clicked()));
 
-  app.setMainWidget(mainWin);
+  app.setTopWidget(mainWin);
 
   mainWin->show();
 
-  args->clear();
+//  args->clear();
 
   // mainWin has WDestructiveClose flag by default, so it will delete itself.
   return app.exec();

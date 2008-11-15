@@ -8,17 +8,23 @@
 #ifndef __KDIFFEXT_H__
 #define __KDIFFEXT_H__
 
-#include <qstring.h>
-#include <qsignalmapper.h>
+#include <Qt/qstring.h>
+#include <Qt/qsignalmapper.h>
 #include <konq_popupmenu.h>
+#include <konq_popupmenuinformation.h>
+#include <konq_popupmenuplugin.h>
 #include <kconfig.h>
 #include <kfileitem.h>
 
 class kdiffext : public KonqPopupMenuPlugin {
   Q_OBJECT
   public:
-    kdiffext(KonqPopupMenu* popupmenu, const char* name, const QStringList &list);
-    ~kdiffext();
+    kdiffext(QObject*, const QStringList&);
+    virtual ~kdiffext();
+
+    virtual void setup(KActionCollection* actionCollection,
+                       const KonqPopupMenuInformation& popupMenuInfo,
+                       QMenu *menu);
 
   public slots:
     void compare_later();
@@ -29,13 +35,13 @@ class kdiffext : public KonqPopupMenuPlugin {
     void clear();
 
   protected:
-    virtual void setup_actions();
-    QString arg(KFileItem*, bool);
-    QString display(KFileItem*);
+    QString arg(const KFileItem&, bool);
+    QString display(const KFileItem&);
+    KActionMenu* populate_compare_to_menu(KActionCollection*);
 
   protected:
-    KonqPopupMenu* _menu;
     QSignalMapper* _mapper;
+    KFileItemList _selected;
     static KFileItemList _files;
 };
 

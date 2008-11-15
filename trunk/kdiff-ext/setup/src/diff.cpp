@@ -1,14 +1,15 @@
-#include <qcheckbox.h>
+#include <Qt/qcheckbox.h>
 #include <kurlrequester.h>
 
 #include "diff.h"
 
-DIFF::DIFF(QWidget* parent, const char* name, WFlags fl)
-: UI_BASE(parent,name,fl)
+DIFF::DIFF(QWidget* parent)
+: QWidget(parent)
 {
-  _diff->setName("kcfg_diff_command");
-  _diff_compare_folders->setName("kcfg_diff_folders");
-  _diff_use_kio->setName("kcfg_diff_kio");
+  setupUi(this);
+  _diff->setObjectName("kcfg_diff_command");
+  _diff_compare_folders->setObjectName("kcfg_diff_folders");
+  _diff_use_kio->setObjectName("kcfg_diff_kio");
 }
 
 DIFF::~DIFF()
