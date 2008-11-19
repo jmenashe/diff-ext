@@ -18,7 +18,6 @@
 
 #include <settings.h>
 #include "diff.h"
-#include "diff3.h"
 #include "general.h"
 #include "main.h"
     
@@ -45,7 +44,7 @@ KDIFF_EXT_SETUP::about_clicked() {
 int 
 main(int argc, char **argv) {
   about.addAuthor(ki18n("Sergey Zorin"), KLocalizedString(), "szorin@comcast.net");
-  about.setLicenseText(ki18n("Copyright (c) 2007 Sergey Zorin\n"
+  about.setLicenseText(ki18n("Copyright (c) 2007-2008 Sergey Zorin\n"
       "All rights reserved.\n\n"
       "Redistribution and use in source and binary forms, with or without\n"
       "modification, are permitted provided that the following conditions\n"
@@ -75,10 +74,10 @@ main(int argc, char **argv) {
   KConfigDialog* mainWin = new KConfigDialog(0, "settings", Settings::self());
 
   mainWin->addPage(new GENERAL(), i18n("General")/*, "kdiffextsetup.png"*/);
-  mainWin->addPage(new DIFF(), i18n("Compare tool")/*, "package_settings.png"*/);
-  mainWin->addPage(new DIFF3(), i18n("3-way compare tool")/*, "package_settings.png"*/);
+  mainWin->addPage(new DIFF(mainWin, "kcfg_diff"), i18n("Compare tool")/*, "package_settings.png"*/);
+  mainWin->addPage(new DIFF(mainWin, "kcfg_diff3"), i18n("3-way compare tool")/*, "package_settings.png"*/);
 
-  mainWin->connect(mainWin, SIGNAL(helpClicked()), &app, SLOT(about_clicked()));
+//  mainWin->connect(mainWin, SIGNAL(helpClicked()), &app, SLOT(about_clicked()));
 
   app.setTopWidget(mainWin);
 

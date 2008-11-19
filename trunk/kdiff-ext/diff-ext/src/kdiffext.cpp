@@ -58,7 +58,7 @@ kdiffext::populate_compare_to_menu(KActionCollection* actionCollection) {
 }
 
 kdiffext::kdiffext(QObject* parent, const QStringList&) : KonqPopupMenuPlugin(parent) {
-  _mapper = 0;
+  _mapper = new QSignalMapper(this);
 
 //  KMessageBox::information(0, "kdiffext::()");
 //  _files.setAutoDelete(true);
@@ -67,9 +67,7 @@ kdiffext::kdiffext(QObject* parent, const QStringList&) : KonqPopupMenuPlugin(pa
 }
 
 kdiffext::~kdiffext() {
-  if(_mapper != 0) {
-    delete _mapper;
-  }
+  delete _mapper;
 }
 
 void
@@ -93,7 +91,6 @@ kdiffext::setup(KActionCollection* actionCollection,
         menu->addAction(action);
       }
       
-      _mapper = new QSignalMapper(this);
       connect(_mapper, SIGNAL(mapped(int)), this, SLOT(compare_to(int)));
 
       KActionMenu* compare_to_menu = populate_compare_to_menu(actionCollection);
