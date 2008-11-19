@@ -8,79 +8,119 @@
       <rect>
         <x>0</x>
         <y>0</y>
-        <width>309</width>
-        <height>197</height>
+        <width>290</width>
+        <height>150</height>
       </rect>
+    </property>
+    <property name="sizePolicy" >
+      <sizepolicy>
+        <hsizetype>7</hsizetype>
+        <vsizetype>7</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+      </sizepolicy>
     </property>
     <property name="windowTitle" >
       <string>ui_base</string>
     </property>
-    <layout class="QGridLayout" >
-      <item rowspan="1" row="1" column="1" colspan="2" >
-        <spacer name="spacer1_2_2_2" >
-          <property name="sizeHint" >
-            <size>
-              <width>166</width>
-              <height>20</height>
-            </size>
-          </property>
-          <property name="sizeType" >
-            <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-          </property>
-        </spacer>
+    <layout class="QVBoxLayout" >
+      <item>
+        <layout class="QHBoxLayout" >
+          <item>
+            <widget class="KLineEdit" name="_command" >
+              <property name="sizePolicy" >
+                <sizepolicy>
+                  <hsizetype>7</hsizetype>
+                  <vsizetype>0</vsizetype>
+                  <horstretch>1</horstretch>
+                  <verstretch>0</verstretch>
+                </sizepolicy>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="KPushButton" name="_browse" >
+              <property name="sizePolicy" >
+                <sizepolicy>
+                  <hsizetype>1</hsizetype>
+                  <vsizetype>1</vsizetype>
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                </sizepolicy>
+              </property>
+              <property name="text" >
+                <string>Browse</string>
+              </property>
+            </widget>
+          </item>
+        </layout>
       </item>
-      <item rowspan="1" row="2" column="0" colspan="2" >
-        <widget class="QCheckBox" name="_diff_compare_folders" >
-          <property name="text" >
-            <string>C&amp;ompare folders</string>
-          </property>
-          <property name="shortcut" >
-            <string>Alt+O</string>
-          </property>
-        </widget>
+      <item>
+        <layout class="QHBoxLayout" >
+          <item>
+            <widget class="QCheckBox" name="_kio" >
+              <property name="text" >
+                <string>&amp;Use KIO</string>
+              </property>
+              <property name="shortcut" >
+                <string>Alt+U</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <spacer name="spacer1_2_2_2" >
+              <property name="sizeHint" >
+                <size>
+                  <width>176</width>
+                  <height>20</height>
+                </size>
+              </property>
+              <property name="sizeType" >
+                <enum>QSizePolicy::Expanding</enum>
+              </property>
+              <property name="orientation" >
+                <enum>Qt::Horizontal</enum>
+              </property>
+            </spacer>
+          </item>
+        </layout>
       </item>
-      <item rowspan="1" row="0" column="0" colspan="3" >
-        <widget class="KUrlRequester" name="_diff" >
-          <property name="enabled" >
-            <bool>true</bool>
-          </property>
-        </widget>
+      <item>
+        <layout class="QHBoxLayout" >
+          <item>
+            <widget class="QCheckBox" name="_folders" >
+              <property name="text" >
+                <string>C&amp;ompare folders</string>
+              </property>
+              <property name="shortcut" >
+                <string>Alt+O</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <spacer name="spacer11" >
+              <property name="sizeHint" >
+                <size>
+                  <width>121</width>
+                  <height>20</height>
+                </size>
+              </property>
+              <property name="sizeType" >
+                <enum>QSizePolicy::Expanding</enum>
+              </property>
+              <property name="orientation" >
+                <enum>Qt::Horizontal</enum>
+              </property>
+            </spacer>
+          </item>
+        </layout>
       </item>
-      <item row="2" column="2" >
-        <spacer name="spacer11" >
-          <property name="sizeHint" >
-            <size>
-              <width>121</width>
-              <height>20</height>
-            </size>
-          </property>
-          <property name="sizeType" >
-            <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="orientation" >
-            <enum>Qt::Horizontal</enum>
-          </property>
-        </spacer>
-      </item>
-      <item row="1" column="0" >
-        <widget class="QCheckBox" name="_diff_use_kio" >
-          <property name="text" >
-            <string>&amp;Use KIO</string>
-          </property>
-          <property name="shortcut" >
-            <string>Alt+U</string>
-          </property>
-        </widget>
-      </item>
-      <item row="3" column="2" >
+      <item>
         <spacer name="spacer12" >
           <property name="sizeHint" >
             <size>
               <width>20</width>
-              <height>80</height>
+              <height>20</height>
             </size>
           </property>
           <property name="sizeType" >
@@ -96,13 +136,19 @@
   <layoutdefault spacing="6" margin="11" />
   <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
   <tabstops>
-    <tabstop>_diff</tabstop>
-    <tabstop>_diff_use_kio</tabstop>
-    <tabstop>_diff_compare_folders</tabstop>
+    <tabstop>_kio</tabstop>
+    <tabstop>_folders</tabstop>
   </tabstops>
   <includes>
-    <include location="local" >kurlrequester.h</include>
     <include location="local" >klineedit.h</include>
     <include location="local" >kpushbutton.h</include>
   </includes>
+  <connections>
+    <connection>
+      <sender>_browse</sender>
+      <signal>clicked()</signal>
+      <receiver>ui_base</receiver>
+      <slot>browse()</slot>
+    </connection>
+  </connections>
 </ui>

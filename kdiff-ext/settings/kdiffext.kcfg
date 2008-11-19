@@ -13,7 +13,7 @@
     </entry>
   </group>
   <group name="diff">
-    <entry name="diff_command" type="Path">
+    <entry name="diff_command" key="command" type="Path">
 	    <label>Compare command</label>
 	    <default></default>
     </entry>
