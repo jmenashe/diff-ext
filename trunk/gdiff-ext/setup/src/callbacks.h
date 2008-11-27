@@ -20,3 +20,7 @@ void on_diff_tool_realize(GtkWidget* widget, gpointer user_data);
 void on_diff3_tool_realize(GtkWidget* widget, gpointer user_data);
 void on_diff3_tool_selection_changed(GtkFileChooser* filechooser, gpointer user_data);
 void on_3_way_compare_realize(GtkWidget* widget, gpointer user_data);
+
+void on_keep_files_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+
+void on_keep_files_realize(GtkWidget *widget, gpointer user_data);

@@ -41,13 +41,27 @@
 	  </long>
 	</locale>
       </schema>
+
+      <schema>
+        <key>/schemas/apps/gdiff-ext/keep-files</key>
+	<applyto>/apps/gdiff-ext/keep-files</applyto>
+	<owner>gdiff-ext</owner>
+	<type>bool</type>
+	<default>true</default>
+	<locale name="C">
+	  <short>Keep files in list</short>
+	  <long>
+	    Keep files in list after comparison is done
+	  </long>
+	</locale>
+      </schema>
       
       <schema>
         <key>/schemas/apps/gdiff-ext/icons</key>
 	<applyto>/apps/gdiff-ext/icons</applyto>
 	<owner>gdiff-ext</owner>
 	<type>string</type>
-	<default>gdiff-ext</default>
+	<default>diff-ext</default>
 	<locale name="C">
 	  <short>icon theme</short>
 	  <long>

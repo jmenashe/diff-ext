@@ -113,3 +113,17 @@ on_3_way_compare_realize(GtkWidget* widget, gpointer user_data) {
   MODEL* m = (MODEL*)model;
   gtk_toggle_button_set_active((GtkToggleButton*)widget, m->enable_diff3);
 }
+
+void
+on_keep_files_toggled(GtkToggleButton* togglebutton, gpointer user_data) {
+  MODEL* m = (MODEL*)model;
+  m->keep_files = gtk_toggle_button_get_active(togglebutton);
+}
+
+
+void
+on_keep_files_realize(GtkWidget* widget, gpointer user_data) {
+  MODEL* m = (MODEL*)model;
+  gtk_toggle_button_set_active((GtkToggleButton*)widget, m->keep_files);
+}
+

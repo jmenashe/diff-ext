@@ -29,6 +29,7 @@ apply() {
     gconf_client_set_string(gconf_client, "/apps/gdiff-ext/diff", m->diff_tool->str, NULL);
     gconf_client_set_string(gconf_client, "/apps/gdiff-ext/diff3", m->diff3_tool->str, NULL);
     gconf_client_set_bool(gconf_client, "/apps/gdiff-ext/enable-diff3",m->enable_diff3, NULL);
+    gconf_client_set_bool(gconf_client, "/apps/gdiff-ext/keep-files",m->keep_files, NULL);
 	
   g_object_unref(G_OBJECT(gconf_client));
 }
@@ -56,9 +57,10 @@ main (int argc, char *argv[])
   m.diff_tool = g_string_new("");
   m.diff3_tool = g_string_new("");
   gconf_client = gconf_client_get_default ();
-    g_string_assign(m.diff_tool, gconf_client_get_string(gconf_client, "/gapps/diff-ext/diff", NULL));
+    g_string_assign(m.diff_tool, gconf_client_get_string(gconf_client, "/apps/gdiff-ext/diff", NULL));
     g_string_assign(m.diff3_tool, gconf_client_get_string(gconf_client, "/apps/gdiff-ext/diff3", NULL));
     m.enable_diff3 = gconf_client_get_bool(gconf_client, "/apps/gdiff-ext/enable-diff3", NULL);
+    m.keep_files = gconf_client_get_bool(gconf_client, "/apps/gdiff-ext/keep-files", NULL);
   g_object_unref(G_OBJECT(gconf_client));
   
   if(!g_path_is_absolute(m.diff_tool->str)) {
