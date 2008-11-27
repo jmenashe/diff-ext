@@ -14,6 +14,7 @@ typedef struct {
   GString* diff_tool;
   GString* diff3_tool;
   gboolean enable_diff3;
+  gboolean keep_files;
 } MODEL;
 
 #endif /*__model_h__*/

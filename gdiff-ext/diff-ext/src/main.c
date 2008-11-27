@@ -32,7 +32,7 @@ diff(gchar* f1, gchar* f2) {
   GConfClient* gconf_client;
 
   gconf_client = gconf_client_get_default ();
-    diff_tool = gconf_client_get_string(gconf_client, "/apps/diff-ext/diff", NULL);
+    diff_tool = gconf_client_get_string(gconf_client, "/apps/gdiff-ext/diff", NULL);
   g_object_unref(G_OBJECT(gconf_client));
   
   argv[0] = diff_tool;
@@ -51,9 +51,11 @@ diff3(gchar* f1, gchar* f2, gchar* f3) {
   gchar* argv[6];
   gchar* diff3_tool = 0;
   GConfClient* gconf_client;
+  gboolean keep_file;
 
   gconf_client = gconf_client_get_default ();
-    diff3_tool = gconf_client_get_string(gconf_client, "/apps/diff-ext/diff3", NULL);
+    diff3_tool = gconf_client_get_string(gconf_client, "/apps/gdiff-ext/diff3", NULL);
+    keep_file = gconf_client_get_bool(gconf_client, "/apps/gdiff-ext/keep-files", NULL);
   g_object_unref(G_OBJECT(gconf_client));
   
   argv[0] = diff3_tool;
@@ -70,7 +72,7 @@ diff3(gchar* f1, gchar* f2, gchar* f3) {
 
 void
 compare(NautilusMenuItem *item, gpointer user_data) {
-  GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "diff-ext::compare"));
+  GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "gdiff-ext::compare"));
   gchar* f1 = 0;
   gchar* f2 = 0;
   
@@ -83,7 +85,7 @@ compare(NautilusMenuItem *item, gpointer user_data) {
 
 void
 compare3(NautilusMenuItem *item, gpointer user_data) {
-  GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "diff-ext::compare3"));
+  GList* files = g_list_first((GList*)g_object_get_data(G_OBJECT(item), "gdiff-ext::compare3"));
   gchar* f1 = 0;
   gchar* f2 = 0;
   gchar* f3 = 0;

@@ -298,7 +298,7 @@
 
     </section>
 
-    <section id="3-way-same">
+    <section id="_3-way-same">
 
       <title>3-way file comparison</title>
 
@@ -417,7 +417,7 @@
 
     </section>
 
-    <section id="3-way-compare-different">
+    <section id="_3-way-compare-different">
 
       <title>3-way comparison of files from different folders</title>
 
