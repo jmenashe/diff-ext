@@ -37,7 +37,7 @@ class kdiffext : public KonqPopupMenuPlugin {
   protected:
     QString arg(const KFileItem&, bool);
     QString display(const KFileItem&);
-    KActionMenu* populate_compare_to_menu(KActionCollection*);
+    void populate_compare_to_menu(KActionMenu*, KActionCollection*);
 
   protected:
     QSignalMapper* _mapper;

@@ -1,5 +1,6 @@
 project(kdiff-ext)
 
+message("user_instal: ${user_install}")
 #fix the global install
 #if(user_install)
   set(CMAKE_INSTALL_PREFIX $ENV{KDEHOME})
@@ -8,6 +9,8 @@ project(kdiff-ext)
 #endif(user_install)
 
 find_package(KDE4 REQUIRED)
+find_package(Gettext REQUIRED)
+include (KDE4Defaults)
 
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
 set(CPACK_PACKAGE_VERSION_MINOR "4")
