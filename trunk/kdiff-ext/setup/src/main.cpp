@@ -25,7 +25,7 @@ static const char version[] = "0.4.0";
 
 static KAboutData about = KAboutData(
 		"kdiffextsetup", 
-		"kdiffext",
+		"kdiff-ext",
 		ki18n("kdiffextsetup"), 
 		version, 
 		ki18n("diff-ext context menu extension for Konqueror"),
@@ -73,9 +73,9 @@ main(int argc, char **argv) {
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
   KConfigDialog* mainWin = new KConfigDialog(0, "settings", Settings::self());
 
-  mainWin->addPage(new GENERAL(), i18n("General")/*, "kdiffextsetup.png"*/);
-  mainWin->addPage(new DIFF(mainWin, "kcfg_diff"), i18n("Compare tool")/*, "package_settings.png"*/);
-  mainWin->addPage(new DIFF(mainWin, "kcfg_diff3"), i18n("3-way compare tool")/*, "package_settings.png"*/);
+  mainWin->addPage(new GENERAL(), i18n("General"), "kdiffextsetup.png");
+  mainWin->addPage(new DIFF(mainWin, "kcfg_diff"), i18n("Compare tool"), "package_settings.png");
+  mainWin->addPage(new DIFF(mainWin, "kcfg_diff3"), i18n("3-way compare tool"), "package_settings.png");
 
 //  mainWin->connect(mainWin, SIGNAL(helpClicked()), &app, SLOT(about_clicked()));
 

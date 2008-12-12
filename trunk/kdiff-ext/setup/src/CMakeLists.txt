@@ -1,7 +1,7 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/settings ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${KDE3_INCLUDE_DIR} ${QT_INCLUDE_DIR} )
 
 
-########### next target ###############
+########### main target ###############
 
 SET(kdiffextsetup_SRCS
    main.cpp
@@ -20,8 +20,6 @@ kde4_add_executable(kdiffextsetup ${kdiffextsetup_SRCS})
 
 target_link_libraries(kdiffextsetup ${QT_AND_KDECORE_LIBS} settings kio kdeui)
 
-message("setup prefix: ${CMAKE_INSTALL_PREFIX}")
-
 install(TARGETS kdiffextsetup DESTINATION bin)
 
 
@@ -30,5 +28,5 @@ install(TARGETS kdiffextsetup DESTINATION bin)
 install(FILES kdiffextsetupui.rc DESTINATION ${CMAKE_INSTALL_PREFIX}/share/apps/kdiffextsetup)
 install(FILES kdiffextsetup.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applnk/Utilities)
 
-kde4_install_icons(hicolor)
+kde4_install_icons(${ICON_INSTALL_DIR})
 

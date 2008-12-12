@@ -21,18 +21,16 @@
 #include "kdiffext.moc"
 
 typedef KGenericFactory<kdiffext> factory;
-K_EXPORT_COMPONENT_FACTORY(kdiff_ext, factory("kdiff_ext"))
+K_EXPORT_COMPONENT_FACTORY(kdiff_ext, factory("kdiff-ext"))
 
 KFileItemList kdiffext::_files;
 
-KActionMenu* 
-kdiffext::populate_compare_to_menu(KActionCollection* actionCollection) {
-  KActionMenu* compare_to_menu = new KActionMenu(actionCollection);
-
+void
+kdiffext::populate_compare_to_menu(KActionMenu* compare_to_menu, KActionCollection* actions) {
   unsigned int n = 0;
   for(KFileItemList::iterator i = _files.begin(); i != _files.end(); i++, n++) {
     if(Settings::diff_kio() || _files.first().isLocalFile()) {
-      KAction* action = actionCollection->addAction(QString("kdiffext::%1").arg(n));
+      KAction* action = actions->addAction(QString("kdiffext::%1").arg(n));
       action->setText(display(*i));
 //TODO          action->setIcon(KIcon("diff_later"));
   //      action->setShortcut(Qt::Key_F6);
@@ -47,14 +45,12 @@ kdiffext::populate_compare_to_menu(KActionCollection* actionCollection) {
   }
   
   compare_to_menu->addSeparator();
-  KAction* action = actionCollection->addAction("kdiffext::clear");
+  KAction* action = actions->addAction("kdiffext::clear");
   action->setText(i18n("Clear"));
   action->setIcon(KIcon("clear"));
 //      action->setShortcut(Qt::Key_F6);
   connect(action, SIGNAL(triggered()), this, SLOT(clear()));
   compare_to_menu->addAction(action);
-  
-  return compare_to_menu;
 }
 
 kdiffext::kdiffext(QObject* parent, const QStringList&) : KonqPopupMenuPlugin(parent) {
@@ -92,13 +88,6 @@ kdiffext::setup(KActionCollection* actionCollection,
       }
       
       connect(_mapper, SIGNAL(mapped(int)), this, SLOT(compare_to(int)));
-
-      KActionMenu* compare_to_menu = populate_compare_to_menu(actionCollection);
-      
-      compare_to_menu->setText(i18n("Compare to"));
-      compare_to_menu->setIcon(KIcon("diff"));
-      
-      menu->addAction(compare_to_menu);
     }
   } else if(n == 2) {
     KAction* action = actionCollection->addAction("kdiffext::Compare");
@@ -117,12 +106,6 @@ kdiffext::setup(KActionCollection* actionCollection,
           connect(action, SIGNAL(triggered()), this, SLOT(compare_to()));
           menu->addAction(action);
         }
-        KActionMenu* compare_to_menu = populate_compare_to_menu(actionCollection);
-        
-        compare_to_menu->setText(i18n("3-way compare to"));
-        compare_to_menu->setIcon(KIcon("diff3"));
-        
-        menu->addAction(compare_to_menu);
       }
     }
   } else if(n == 3) {
@@ -142,6 +125,24 @@ kdiffext::setup(KActionCollection* actionCollection,
 //      action->setShortcut(Qt::Key_F6);
   connect(action, SIGNAL(triggered()), this, SLOT(compare_later()));
   menu->addAction(action);
+  
+   if(_files.count() > 0) {
+    if(n == 1)  {
+      KActionMenu* compare_to_menu = new KActionMenu(i18n("Compare to"), actionCollection);
+      populate_compare_to_menu(compare_to_menu, actionCollection);
+      
+      compare_to_menu->setIcon(KIcon("diff"));
+      
+      menu->addAction(compare_to_menu);
+    } else if((n == 2) && diff3_enabled) {
+      KActionMenu* compare_to_menu = new KActionMenu(i18n("3-way compare to"), actionCollection);
+      populate_compare_to_menu(compare_to_menu, actionCollection);
+      
+      compare_to_menu->setIcon(KIcon("diff3"));
+      
+      menu->addAction(compare_to_menu);
+    }
+  }
   
   menu->addSeparator();
 }
