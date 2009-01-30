@@ -15,7 +15,6 @@ install(TARGETS kdiff_ext DESTINATION ${PLUGIN_INSTALL_DIR})
 
 ########### install files ###############
 
-install(FILES DESTINATION ${CMAKE_INSTALL_PREFIX}/share/services)
-install(FILES kdiff-ext.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/services)
+install(FILES kdiff-ext.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 
 kde4_install_icons(hicolor)
