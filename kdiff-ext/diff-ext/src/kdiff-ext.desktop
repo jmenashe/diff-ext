@@ -3,5 +3,5 @@ Type=Service
 Name=kdiff-ext
 Comment=
 Icon=de
-ServiceTypes=KonqPopupMenu/Plugin,all/all
+ServiceTypes=KonqPopupMenu/Plugin,inode/directory,application/octet-stream
 X-KDE-Library=kdiff_ext

@@ -25,8 +25,8 @@ install(TARGETS kdiffextsetup DESTINATION bin)
 
 ########### install files ###############
 
-install(FILES kdiffextsetupui.rc DESTINATION ${CMAKE_INSTALL_PREFIX}/share/apps/kdiffextsetup)
-install(FILES kdiffextsetup.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applnk/Utilities)
+install(FILES kdiffextsetupui.rc DESTINATION ${DATA_INSTALL_DIR}/kdiff-ext)
+install(FILES kdiffextsetup.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
 kde4_install_icons(${ICON_INSTALL_DIR})
 
