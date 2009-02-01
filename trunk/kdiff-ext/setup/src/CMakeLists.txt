@@ -6,7 +6,6 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR}/settings ${CMAKE_CURRENT_SOURCE_
 SET(kdiffextsetup_SRCS
    main.cpp
    diff.cpp
-   general.cpp
 )
 
 set(kdiffextsetup_UI
